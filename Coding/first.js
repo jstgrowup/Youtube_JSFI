@@ -29,13 +29,10 @@
 // 20+3
 // console.log(4 * 3 ** 2);
 // 9*4
-
 // console.log((a = b = 5));
-
 // precedence
 // data&&globaldata&&predencedata
 // console.log((5 && 2 && 0) || (2 && 3) || (15 && 21));
-
 // 0 || false || 21
 // console.log((5 && 2 && 0) || 2 == 3 || (15 && 21));
 
@@ -66,7 +63,6 @@
 // let x=100
 // in const you cant redeclare as well as you cannot re assign
 // const x = 10;
-
 // x = 100;
 // console.log(x);
 // function text() {
@@ -98,7 +94,46 @@
 // };
 // console.log(obj);
 
-let obj = { key1: "huru", key2: "jujutsu" };
-for (let keys in obj) {
-  console.log(keys, obj[keys]);
-}
+// let obj = { key1: "huru", key2: "jujutsu" };
+// for (let keys in obj) {
+//   console.log(keys, obj[keys]);
+// }
+
+// ARRAY
+// newArray()
+// concat
+// every
+// fill
+
+// toString
+// filter
+// map
+// reduce
+// forEach
+// id value
+// typeof obj arr
+// st
+let arr = [1, 3, 3, 4];
+let arr2 = [5, 6, 7, 8, 9];
+// console.log(arr.concat(arr2));
+// console.log([...arr, ...arr2]);
+// console.log(arr2.every((el) => el > 1));
+// console.log(arr2.fill(1));
+// let y = arr2.filter((el, i) => el > 7);
+// console.log("y:", y);
+// let x = arr2.map((el, i) => el ** 2);
+// console.log("x:", x);
+// let sum = 0;
+// for (let i = 0; i < arr2.length; i++) {
+//   sum = sum + arr2[i];
+// }
+// console.log(sum);
+// let y = arr2.reduce((sum, el) => sum + el);
+// console.log("y:", y);
+// let x = arr2.forEach((el, i) => console.log(el));
+// console.log("x:", x);
+let obj = {
+  chips: "kurkure",
+};
+
+console.log(typeof arr2 === typeof obj);

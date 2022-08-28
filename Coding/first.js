@@ -69,9 +69,36 @@
 
 // x = 100;
 // console.log(x);
-function text() {
-  console.log(x);
-  let x = 0;
-}
-text();
+// function text() {
+//   console.log(x);
+//   let x = 0;
+// }
+// text();
 // temporal dead zone
+
+//OBJECTS
+// let obj = {
+//   key1: "huru",
+//   key2: "jujutsu",
+// };
+// console.log(obj);
+// let x = Object.assign({ key1: "huru", key2: "jujutsu" });
+// console.log(x);
+// let y = Object.entries({ key1: "huru", key2: "jujutsu" });
+// console.log(y);
+// for (let [keys, values] of y) {
+//   console.log(keys, values);
+// }
+
+// let x = "huru";
+// let y = "jujutsu";
+// let obj = {
+//   x,
+//   y,
+// };
+// console.log(obj);
+
+let obj = { key1: "huru", key2: "jujutsu" };
+for (let keys in obj) {
+  console.log(keys, obj[keys]);
+}

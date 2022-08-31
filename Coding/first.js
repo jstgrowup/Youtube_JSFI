@@ -93,7 +93,6 @@
 //   y,
 // };
 // console.log(obj);
-
 // let obj = { key1: "huru", key2: "jujutsu" };
 // for (let keys in obj) {
 //   console.log(keys, obj[keys]);
@@ -113,8 +112,8 @@
 // id value
 // typeof obj arr
 // st
-let arr = [1, 3, 3, 4];
-let arr2 = [5, 6, 7, 8, 9];
+// let arr = [1, 3, 3, 4];
+// let arr2 = [5, 6, 7, 8, 9];
 // console.log(arr.concat(arr2));
 // console.log([...arr, ...arr2]);
 // console.log(arr2.every((el) => el > 1));
@@ -132,8 +131,48 @@ let arr2 = [5, 6, 7, 8, 9];
 // console.log("y:", y);
 // let x = arr2.forEach((el, i) => console.log(el));
 // console.log("x:", x);
-let obj = {
-  chips: "kurkure",
-};
+// let obj = {
+//   chips: "kurkure",
+// };
+// console.log(typeof arr2 === typeof obj);
 
-console.log(typeof arr2 === typeof obj);
+// PROMISES
+// const prom = (time) =>
+//   new Promise((ressolve, reject) => {
+//     time < 1000
+//       ? reject()
+//       : setTimeout(() => {
+//           ressolve({ status: 200 });
+//         }, time);
+//   });
+// prom(900)
+//   .then((result) => console.log("promise resolved"))
+//   .catch((err) => console.log("promise not resolved"));
+// const asyprom = async () => {
+//   try {
+//     let res = await prom(900);
+//     console.log(res);
+//   } catch (err) {
+//     console.log("below the limit ");
+//   }
+// };
+// asyprom();
+
+function Person(name, energy) {
+  this.name = name;
+  this.energy = energy;
+}
+Person.prototype.eat = function (amnt) {
+  console.log(this.name, "is eating");
+  this.energy += amnt;
+};
+Person.prototype.sleep = function (time) {
+  console.log(this.name, "is sleeping");
+  this.energy += time;
+};
+let sai = new Person("sai", 12);
+let jay = new Person("jay", 12);
+console.log(sai.energy);
+console.log(sai);
+sai.sleep(200);
+jay.eat(3);

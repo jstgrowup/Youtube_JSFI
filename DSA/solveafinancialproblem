@@ -6,6 +6,7 @@ oj1.png
 
 For the first day, span is always 1. In the example we can see that for day 2 at 60, there is no day before it where the price was less than 60. Hence span is 1 again. For day 3, the price at day 2 (60) is less than 70, hence span is 2. Similarly, for day 4 and day 5. Remember days should be consecutive, that’s why the span for day 4 is 1 – even though there was a day 2 where the price was less than 65.
 
+
 Input
 Input Format
 
@@ -19,12 +20,14 @@ Constraints
 
 N <= 1000000
 
+
 Output
 Output Format
 
 Print the stock span for each days
 
-Sample Input 1
+
+Sample Input 1 
 
 1
 6
@@ -37,31 +40,31 @@ Hint
 Sample 1 Explanation
 
 For the first day, span is always 1. In the example we can see that for day 2 at 60, there is no day before it where the price was less than 60. Hence span is 1 again. For day 3, the price at day 2 (60) is less than 70, hence span is 2. Similarly, for day 4 and day 5. Remember days should be consecutive, that’s why the span for day 4 is 1 – even though there was a day 2 where the price was less than 65.
-**********************************\_**********************************>
+_____________________________________________________________________>
 input=input.trim().split("\n")
 let tc = +input[0];
 let line = 1;
 
 for(let i=0; i<tc; i++)
 {
-let length = +input[line];
-line++ ;
-let arr = input[line].trim().split(" ").map(Number);
-line++ ;
-fString(length,arr);
+   let length = +input[line];
+    line++ ;
+   let arr = input[line].trim().split(" ").map(Number);
+    line++ ;
+   fString(length,arr);
 }
-}
-function fString(length,arr){
-let st=[]
-let v=[]
-for(let i=0;i<length;i++){
-let count=1
-while(st.length>0&&arr[i]>=arr[st[st.length-1]]){
-count=count+v[st[st.length-1]]
-st.pop()
-}
-v.push(count)
-st.push(i)
-}
-console.log(v.join(" "))
-}
+  }
+  function fString(length,arr){
+          let st=[]
+          let v=[]
+          for(let i=0;i<length;i++){
+              let count=1
+              while(st.length>0&&arr[i]>=arr[st[st.length-1]]){
+                  count=count+v[st[st.length-1]]
+                  st.pop()
+              }
+              v.push(count)
+              st.push(i)
+          }
+          console.log(v.join(" "))
+  }

@@ -41,11 +41,4 @@ You can perform the following sequence of operations to get the final string:
 
 aaabccddd -> abccddd -> abddd -> abd
 _____________________________________________________________>
-soln let str = input.trim().split('')
-   let stack=[]
-  for(let el of str){
-    stack[stack.length-1]==el?stack.pop():stack.push(el)
-      
-  }
-  stack.length===0?console.log("Empty String"):console.log(stack.join(""))
- }
+soln

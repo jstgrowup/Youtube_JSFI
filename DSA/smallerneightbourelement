@@ -36,32 +36,34 @@ Sample Input 1
 Sample Output 1
 
 -1 -1 -1 -1 4 24 24 -1
-****************************************\_\_\_****************************************>
+___________________________________________________________________________________>
 input=input.trim().split("\n")
 
-let length = +input[0];
 
-let arr = input[1].trim().split(" ").map(Number);
+   let length = +input[0];
+  
+   let arr = input[1].trim().split(" ").map(Number);
+ 
+   fString(length,arr);
 
-fString(length,arr);
-
-}
-function fString(length,arr){
-let v=[]
-let s=[]
-for(let i=0;i<length;i++){
-while(s.length>0&&s[s.length-1]>=arr[i]){
-s.pop()
-}
-if(s.length===0){
-v.push(-1)
-}
-else{
-v.push(s[s.length-1])
-}
-s.push(arr[i])
-
+  }
+  function fString(length,arr){
+     let v=[]
+     let s=[]
+     for(let i=0;i<length;i++){
+        while(s.length>0&&s[s.length-1]>=arr[i]){
+                 s.pop()
+               }
+                 if(s.length===0){
+                     v.push(-1)
+                 }
+                 else{
+                     v.push(s[s.length-1])
+                 }
+             s.push(arr[i])    
+            
+         
+         
      }
      console.log(v.join(" "))
-
-}
+  }

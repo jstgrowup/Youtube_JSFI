@@ -235,13 +235,66 @@ const prom = (time) =>
 // kid 1 and kid 2
 // kid 1 actually does the hw
 // kid 2 copies the hw
-const dohw = (fun) => {
-  console.log("i am done doing");
-  fun();
-};
-const copyhw = () => {
-  console.log("copying");
-};
-dohw(copyhw);
+// const dohw = (fun) => {
+//   console.log("i am done doing");
+//   fun();
+// };
+// const copyhw = () => {
+//   console.log("copying");
+// };
+// dohw(copyhw);
 // copyhw()
 // callback comes in
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// CLIENT SERVER MODEL
+// message over the internet to another device and the other device recieving the message will respond back the information and all the computers are doing this
+// the message can be anything can be webpages , files , email or anything as such so when you send some thing you need a post service you are sending a apackage so that package needs to have some onformation about the message like you need a stamp or you need a address you need a weight of the package as well to adree or a from address
+// so similar to that computer uses a protocol called IP or it is called as internaet protocol
+// there are a bunch of protocols http,tcp and IP
+// tcp/ip --> we are sending the package of data so for example when computer sends some data to another computer now you can send the data in chunks and these chunks are called packet of data so one packet will have some information like header and some data on it so the header will have some information abut the data we are sending for example
+// header will have information about how long the data might be and how to read the data that is being sent and what all the informations needed for the data or the packet
+// these are generally small packets but when time has evolved and intenet has evloved these packets are tend to be very small so IP is actually not enough or a reliable system for example if a sigle packet gets corruputed than it will be hard to send the whole data so we need to manage this
+// here it comes the use of TCP it actually acts like a layer build on top of IP (tranmission control protocol )
+// it is basically a standard that defines how to establish a particular network conversation through which two devices can exchange data so TCP works with this IP protocol
+// ip determines how to send the packets of data to each other TCP establishes how to maintain a network connection over here
+// stages --> whenevr a computer sends a some information it requests for some acknowledgement it will check if is possible to communicate to to this person or not
+// now user-->(gives syn packet to server) device the user requests for some synchronization packet (SYN packet) now this will check if the device is available for communication or not
+// server (acknowledge it )--> they respond to the client now the client will know that okay so this connection can be established and now the clinet responds back with an acknowldge pack and than connetion establiches
+// how a computer finds the other computer in the network also --> IP address so every computer has an IP address you have a unique adress IP addresses are generally set of numbers seperated by 4 dots so it have 0 to 255 in each so it could be a set of characters from 0 to 255 255*4 so you would realize 255 is 8 ones which means 8bits *4 = 32its so you will have 3 to 4 billion devices by combination
+// but as time passed we needed a upgraed version the IPV4 now we have IPV6 which will give us much more possibiliteis there can be devices in IPV4 or IPV6 as well
+// not computer can recive any type of information it can be html, it can be file or anything so how does the computers understands the type of the message recieved of sent as such so for this the computer has port so lets say you need to send a file so the port number of 21 to it a port is where you can access a computer so forexample if its an email you have the port number os 25 there is also a port for HTTP ist is generally 80 now generally the computer has 65500 ports avaiable to its system we dont generally use all of this
+// so yu can say that IP address is like a building and the ports are the floors so each floor has a different port number
+// for example 192.168.0.2 if this the IP the port will be 21 so you have the IP address along with the port number along with it
+// we have never written any address like this in the internet we usually write something like amazon or google.com an we still get our website so what happens
+// is lets  say there is a website like google  it has some information which is stored somewhere
+// so whever you type the IP address you will end up to the real website
+// in order to solve this we have DNS (domain named system ) and it actually maps amazon to this IP address similarly in google it maps an IP address
+// so forexample godaddy has a DNS server which has some information about the wewbsite and the IP address associated with it because itsnot possible to remember the IP address
+// so when you type the url lets say google it will basically request the DNS and it will try to connect to this server so than we get the IP address
+// DNS is a database you can say s
+// every url on the internet has an IP address associated to it
+// TLS handshake is whre two devices are making a handshake and saying that we are connected as such
+// but it still upto the user of what kind of data to send or how to send it
+//so around when the TCP became a standard one more standard which came around was that http (hyper text transfer protocol)
+// http is an abstract layer built on top of TCP so basically is wraps the TCP by making a layer on top of it and reduces the complexity as such so mobile camera is known to us we dont need to know about how the camera is working
+// so over the internet you will usually see http protocol it is the 1.1 version
+// http tries to solve is to figure out what is inside this envelop and what that content is and than depending on that do some task is it an html inside it or is it a json or is it a file as such
+// so it actually tries to simplyfy the process to making a response and request as such
+// when you try to make an http request you try to access a few headers whaich are being send generally you try to mention (GET/http/1.1/www.example.com)is it a GET ,POST, or anthing http and 1.1 is the version of http the host can be www.example.com the response is like http/1.1 200(status code ok) Content-Type:text/html so http is basically trying to make a standard for the req and the response as such now
+// status codes wikipedia
+// 200--> OK , 201--> created 202--> accepted, 404--> Not found , 405--> method not allowed , 408--> request timed out 500--> internal server error , 503--> service unavailable
+// server --> a computer program or a device that serves can be considerd as a server
+// a server can serve many clients
+// client --> all the devices mobile,computer ,tablet,a browser
+// browser sends an http request to the web server now the server can handle the request and send back the response
+// CMD
+// curl(you are trying to get some information from the internet ) `curl google.com` (moved permanantly)
+//  `curl -I google.com` (you will get the headers in the response)
+//  moved permenantly -->so what it actually means is lot of the protocols or the websites work on a secure network so what they try to do is that they redirect you would see that it becomes https
+// `curl -I http://google.com/` we get the 200 response
+// `curl http://google.com/` (you will get the whole html page of google)
+// in BROWSER the inspect
+// type google.com see the headers --> request headers
+// go to incognito and type google.com and than open the netwrk and google.com and you will see the status 301
+// at the end it goes to the https and redirects
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

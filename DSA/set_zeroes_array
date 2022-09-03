@@ -1,0 +1,89 @@
+Set Zeroes Ended
+Description
+
+Given an m x n integer matrix matrix, if an element is 0, set its entire row and column to 0's.
+
+Input
+Input Format
+
+The first line contains the number of testcases - t
+
+For each testcase:
+
+The first line contains the size of the matrix, n and m
+The next n lines each contains m values (0 or 1)
+Constraints
+
+1<=t<=10
+
+1<=n,m<=500
+
+Output
+Print the modified matrix.
+
+Sample Input 1
+
+1
+3 3
+1 1 1
+1 0 1
+1 1 1
+Sample Output 1
+
+1 0 1
+0 0 0
+1 0 1
+****************************************\_\_\_\_****************************************>
+input=input.trim().split("\n")
+let tc = +input[0];
+let line = 1;
+
+for(let i=0; i<tc; i++)
+{
+let mainarr=[]
+let [row,col] = input[line].trim().split(" ").map(Number);
+line++ ;
+for(let i=0;i<row;i++){
+mainarr.push(input[line].trim().split(" ").map(Number))
+line++ ;
+}
+fString(row,col,mainarr);
+}
+}
+function fString(row,col,arr){
+let flag=false
+let ad=[]
+for(let i=0;i<row;i++){
+for(let j=0;j<col;j++){
+if(arr[i][j]===0){
+// here i am stroring the address in the form of 2D matrix of whereever the 0 is appearing
+ad.push([i,j])
+}
+}
+}
+for(let add of ad){
+// for exaple [1,1] acc to the TC
+
+        let row=add[0]
+        // storing the row number
+        let col=add[1]
+        // storing the column number
+        setzero(row,col,arr)
+        // sending the whole array , row and col number
+    }
+    function setzero(row,col,arr){
+        for(let i=0;i<arr.length;i++){
+            arr[i][col]=0
+            // making the whole column as 0
+        }
+        for(let i=0;i<arr[0].length;i++){
+            // making the whole row as 0
+            arr[row][i]=0;
+      }
+     }
+    for(let jujutsu of arr){
+
+     console.log(jujutsu.join(" "))
+    }
+
+}

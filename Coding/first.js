@@ -298,3 +298,20 @@ const prom = (time) =>
 // go to incognito and type google.com and than open the netwrk and google.com and you will see the status 301
 // at the end it goes to the https and redirects
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// EVENT LOOP
+// web apiS= settimeout , DOM,fetch,LS,console,location through window.
+// promises -->micro
+// console.log("1");
+// setTimeout(() => {
+//   console.log("inside the ST");
+// }, 1000);
+
+// console.log("2");
+// differentiating factor a filter
+setTimeout(() => {
+  console.log("inside settimeout ");
+}, 0);
+Promise.resolve()
+  .then((res) => console.log("resolved"))
+  .catch((err) => console.log(err));

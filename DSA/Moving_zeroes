@@ -1,0 +1,68 @@
+Moving Zeroes Ended
+Description
+
+Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+
+Note that you must do this in-place without making a copy of the array.
+
+
+Input
+Input Format
+
+The first line contains the number of testcases - t
+
+For each testcase:
+
+The first line contains the number of elements - n
+The second line contains the elements of the array
+Constraints
+
+1<=t<=10
+
+1<=n<=10^5
+
+1<=arr[i]<=10^5
+
+
+Output
+Print the modified array
+
+
+Sample Input 1 
+
+1
+5
+0 1 0 12 3
+Sample Output 1
+
+1 12 3 0 0
+___________________________________________________________________________________>
+input=input.trim().split("\n")
+let tc = +input[0];
+let line = 1;
+
+for(let i=0; i<tc; i++)
+{
+   let length = +input[line];
+    line++ ;
+   let arr = input[line].trim().split(" ").map(Number);
+    line++ ;
+   fString(length,arr);
+}
+  }
+  function  fString(length,arr){
+       let target=0
+       for (let i = 0; i < length; i++) {
+        
+       let huru = arr[i] === 0
+       if(huru===true){
+           target++
+           arr.splice(i, 1)
+           i--
+         }
+       }
+     for (let i = 0; i < target; i++){
+      arr.push(0)
+     }
+    console.log(arr.join(" "))
+  }

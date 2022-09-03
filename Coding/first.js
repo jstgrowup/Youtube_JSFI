@@ -137,6 +137,36 @@
 // console.log(typeof arr2 === typeof obj);
 
 // PROMISES
+const prom = (time) =>
+  new Promise((resolved, rejected) => {
+    time < 1000
+      ? rejected()
+      : setTimeout(() => {
+          resolved();
+        }, time);
+  });
+// let res = prom(900);
+// res
+//   .then((res) => console.log("fulfilled"))
+//   .catch((err) => console.log("not fulfilled"));
+
+//   const guh=async()=>{
+//     try{
+//         let res=prom(2000)
+
+//         console.log(res);
+//     }
+//     catch(err){
+//         console.log("not fulfilled");
+//     }
+//   }
+
+//   guh().then((res)=>console.log("fulfilled")).catch((err)=>console.log("not"))
+
+// let prom1=prom(2000).then((res)=>console.log("filfilled1"))
+// let prom2=prom(2100).then((res)=>console.log("prom2"))
+// Promise.all([prom1,prom2]).then((res)=>console.log("all promises are resolved"))
+
 // const prom = (time) =>
 //   new Promise((ressolve, reject) => {
 //     time < 1000
@@ -145,34 +175,73 @@
 //           ressolve({ status: 200 });
 //         }, time);
 //   });
-// prom(900)
-//   .then((result) => console.log("promise resolved"))
-//   .catch((err) => console.log("promise not resolved"));
+// // prom(900)
+// //   .then((result) => console.log("promise resolved"))
+// //   .catch((err) => console.log("promise not resolved"));
 // const asyprom = async () => {
 //   try {
-//     let res = await prom(900);
-//     console.log(res);
+//     let res = await prom(1400);
+//     console.log("resolved");
 //   } catch (err) {
 //     console.log("below the limit ");
 //   }
 // };
+
 // asyprom();
 
-function Person(name, energy) {
-  this.name = name;
-  this.energy = energy;
-}
-Person.prototype.eat = function (amnt) {
-  console.log(this.name, "is eating");
-  this.energy += amnt;
+// function Person(name, energy) {
+//   this.name = name;
+//   this.energy = energy;
+// }
+// Person.prototype.eat = function (amnt) {
+//   console.log(this.name, "is eating");
+//   this.energy += amnt;
+// };
+// Person.prototype.sleep = function (time) {
+//   console.log(this.name, "is sleeping");
+//   this.energy += time;
+// };
+// let sai = new Person("sai", 12);
+// let jay = new Person("jay", 12);
+// console.log(sai.energy);
+// console.log(sai);
+// sai.sleep(200);
+// jay.eat(3);
+
+// let parent ={
+//     name:"parent",
+//     age:40,
+//     country:"india"
+// }
+// let child=Object.create(parent)
+
+// 1st
+// console.log("1");
+// setTimeout(() => {
+//   console.log("2");
+// }, 1000);
+// console.log("3");
+
+// // 2nd
+// console.log("1");
+// setTimeout(() => {
+//   console.log("2");
+// }, 0);
+// console.log("3");
+
+//CALLBACK
+// teacher who has gave the homwwork
+// kid that is actually
+// kid 1 and kid 2
+// kid 1 actually does the hw
+// kid 2 copies the hw
+const dohw = (fun) => {
+  console.log("i am done doing");
+  fun();
 };
-Person.prototype.sleep = function (time) {
-  console.log(this.name, "is sleeping");
-  this.energy += time;
+const copyhw = () => {
+  console.log("copying");
 };
-let sai = new Person("sai", 12);
-let jay = new Person("jay", 12);
-console.log(sai.energy);
-console.log(sai);
-sai.sleep(200);
-jay.eat(3);
+dohw(copyhw);
+// copyhw()
+// callback comes in

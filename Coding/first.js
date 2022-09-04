@@ -309,9 +309,21 @@ const prom = (time) =>
 
 // console.log("2");
 // differentiating factor a filter
-setTimeout(() => {
-  console.log("inside settimeout ");
-}, 0);
-Promise.resolve()
-  .then((res) => console.log("resolved"))
-  .catch((err) => console.log(err));
+// setTimeout(() => {
+//   console.log("inside settimeout ");
+// }, 0);
+// Promise.resolve()
+//   .then((res) => console.log("resolved"))
+//   .catch((err) => console.log(err));
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// CLOSURES
+
+function outer() {
+  var a = 10;
+  return function inner(b) {
+    return a + b;
+
+  };
+}
+var fn = outer();
+console.log(fn(5));

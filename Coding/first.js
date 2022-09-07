@@ -137,14 +137,14 @@
 // console.log(typeof arr2 === typeof obj);
 
 // PROMISES
-const prom = (time) =>
-  new Promise((resolved, rejected) => {
-    time < 1000
-      ? rejected()
-      : setTimeout(() => {
-          resolved();
-        }, time);
-  });
+// const prom = (time) =>
+//   new Promise((resolved, rejected) => {
+//     time < 1000
+//       ? rejected()
+//       : setTimeout(() => {
+//           resolved();
+//         }, time);
+//   });
 // let res = prom(900);
 // res
 //   .then((res) => console.log("fulfilled"))
@@ -313,17 +313,40 @@ const prom = (time) =>
 //   console.log("inside settimeout ");
 // }, 0);
 // Promise.resolve()
+
 //   .then((res) => console.log("resolved"))
 //   .catch((err) => console.log(err));
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // CLOSURES
-
+// debouncing and throttling
+// its  a meachanism in which js maintains a scope of some variables in the closure scope if the particular variable goes out of scope 
 function outer() {
-  var a = 10;
+  let value = 5; 
   return function inner(b) {
-    return a + b;
-
+    return value + b;
   };
 }
-var fn = outer();
-console.log(fn(5));
+// let out = outer()(10);
+
+console.log(outer()(10));
+
+
+
+
+
+
+
+// function calcu(initval = 0) {
+//   let value = initval;
+//   function add(val) {
+//     value = value + val;
+//     return value;
+
+//   };
+//   return {add}
+// }
+// let calc = calcu();
+// // console.log(calc.add);
+
+// console.log(calc.add(10));
+// console.log(calc.add(20));

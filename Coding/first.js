@@ -319,22 +319,16 @@
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // CLOSURES
 // debouncing and throttling
-// its  a meachanism in which js maintains a scope of some variables in the closure scope if the particular variable goes out of scope 
-function outer() {
-  let value = 5; 
-  return function inner(b) {
-    return value + b;
-  };
-}
-// let out = outer()(10);
+// its  a meachanism in which js maintains a scope of some variables in the closure scope if the particular variable goes out of scope
+// function outer() {
+//   let value = 5;
+//   return function inner(b) {
+//     return value + b;
+//   };
+// }
+// // let out = outer()(10);
 
-console.log(outer()(10));
-
-
-
-
-
-
+// console.log(outer()(10));
 
 // function calcu(initval = 0) {
 //   let value = initval;
@@ -350,3 +344,51 @@ console.log(outer()(10));
 
 // console.log(calc.add(10));
 // console.log(calc.add(20));
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// ES6+ JSFI 11
+// spread op
+// newname to the key
+// let obj = {
+//   naam: "subham",
+//   kaksha: "4th",
+// };
+// function check() {
+//   return obj;
+// }
+// let name = obj.naam;
+// console.log("name:", name);
+// let clas = obj.kaksha;
+// console.log("clas:", clas);
+// let { naam: naamkaran, kaksha } = check();
+// console.log("naamkaran:", naamkaran);
+// console.log("kaksha:", kaksha);
+// console.log("naam:", naam);
+// let arr = [1, 2, 3];
+// let firstval = arr[0];
+// console.log("firstval:", firstval);
+// let secondval = arr[1];
+// console.log("secondval:", secondval);
+// let [firstval, second] = arr;
+// console.log("second:", second);
+// console.log("firstval:", firstval);
+// function Rfetch({ naam, kaksha }) {
+//   console.log(naam, kaksha);
+// }
+// Rfetch(obj);
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// call,apply and Bind
+// JSFI 12
+let name = {
+  fname: "subham",
+  lname: "dey",
+};
+let printfun = function (fname, lname) {
+  console.log(this.fname + this.lname);
+};
+
+let secondname = {
+  fname: "jujutsu",
+  lname: "kaisen",
+};
+// call function borrowing

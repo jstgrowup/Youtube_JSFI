@@ -1,25 +1,27 @@
-const { createServer } = require("http");
-const fs = require("fs");
-const html = fs.readFileSync("./index.html", { encoding: "utf-8" });
-const app = createServer((req, res) => {
-  if (req.url === "/") {
-    res.end(html);
-  } else if (req.url === "/products") {
-    res.end("welcome to product page");
-  }
-});
-app.listen(8000, () => {
-  console.log("sever has started ");
-});
+const { Schema, connect, model } = require("mongoose");
+const express = require("express");
+const cors = require("cors");
+const app = express();
+app.use(cors());
+const schema = new Schema({
+  id: Number,
 
-const func = require("express");
-const expressapp = func();
-expressapp.get("/", (req, res) => {
-  res.send(html);
+  full_name: String,
+  age: Number,
+
+  gender: String,
+  balance: Number,
+
+  native: String,
+  relocate_to: String,
+  family_members: Number,
 });
-expressapp.get("/products", (req, res) => {
-  res.send("<h1>welcome to products</h1>");
+const Usermodel = model("users", schema);
+app.get("/", async (req, res) => {
+  let u = await Usermodel.find();
+  res.send(u);
 });
-expressapp.listen(8001, () => {
-  console.log("express server has started");
+app.listen(8080, async () => {
+  await connect("mongodb://127.0.0.1:27017/assignwednesday");
+  console.log("server started");
 });

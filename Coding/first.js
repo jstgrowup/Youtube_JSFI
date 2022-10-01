@@ -249,7 +249,7 @@
 // CLIENT SERVER MODEL
 // message over the internet to another device and the other device recieving the message will respond back the information and all the computers are doing this
 // the message can be anything can be webpages , files , email or anything as such so when you send some thing you need a post service you are sending a apackage so that package needs to have some onformation about the message like you need a stamp or you need a address you need a weight of the package as well to adree or a from address
-// so similar to that computer uses a protocol called IP or it is called as internaet protocol
+// so similar to that computer uses a protocol called IP or it is called as internet protocol
 // there are a bunch of protocols http,tcp and IP
 // tcp/ip --> we are sending the package of data so for example when computer sends some data to another computer now you can send the data in chunks and these chunks are called packet of data so one packet will have some information like header and some data on it so the header will have some information abut the data we are sending for example
 // header will have information about how long the data might be and how to read the data that is being sent and what all the informations needed for the data or the packet
@@ -377,8 +377,49 @@
 // }
 // Rfetch(obj);
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// URL 
+// uniform resource locator
+// protocol
+--Host// subdomain
+      // third
+      // SLD
+      // TLD
+// port
+// path
+// query,variable =value ,and operator
+// fragment
+// absolute and relative address
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // call,apply and Bind
-// JSFI 12
+// JSFI 13
 // let name = {
 //   fname: "subham",
 //   lname: "dey",

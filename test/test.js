@@ -1,7 +1,8 @@
 const { Schema, connect, model } = require("mongoose");
 const express = require("express");
 const app = express();
-
+const cors=require("cors")
+app.use(cors())
 const schema = new Schema({
   name: String,
   email: String,

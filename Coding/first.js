@@ -264,7 +264,7 @@
 // but as time passed we needed a upgraed version the IPV4 now we have IPV6 which will give us much more possibiliteis there can be devices in IPV4 or IPV6 as well
 // not computer can recive any type of information it can be html, it can be file or anything so how does the computers understands the type of the message recieved of sent as such so for this the computer has port so lets say you need to send a file so the port number of 21 to it a port is where you can access a computer so forexample if its an email you have the port number os 25 there is also a port for HTTP ist is generally 80 now generally the computer has 65500 ports avaiable to its system we dont generally use all of this
 // so yu can say that IP address is like a building and the ports are the floors so each floor has a different port number
-// for example 192.168.0.2 if this the IP the port will be 21 so you have the IP address along with the port number along with it
+// for example 192.168.0.2 if this the IP the port will be 21 so you have the IP address alzong with the port number along with it
 // we have never written any address like this in the internet we usually write something like amazon or google.com an we still get our website so what happens
 // is lets  say there is a website like google  it has some information which is stored somewhere
 // so whever you type the IP address you will end up to the real website
@@ -380,6 +380,8 @@
 // URL 
 // uniform resource locator
 // protocol
+// DNS
+https://www.reqres.in/api/login
 --Host// subdomain
       // third
       // SLD

@@ -15,9 +15,4 @@ users.delete("/delete", (req, res) => {
 users.patch("/patch", (req, res) => {
   res.send("patching users");
 });
-
-
-
-
-
 module.exports = users;

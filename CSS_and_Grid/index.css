@@ -1,0 +1,40 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    display: grid;
+    grid-template-columns: 30% auto;
+    grid-template-rows: 60px auto 60px;
+    grid-template-areas: "hd hd"
+           "sidebar main"
+        "footer footer";
+}
+
+header,
+aside,
+main,
+footer {
+    padding: 16px;
+    text-align: center;
+}
+
+header {
+    background: #521751;
+}
+
+aside {
+    background: #fa923f;
+}
+
+footer {
+    background: black;
+}
+
+.nav-list {
+    list-style: none;
+    ;
+}
+
+.nav-item a {
+    text-decoration: none;
+    color: white;
+}

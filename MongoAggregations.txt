@@ -1,7 +1,7 @@
 >match
 >group
 >project 
---> makes a copy of a data that we want it doesnt deals with the real DB but it just creates a copy of our data that is needed
+--> 
 {
     _id: 0,
     name: 'Pepperoni',

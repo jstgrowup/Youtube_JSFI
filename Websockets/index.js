@@ -7,6 +7,9 @@ wss.on("connection", (client) => {
     client.on("message", (message) => {
         console.log(message.toString("utf-8"));
     })
+
+
+    
     console.log(`new client connection established ${Date.now()}`);
 })
 wss.on("listening", () => console.log("server started"))

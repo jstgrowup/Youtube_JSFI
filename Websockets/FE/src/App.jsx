@@ -1,27 +1,31 @@
 import { useEffect, useState } from 'react'
 import reactLogo from './assets/react.svg'
 import './App.css'
-import { io } from "socket.io-client"
+import { io } from "socket.io-client";
 function App() {
-  const [messege, setmessege] = useState("")
-  const [mainData, setmainData] = useState([])
+  const [message, setmessage] = useState("")
+  const [allData, setallData] = useState([])
   const socket = io("http://localhost:8080")
-  const handleSendMessege = () => {
-    socket.emit("newMessege", { messege })
-
+  const handleSendMessge = () => {
+    socket.emit("newMessage", { message })
+    setmessage("")
   }
   useEffect(() => {
-    socket.on("newMessge", (data) => {
-      setmainData([...mainData, data])
+    socket.on("newMessage", (data) => {
+      setallData([...allData, data])
     })
-
-
   },)
-  console.log(mainData);
+
+  console.log(allData);
   return (
     <div className="App">
-      <input type="text" onChange={(e) => setmessege(e.target.value)} placeholder={"messge enter"} />
-      <button onClick={handleSendMessege}>SEND</button>
+      {
+        allData.map((el) => {
+          return <p>{el.message}</p>
+        })
+      }
+      <input type="text" placeholder='new message' onChange={(e) => setmessage(e.target.value)} />
+      <button onClick={handleSendMessge}>SEND</button>
     </div>
   )
 }

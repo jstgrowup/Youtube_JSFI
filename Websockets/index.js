@@ -1,28 +1,23 @@
-// full duplex
-const { createServer } = require("http");
-const { Server } = require("socket.io");
-
-const express = require("express");
+// full duplex system
+const { createServer } = require("http")
+const express = require("express")
 const app = express()
-app.use(express.json())
-
-const Mainserver = createServer(app)
-const io = new Server(Mainserver, {
+const { Server } = require("socket.io")
+const mainServer = createServer(app)
+const io = new Server(mainServer, {
     cors: {
         origin: "*"
     }
 })
 io.on("connection", (user) => {
     console.log("user connected");
-    user.on("newMessege", (data) => {
-        user.emit("newMessge", data)
-
+    user.on("newMessage", (data) => {
+       io.emit("newMessage", data)
     })
     user.on("disconnected", () => {
         console.log("user disconnected");
     })
 })
-Mainserver.listen(8080, () => {
-    console.log("sever started");
-
+mainServer.listen(8080, () => {
+    console.log("server started");
 })

@@ -435,7 +435,20 @@
 // }
 // console.log(obj.area());
 // console.log(obj.perimeter());
-// 
+// DIFFERENCE BETWEEN THE DOT AND SQUARE BRACKET NOTATION IN OBJECTS
+
+// const bird = {
+//     size: "small"
+// }
+// const animal = {
+//     name: "dsd",
+//     small: true
+
+// }
+// // console.log(animal.bird.size);
+// console.log(animal[bird.size]);
+
+
 
 
 

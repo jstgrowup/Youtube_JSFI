@@ -447,12 +447,16 @@
 // }
 // console.log(mouse.bird.size);
 // console.log(mouse[bird["size"]]);
+// DIFFERENCE BETWEEN THE DOT AND SUQRE BRACKET NOTATION IN OBJECTS
+// let obj = { "foo.Bar": 2 }
+// console.log(obj["foo.Bar"]) 
+// console.log(obj.foo.Bar) 
 //////////////////////////////////////////////////////////
-let c = { greetings: "hey" }
-let d;
-d = c
-c.greetings = "hello"
-console.log(d.greetings);
+// let c = { greetings: "hey" }
+// let d;
+// d = c
+// c.greetings = "hello"
+// console.log(d.greetings);
 
 
 

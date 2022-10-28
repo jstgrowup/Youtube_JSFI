@@ -11,6 +11,8 @@
 // so we dont directly mutate the real DOM so what happens is if you keep updating the real dom every now and than it is an expnesive think=g and it actually takes time to update and ultimately makes the application slow so here react actually cerates a copy of the actual dom and decides hey something need to update here so the logic part is done by the react so after everything is done it finally updates the real DOM it is also known as react fiber
 // so how to use it is you can use CRA and Vite thses actually uses two libraries first is react and second is reactDOM if you dont want to use any library than you need to install some bundlers for example webpack , babel etc babel is for jsx why bcz jsx is not a valid javascipt syntax it neeeds to be transpilled back to valid that js can undestand and that will work
 
+
+
 // what is the diffence between state and props?
 // so state is for example is a current state or the current situatioon of a particular object for example a bike fuel , km covered the dashboard in the bike it actually telling us the current state or the current situation so state can define the current state of the component or the application as such s
 // so state management react gives us a hook called usestate const [state,setstate]=useState() hsere the setstae is dispatcher/updatder so anything that needs to get updated needs to go through the dispatcher function and the current state should not be mutated
@@ -424,7 +426,7 @@
 //     }, 1);
 
 // }
-// ARROW FUNCTIONS AND NORMAL FUNCTIONS IN object
+//////////////////////////////////////// ARROW FUNCTIONS AND NORMAL FUNCTIONS IN object
 // let obj = {
 //     radius: 2,
 //     area() {
@@ -435,8 +437,7 @@
 // }
 // console.log(obj.area());
 // console.log(obj.perimeter());
-// DIFFERENCE BETWEEN THE DOT AND SQUARE BRACKET NOTATION IN OBJECTS
-
+////////////////////////////////////// DIFFERENCE BETWEEN THE DOT AND SQUARE BRACKET NOTATION IN OBJECTS
 // const bird = {
 //     size: "small"
 // }
@@ -447,6 +448,105 @@
 // }
 // // console.log(animal.bird.size);
 // console.log(animal[bird.size]);
+/////////////////////////////////////// CONECPTS OF VARIABLES
+// {
+//     jasdnfkjnsdjkfn
+// }
+// let a = {
+//     bus: 4
+// }
+// let b;
+// b = a
+// a.bus = 5
+// // console.log(a);
+// console.log(b.bus);
+// console.log(a.bus);
+// console.log(b.bus);
+///////////////////////////////////// DECLARING A VARIABLE IN GLOBAL OBJECT 
+// "use strict"
+// let abc = {}
+// acb = {}
+// console.log(this.abc);
+// console.log(this.acb);
+//////////////////////////////////// CAN YOU TREAT FUNCTION AS OBJECTS?
+// function name() {
+//     return "hey"
+// }
+// name.hey = 1
+
+//////////////////////////////////// Guess the O/P
+// function Name(a, b) {
+//     this.firstname = a
+//     this.lastname = b
+
+
+// }
+// const member = new Name("subham", "dey")
+// // console.log('member:', member)
+// const newmember = Name("subham", "dey")
+// console.log('newmember:', newmember)
+// class user{
+//     constructor(solid){
+//         this.body=solid
+//         this.engine="dsfsad"
+//     }
+// }
+// let obj={
+//     name:"dsfas",
+//     classs:"fsadf"
+// }
+// console.log(obj);
+// let x=new user("metal")
+// console.log('x:', x)
+//////////////////////////////////// function and Coercion 
+// function name(a,b) {
+//     return a+b
+// }
+// let value=name(1,"2")
+// console.log('value:',typeof(value))
+// javasciprt is a dynamically type language 
+//////////////////////////////////// POSTFIX AND PREFIX UNARY OPERATOR
+// let number=0
+// console.log(number++);
+// // returns 0 and than increments it 
+
+// // 0 --> 1
+// console.log(++number);
+// // 1-->2 return 2 
+// // first it increments and than it updates
+// console.log(number);
+//////////////////////////////////// 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// for (let i = 0; i < 10; i++) {
+//     for (let j = 0; j < 10; j++) {
+//         console.log(j);
+//     }
+// }
+// i=0 j=1-10
+// i=1 j=1-10
+// i=2 j=1-10
+// i=3 j=1-10
+
+
+
+
+
 
 
 

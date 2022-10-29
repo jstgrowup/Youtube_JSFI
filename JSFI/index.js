@@ -379,7 +379,7 @@
 // }
 // Rfetch(obj);
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-// URL 
+// URL
 // uniform resource locator
 // protocol
 // DNS
@@ -462,7 +462,7 @@
 // console.log(b.bus);
 // console.log(a.bus);
 // console.log(b.bus);
-///////////////////////////////////// DECLARING A VARIABLE IN GLOBAL OBJECT 
+///////////////////////////////////// DECLARING A VARIABLE IN GLOBAL OBJECT
 // "use strict"
 // let abc = {}
 // acb = {}
@@ -498,50 +498,68 @@
 // console.log(obj);
 // let x=new user("metal")
 // console.log('x:', x)
-//////////////////////////////////// function and Coercion 
+//////////////////////////////////// function and Coercion
 // function name(a,b) {
 //     return a+b
 // }
 // let value=name(1,"2")
 // console.log('value:',typeof(value))
-// javasciprt is a dynamically type language 
+// javasciprt is a dynamically type language
 //////////////////////////////////// POSTFIX AND PREFIX UNARY OPERATOR
 // let number=0
 // console.log(number++);
-// // returns 0 and than increments it 
+// // returns 0 and than increments it
 
 // // 0 --> 1
 // console.log(++number);
-// // 1-->2 return 2 
+// // 1-->2 return 2
 // // first it increments and than it updates
 // console.log(number);
-//////////////////////////////////// 
+//////////////////////////////////// COMPARING TWO NON PRIMITIVE DATA TYPES
+// let obj1 = [1, 2]
+// let obj2 = [1, 2]
+// // javascript checks the
+// console.log(obj1 == obj2);
+/////////////////////////////////// REST OPERATOR
+// rest operator is used to put the rest of some specific user -supplied values into a JS Array
+// function name(...restoftheValues) {
+// here you will get array not an oBject
+//     // console.log('firstParam:', firstParam)
+//     // console.log('secondParam:', secondParam)
+//     console.log('restoftheValues:', restoftheValues)
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// for (let i = 0; i < 10; i++) {
-//     for (let j = 0; j < 10; j++) {
-//         console.log(j);
-//     }
 // }
-// i=0 j=1-10
-// i=1 j=1-10
-// i=2 j=1-10
-// i=3 j=1-10
+// name("subham", "dey", "huru", "software")
+// const {firs,sec,...args}={
+//     // you will get object
+//     first:"subham",
+//     sec:"dey",
+//     tech:"MERN",
+//     houses:"Banglore"
+// }
+// console.log(args);
+////////////////////////////////////// EVAL FUNCTION
+// console.log(eval("function refu(){console.log(sadsaf)}"));
+sessionStorage.setItem("cool_secret", 123)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

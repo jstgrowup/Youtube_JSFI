@@ -520,7 +520,7 @@
 // let obj2 = [1, 2]
 // // javascript checks the
 // console.log(obj1 == obj2);
-/////////////////////////////////// REST OPERATOR
+//////////////////////////////////// REST OPERATOR
 // rest operator is used to put the rest of some specific user -supplied values into a JS Array
 // function name(...restoftheValues) {
 // here you will get array not an oBject
@@ -538,9 +538,24 @@
 //     houses:"Banglore"
 // }
 // console.log(args);
-////////////////////////////////////// EVAL FUNCTION
-// console.log(eval("function refu(){console.log(sadsaf)}"));
-sessionStorage.setItem("cool_secret", 123)
+/////////////////////////////////// EVAL FUNCTION
+/////////////////////////////////// WHAT HAPPENS WHEN WE HAVE TWO SAME KEYS IN A SINGLE OBJECT
+// let obj = {
+//     name: "subham",
+//     class: "web",
+//     name: "dey"
+// }
+// // {class:"web",name:"dey"}
+// console.log(obj);
+////////////////////////////////// WHAT IF THE KEYS ARE OBJECTS ITSELF
+let emptyObj = {}
+let obj1 = { name: "subham" }
+let obj2 = { class: "web" }
+emptyObj[obj1] = "updated value"
+emptyObj[obj2] = "new Updated value"
+// console.log(typeof (obj[1]));
+console.log(emptyObj);
+// object Object:"new updtaed value"
 
 
 

@@ -548,14 +548,34 @@
 // // {class:"web",name:"dey"}
 // console.log(obj);
 ////////////////////////////////// WHAT IF THE KEYS ARE OBJECTS ITSELF
-let emptyObj = {}
-let obj1 = { name: "subham" }
-let obj2 = { class: "web" }
-emptyObj[obj1] = "updated value"
-emptyObj[obj2] = "new Updated value"
-// console.log(typeof (obj[1]));
-console.log(emptyObj);
+// let emptyObj = {}
+// let obj1 = { name: "subham" }
+// let obj2 = { class: "web" }
+// emptyObj[obj1] = "updated value"
+// emptyObj[obj2] = "new Updated value"
+// // console.log(typeof (obj[1]));
+// console.log(emptyObj);
 // object Object:"new updtaed value"
+////////////////////////////////// HTML EVENT PROPAGATION
+// const first = () => {
+
+//     console.log(1);
+// }
+// const second = () => {
+//     console.log(2);
+// }
+// const third = () => {
+//     console.log(3);
+// }
+// // 1 , 2, button
+// // bubbling and capturing 
+// // bubbling use capture is false 
+// // if you provide the value or the true boolean it will behave like capturing 
+// document.getElementById("first").addEventListener("click", first, true)
+// document.getElementById("second").addEventListener("click", second, true)
+// document.getElementById("third").addEventListener("click", third, true)
+///////////////////////////////////// IMMEDIATELY INVOKED FUNCTION EXPRESSION (IIFE)
+
 
 
 

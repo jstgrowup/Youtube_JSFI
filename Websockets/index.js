@@ -9,10 +9,13 @@ const io = new Server(mainServer, {
         origin: "*"
     }
 })
+app.get("/", (req, res) => {
+    res.send("hey")
+})
 io.on("connection", (user) => {
     console.log("user connected");
     user.on("newMessage", (data) => {
-       io.emit("newMessage", data)
+        io.emit("newMessage", data)
     })
     user.on("disconnected", () => {
         console.log("user disconnected");

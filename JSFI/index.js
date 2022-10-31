@@ -568,16 +568,34 @@
 //     console.log(3);
 // }
 // // 1 , 2, button
-// // bubbling and capturing 
-// // bubbling use capture is false 
-// // if you provide the value or the true boolean it will behave like capturing 
+// // bubbling and capturing
+// // bubbling use capture is false
+// // if you provide the value or the true boolean it will behave like capturing
 // document.getElementById("first").addEventListener("click", first, true)
 // document.getElementById("second").addEventListener("click", second, true)
 // document.getElementById("third").addEventListener("click", third, true)
 ///////////////////////////////////// IMMEDIATELY INVOKED FUNCTION EXPRESSION (IIFE)
-
-
-
+// you have have decalred a function you want this function to be invoked right away and
+// function name() {
+//     // as soon as the function is invoked and function has returned something after that the function will be popped out of the call satck
+//     return (() => console.log("hey i am IIFE"))()
+// }
+// name()
+///////////////////////////////////// EMPTY SLOTS IN ARRAY
+// let arr = [1, 2, 3, 4]
+// arr[10] = 10
+// console.log(arr);
+// console.log(typeof (arr[5]));
+/////////////////////////////////////  REDUCE OPERATION IN ARRAY OF ARRAYS
+// let arr=[[2, 3], [4, 5]].reduce((acc, el) => {
+//     return acc.concat(el)
+// }, [0, 1])
+// console.log(arr);
+// 0,1
+// [0,1,2,3]--> accumulator in the 2nd iteration
+//[0,1,2,3]+[4,5]--> accumulator
+// [0,1,2,3,4,5]
+/////////////////////////////////////// 
 
 
 

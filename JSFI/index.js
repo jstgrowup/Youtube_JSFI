@@ -587,6 +587,7 @@
 // console.log(arr);
 // console.log(typeof (arr[5]));
 /////////////////////////////////////  REDUCE OPERATION IN ARRAY OF ARRAYS
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce
 // let arr=[[2, 3], [4, 5]].reduce((acc, el) => {
 //     return acc.concat(el)
 // }, [0, 1])
@@ -596,6 +597,7 @@
 //[0,1,2,3]+[4,5]--> accumulator
 // [0,1,2,3,4,5]
 /////////////////////////////////////// SET INTERVAL RETURN VALUE
+// https://developer.mozilla.org/en-US/docs/Web/API/setInterval
 // let id = setInterval(() => {
 
 // }, 1000);
@@ -609,7 +611,8 @@
 // clearInterval(id)
 // clearInterval(id2)
 // set interval returns a unique ID which can be used for the clearinterval
-////////////////////////////////////////// 
+////////////////////////////////////////// GENERATOR FUNCTIONS
+function* generator()
 
 
 

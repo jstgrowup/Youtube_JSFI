@@ -595,8 +595,21 @@
 // [0,1,2,3]--> accumulator in the 2nd iteration
 //[0,1,2,3]+[4,5]--> accumulator
 // [0,1,2,3,4,5]
-/////////////////////////////////////// 
+/////////////////////////////////////// SET INTERVAL RETURN VALUE
+// let id = setInterval(() => {
 
+// }, 1000);
+// let id1 = setInterval(() => {
+
+// }, 1000);
+// let id2 = setInterval(() => {
+
+// }, 1000);
+// console.log(id, id1, id2);
+// clearInterval(id)
+// clearInterval(id2)
+// set interval returns a unique ID which can be used for the clearinterval
+////////////////////////////////////////// 
 
 
 

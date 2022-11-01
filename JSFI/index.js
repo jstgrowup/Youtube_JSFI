@@ -611,8 +611,46 @@
 // clearInterval(id)
 // clearInterval(id2)
 // set interval returns a unique ID which can be used for the clearinterval
-////////////////////////////////////////// GENERATOR FUNCTIONS
-function* generator()
+////////////////////////////////////////// PROMISE.RACE
+// you want just the response which resolves at first 
+// doesnt gives you the feature of just taking the promises that got resolved it 
+const promise1 = new Promise((resolve, reject) => {
+    setTimeout(resolve, 500, 'one');
+  });
+  
+  const promise2 = new Promise((resolve, reject) => {
+    setTimeout(resolve, 100, 'two');
+  });
+  
+  Promise.race([promise1, promise2]).then((value) => {
+    console.log(value);
+    // Both resolve, but promise2 is faster
+  });
+
+
+//  DIFFERENCE BETWEEN PROMISE.ANY AND PROMISE.RACE 
+// const promise1 = new Promise((resolve, reject) => {
+//     setTimeout(resolve, 500, "one");
+// });
+// const promise2 = new Promise((resolve, reject) => {
+//     setTimeout(reject, 100, "two");
+// });
+// const promise3 = new Promise((resolve, reject) => {
+//     setTimeout(resolve, 500, "three");
+// });
+// Promise.any([promise3,promise1, promise2])
+//     .then((value) => {
+//         console.log("succeeded with value:", value);
+//     })
+//     .catch((reason) => {
+//         // Only promise1 is fulfilled, but promise2 is faster
+//         console.error("failed with reason:", reason);
+//     });
+// differcnce between the promise.any and promise.race
+
+
+
+
 
 
 

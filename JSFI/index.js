@@ -614,21 +614,22 @@
 ////////////////////////////////////////// PROMISE.RACE
 // you want just the response which resolves at first 
 // doesnt gives you the feature of just taking the promises that got resolved it 
-const promise1 = new Promise((resolve, reject) => {
-    setTimeout(resolve, 500, 'one');
-  });
-  
-  const promise2 = new Promise((resolve, reject) => {
-    setTimeout(resolve, 100, 'two');
-  });
-  
-  Promise.race([promise1, promise2]).then((value) => {
-    console.log(value);
-    // Both resolve, but promise2 is faster
-  });
+// const promise1 = new Promise((resolve, reject) => {
+//     setTimeout(resolve, 500, 'one');
+//   });
+
+//   const promise2 = new Promise((resolve, reject) => {
+//     setTimeout(resolve, 100, 'two');
+//   });
+
+//   Promise.race([promise1, promise2]).then((value) => {
+//     console.log(value);
+//     // Both resolve, but promise2 is faster
+//   });
 
 
 //  DIFFERENCE BETWEEN PROMISE.ANY AND PROMISE.RACE 
+
 // const promise1 = new Promise((resolve, reject) => {
 //     setTimeout(resolve, 500, "one");
 // });
@@ -646,8 +647,18 @@ const promise1 = new Promise((resolve, reject) => {
 //         // Only promise1 is fulfilled, but promise2 is faster
 //         console.error("failed with reason:", reason);
 //     });
-// differcnce between the promise.any and promise.race
+///////////////////////////////////////////////// WHAT MAP RETURNS IF THERE IS NOT VALUE TO RETURN
 
+let arr = [1, 2, 3, 4, 5, 6, "hasdgfjd"].map((el) => {
+    if (typeof el === "string") {
+        return el + "hey"
+    }
+    else {
+        return el * 2
+    }
+})
+
+console.log(arr);
 
 
 

@@ -612,8 +612,8 @@
 // clearInterval(id2)
 // set interval returns a unique ID which can be used for the clearinterval
 ////////////////////////////////////////// PROMISE.RACE
-// you want just the response which resolves at first 
-// doesnt gives you the feature of just taking the promises that got resolved it 
+// you want just the response which resolves at first
+// doesnt gives you the feature of just taking the promises that got resolved it
 // const promise1 = new Promise((resolve, reject) => {
 //     setTimeout(resolve, 500, 'one');
 //   });
@@ -628,7 +628,7 @@
 //   });
 
 
-//  DIFFERENCE BETWEEN PROMISE.ANY AND PROMISE.RACE 
+//  DIFFERENCE BETWEEN PROMISE.ANY AND PROMISE.RACE
 
 // const promise1 = new Promise((resolve, reject) => {
 //     setTimeout(resolve, 500, "one");
@@ -647,18 +647,18 @@
 //         // Only promise1 is fulfilled, but promise2 is faster
 //         console.error("failed with reason:", reason);
 //     });
-///////////////////////////////////////////////// WHAT MAP RETURNS IF THERE IS NOT VALUE TO RETURN
+///////////////////////////////////////////////// WHAT HAPPENS WHEN MAP DOESNT RETURNS ANYTHING
+// let arr = [1, 2, 3, 4, "i am string"].map((el) => {
+//     if (typeof el === "number") {
+//         return 
+//     }
+//     else {
+//         return el + "string concatinating"
+//     }
+// })
 
-let arr = [1, 2, 3, 4, 5, 6, "hasdgfjd"].map((el) => {
-    if (typeof el === "string") {
-        return el + "hey"
-    }
-    else {
-        return el * 2
-    }
-})
+// console.log(arr);
 
-console.log(arr);
 
 
 

@@ -1,3 +1,4 @@
+
 // what is react ?
 // react is an opensource software made by faceboook and it is essentially an UI library or we can say a JS library to build ui interfaces
 // which means it helps you making websites
@@ -219,6 +220,7 @@
 
 // 1st
 // console.log("1");
+
 // setTimeout(() => {
 //   console.log("2");
 // }, 1000);
@@ -669,11 +671,15 @@
 // name(person, Byear)
 // console.log(person,Byear);
 ///////////////////////////////////////////////// IIFE AND VARIABLES IN WINDOW OBJECT
-let name=(() => {
-    let x = (y = 10)
-})()
+// (() => {
+//     let x = (y = 20)
+//     console.log(x);
+// })()
+
 // console.log(x);
-console.log(y);
+// console.log(y);
+///////////////////////////////////////////////// 
+
 
 
 

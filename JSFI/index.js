@@ -659,16 +659,21 @@
 
 // console.log(arr);
 // ////////////////////////////////////////////// PASSING ARGUMENTS BY VALUE AND BY REFERENCE IN FUNCTIONS
-function name(member, year) {
-    member.name = "dey"
-    year = 1998
-   
-}
-const person = { name: "subham" }
-const Byear = 1999
-name(person, Byear)
-console.log(person,Byear);
+// function name(member, year) {
+//     member.name = "dey"
+//     year = 1998
 
+// }
+// const person = { name: "subham" }
+// const Byear = 1999
+// name(person, Byear)
+// console.log(person,Byear);
+///////////////////////////////////////////////// IIFE AND VARIABLES IN WINDOW OBJECT
+let name=(() => {
+    let x = (y = 10)
+})()
+// console.log(x);
+console.log(y);
 
 
 

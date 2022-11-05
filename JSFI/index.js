@@ -684,6 +684,13 @@
 // console.log(x);
 // console.log(y);
 // console.log(z);
+//////////////////////////////////////////////// SPREAD OPERATOR IN OBJECT 
+// let obj1 = { name: "subham", age: 23 }
+// let obj2 = { country: "India", ...obj1 }
+
+// console.log(obj2);
+// {country: "India",{name:"subham", age: 23}}
+
 
 
 

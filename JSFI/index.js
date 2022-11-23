@@ -1,4 +1,3 @@
-
 // what is react ?
 // react is an opensource software made by faceboook and it is essentially an UI library or we can say a JS library to build ui interfaces
 // which means it helps you making websites
@@ -11,8 +10,6 @@
 // virtual dom--> it is a key factor it helps improving the performance it basically creates in memory representation of the actual DOM so it is actually kept in memory and it gets updated after that only the real dom gets updated
 // so we dont directly mutate the real DOM so what happens is if you keep updating the real dom every now and than it is an expnesive think=g and it actually takes time to update and ultimately makes the application slow so here react actually cerates a copy of the actual dom and decides hey something need to update here so the logic part is done by the react so after everything is done it finally updates the real DOM it is also known as react fiber
 // so how to use it is you can use CRA and Vite thses actually uses two libraries first is react and second is reactDOM if you dont want to use any library than you need to install some bundlers for example webpack , babel etc babel is for jsx why bcz jsx is not a valid javascipt syntax it neeeds to be transpilled back to valid that js can undestand and that will work
-
-
 
 // what is the diffence between state and props?
 // so state is for example is a current state or the current situatioon of a particular object for example a bike fuel , km covered the dashboard in the bike it actually telling us the current state or the current situation so state can define the current state of the component or the application as such s
@@ -481,7 +478,6 @@
 //     this.firstname = a
 //     this.lastname = b
 
-
 // }
 // const member = new Name("subham", "dey")
 // // console.log('member:', member)
@@ -629,7 +625,6 @@
 //     // Both resolve, but promise2 is faster
 //   });
 
-
 //  DIFFERENCE BETWEEN PROMISE.ANY AND PROMISE.RACE
 
 // const promise1 = new Promise((resolve, reject) => {
@@ -652,7 +647,7 @@
 ///////////////////////////////////////////////// WHAT HAPPENS WHEN MAP DOESNT RETURNS ANYTHING
 // let arr = [1, 2, 3, 4, "i am string"].map((el) => {
 //     if (typeof el === "number") {
-//         return 
+//         return
 //     }
 //     else {
 //         return el + "string concatinating"
@@ -684,50 +679,89 @@
 // console.log(x);
 // console.log(y);
 // console.log(z);
-//////////////////////////////////////////////// SPREAD OPERATOR IN OBJECT 
+//////////////////////////////////////////////// SPREAD OPERATOR IN OBJECT
 // let obj1 = { name: "subham", age: 23 }
 // let obj2 = { country: "India", ...obj1 }
 
 // console.log(obj2);
 // {country: "India",{name:"subham", age: 23}}
+/////////////////////////////////////////////// DEFAULT PARAMETERS
+// const value={number:10}
+// const increment=(x={...value})=>{
+//     console.log();
+// }
 
+// ///////////////////////////////////////// SYMBOLS
+// let sym1 = Symbol("")
+// let sym2 = Symbol()
+// let var1 = "subham"
+// let var2 = "subham"
+// sym1 = "subham"
+// sym2 = "subham"
+// console.log(sym1 === sym2);
+// console.log(var1 === var2);
+// console.log();
+// console.log(sym1)
+// console.log(sym2)
+////////////////////////////////////////////
+// let obj = {}
+// ojb = obj
+// console.log(this)
 
+/////////////////////////////////////////////assi1
+// Function expression
+// Function Statement
+// Anonymous function
+// Named Function Expression
 
+// function expression
+// its is nothing but storing the function in a variable
+// name()
+// fun()
+// let fun = function () {
+//     console.log("i am function expression");
+// };
+// fun()
+// function statement
+//it is nothing but decalraing a function
+// function name() {
+//     console.log("i ama function statement");
+// }
 
+// // function without a name
 
+// let x= function (){
+//     console.log("anonymus function ");
+// }
+// x()
+// // named function expression
+// let fun = function  () {
+//     // console.log(xyz);
+//     console.log("i am a named function expression");
+// };
+// fun()
+// xyz()
 
+// Local vs Global scope
+// var vs let vs const with example
+// different types of functions in JavaScript
+// console.log(x);
+// let x=10
+// var y=10
+// var y=90
+// let x=10
+// x=20
+// const z=10
+// // const z=90
+// z=20
+// console.log(z);
+// // var ,let ,const 
+// //const and let has a blocked scope
 
+// function name() {
+//     var y=10
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// }
 
 
 

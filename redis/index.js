@@ -1,48 +1,24 @@
-const { axios } = require('axios')
-const express = require('express')
+const axios = require("axios")
+const express = require("express")
 const app = express()
-
-const jwt = require("jsonwebtoken")
-const { default: mongoose } = require('mongoose')
-const Redis = require("redis")
-const userModel = require("./model")
-const clientRedis = Redis.createClient();
-clientRedis.connect()
-clientRedis.on("connect", function (err) {
-    console.log("connected to redis")
-})
+const redis = require("redis")
 app.use(express.json())
-app.post("/signup", async (req, res) => {
-
-    clientRedis.set("user", JSON.stringify({ name: req.body.name }))
-    let userdata = await userModel.create({ name: req.body.name })
-    res.send(userdata)
+const redisclient = redis.createClient()
+redisclient.connect()
+redisclient.on("connect", function () {
+    console.log("redis connection established");
 })
-app.post("/login", async (req, res) => {
-    let getCahceddata = await clientRedis.get("user")
-    if (getCahceddata !== null) {
-        getCahceddata = JSON.parse(getCahceddata)
-        res.send(getCahceddata)
+
+app.get("/", async function (req, res) {
+    const usersdata = redisclient.get("users")
+    if (usersdata) {
+        usersdata = JSON.parse(usersdata)
+        res.send(usersdata)
     }
     else {
-        let data = await userModel.findOne({ name: req.body.name })
-        if (!data) {
-            res.status(401).send("user not found")
-        }
-        else {
-
-            res.send(data)
-        }
+        const data = await axios.get("https://jsonplaceholder.typicode.com/posts").then((response) => response.data).catch((err) => console.log(err))
+        
     }
 })
-app.get("/data", (req, res) => {
-    const data = fetch("https://jsonplaceholder.typicode.com/posts").then(res => res.json()).then((res) => console.log(res)).catch(err => console.log(err))
-    res.send(data)
 
-
-})
-// mongoose.connect("mongodb://localhost:27017/redis").then(() => {
-app.listen("8080", () => {
-    console.log("server started");
-})
-// }).catch(err => console.error(err))
+app.listen(8080, () => console.log("connected"))

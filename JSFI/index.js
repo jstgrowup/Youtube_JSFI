@@ -755,37 +755,13 @@
 // // const z=90
 // z=20
 // console.log(z);
-// // var ,let ,const 
+// // var ,let ,const
 // //const and let has a blocked scope
 
 // function name() {
 //     var y=10
 
 // }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 // call,apply and Bind
@@ -803,3 +779,22 @@
 //   lname: "kaisen",
 // };
 // call function borrowing
+
+const Person = function (name, title) {
+  const realname = name;
+  const realtitle = title;
+  this.getname = function () {
+    return realname;
+  };
+  const realfun = function () {
+    return realtitle;
+  };
+  this.gettitle = function () {
+    return realtitle;
+  };
+};
+const realperson = new Person("subham", "dey");
+console.log('realperson:', realperson)
+// console.log(realperson.getname());
+// console.log(realperson.realfun())
+console.log(realperson.gettitle())

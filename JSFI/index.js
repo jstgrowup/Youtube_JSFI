@@ -794,7 +794,64 @@ const Person = function (name, title) {
   };
 };
 const realperson = new Person("subham", "dey");
-console.log('realperson:', realperson)
+// console.log('realperson:', realperson)
 // console.log(realperson.getname());
 // console.log(realperson.realfun())
-console.log(realperson.gettitle())
+// console.log(realperson.gettitle())
+// --------------------------------------POLYMORPHISM
+// Polymorphism is the act of overriding methods within a derived class. Suppose you have a class called "CA" with a method "MA" on it - if you were to now create a child class of "CA" and then re-define the method "MA" on it, this would be polymorphism.
+// class animal {
+//   constructor(name) {
+//     this.name = name;
+//   }
+//   makesound() {
+//     console.log("bhow1");
+//   }
+// }
+// class Dog extends animal {
+//   constructor(name) {
+//     super(name);
+//   }
+//   makesound() {
+//     console.log("mowwww");
+//   }
+// }
+// const a1 = new animal("dog");
+// const cow = new Dog("cow");
+// // cow.makesound();
+// // a1.makesound();
+//-----`-------------------------------- PROTOTYPE
+// function Student() {
+//     this.name = 'John';
+//     this.gender = 'M';
+// }
+
+// Student.prototype.age = 15;
+
+// var studObj1 = new Student();
+// console.log('studObj1:', studObj1.__proto__.__proto__);
+// alert(studObj1.age); // 15
+
+// var studObj2 = new Student();
+// alert(studObj2.age); // 15
+// ------------------------------------- OBJECTS
+// https://roadsidecoder.hashnode.dev/javascript-interview-questions-objects-output-based-destructuring-object
+// ------------------------------------- CLOSURES
+// https://roadsidecoder.hashnode.dev/closures-javascript-interview-questions
+// ------------------------------------- VAR LET CONST
+// {
+//   let a=5
+
+// }
+// console.log(a
+// shadowing
+function test() {
+  let a = "hello";
+  if (true) {
+    // shadowing the variable
+    let a = "h1";
+    console.log(a);
+  }
+  console.log(a);
+}
+test();

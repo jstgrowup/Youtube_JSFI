@@ -903,13 +903,22 @@
 //   btnPress.textContent = pressedcount++;
 //   throttleCount();
 // });
-// ------------------------------------------ DEBOUNCE OWN 
+// ------------------------------------------ DEBOUNCE OWN
 const btn = document.querySelector(".increment_btn");
 const btnPress = document.querySelector(".increment_pressed");
 const count = document.querySelector(".increment_count");
 let pressedcount = 0;
 let trggeredcount = 0;
-const debounceCount = _.debounce(() => {
+const myownDebounce = (cb, delay) => {
+  let timer;
+  return (...args) => {
+    if (timer) clearTimeout(timer);
+    timer = setTimeout(() => {
+      cb(...args);
+    }, delay);
+  };
+};
+const debounceCount = myownDebounce(() => {
   count.innerHTML = ++trggeredcount;
 }, 1000);
 btn.addEventListener("click", () => {

@@ -904,24 +904,49 @@
 //   throttleCount();
 // });
 // ------------------------------------------ DEBOUNCE OWN
-const btn = document.querySelector(".increment_btn");
-const btnPress = document.querySelector(".increment_pressed");
-const count = document.querySelector(".increment_count");
-let pressedcount = 0;
-let trggeredcount = 0;
-const myownDebounce = (cb, delay) => {
-  let timer;
-  return (...args) => {
-    if (timer) clearTimeout(timer);
-    timer = setTimeout(() => {
-      cb(...args);
-    }, delay);
-  };
-};
-const debounceCount = myownDebounce(() => {
-  count.innerHTML = ++trggeredcount;
-}, 1000);
-btn.addEventListener("click", () => {
-  btnPress.textContent = pressedcount++;
-  debounceCount();
-});
+// const btn = document.querySelector(".increment_btn");
+// const btnPress = document.querySelector(".increment_pressed");
+// const count = document.querySelector(".increment_count");
+// let pressedcount = 0;
+// let trggeredcount = 0;
+// const myownDebounce = (cb, delay) => {
+//   let timer;
+//   return (...args) => {
+
+//     if (timer) clearTimeout(timer);
+//     timer = setTimeout(() => {
+//       cb(...args);
+//     }, delay);
+//   };
+// };
+// const debounceCount = myownDebounce(() => {
+//   count.innerHTML = ++trggeredcount;
+// }, 1000);
+// btn.addEventListener("click", () => {
+//   btnPress.textContent = pressedcount++;
+//   debounceCount();
+// });
+// ---------------------------------- THROTTLE OWN
+// const btn = document.querySelector(".increment_btn");
+// const btnPress = document.querySelector(".increment_pressed");
+// const count = document.querySelector(".increment_count");
+// let pressedcount = 0;
+// let trggeredcount = 0;
+// const myownThrottle = (cb, delay) => {
+//   let last = 0;
+//   return (...args) => {
+//     let now = new Date().getTime();
+//     if (now - last < delay) return;
+//     last = now;
+//     return cb(...args);
+//   };
+// };
+// const ThrottleCount = myownThrottle(() => {
+//   count.innerHTML = ++trggeredcount;
+// }, 1000);
+// btn.addEventListener("click", () => {
+//   btnPress.textContent = pressedcount++;
+//   ThrottleCount();
+// });
+// ------------------------------------------ PROMISE 
+

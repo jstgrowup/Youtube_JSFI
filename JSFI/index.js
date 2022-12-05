@@ -780,20 +780,20 @@
 // };
 // call function borrowing
 
-const Person = function (name, title) {
-  const realname = name;
-  const realtitle = title;
-  this.getname = function () {
-    return realname;
-  };
-  const realfun = function () {
-    return realtitle;
-  };
-  this.gettitle = function () {
-    return realtitle;
-  };
-};
-const realperson = new Person("subham", "dey");
+// const Person = function (name, title) {
+//   const realname = name;
+//   const realtitle = title;
+//   this.getname = function () {
+//     return realname;
+//   };
+//   const realfun = function () {
+//     return realtitle;
+//   };
+//   this.gettitle = function () {
+//     return realtitle;
+//   };
+// };
+// const realperson = new Person("subham", "dey");
 // console.log('realperson:', realperson)
 // console.log(realperson.getname());
 // console.log(realperson.realfun())
@@ -845,13 +845,74 @@ const realperson = new Person("subham", "dey");
 // }
 // console.log(a
 // shadowing
-function test() {
-  let a = "hello";
-  if (true) {
-    // shadowing the variable
-    let a = "h1";
-    console.log(a);
-  }
-  console.log(a);
-}
-test();
+// function test() {
+//   let a = "hello";
+//   var b = "1";
+//   if (true) {
+//     // shadowing the variable
+//     let b = "2";
+//     // illegal shadowing where if you declare a variable with var and try to shadow it with var it throws error
+//     // var a = "h1";
+//     console.log(a);
+//   }
+//   console.log(a);
+// }
+// test();
+
+// var query
+// var query
+// let huru
+// huru=2
+
+// hoisting
+// creation phase --> execution phase
+// console.log(variable);
+// console.log(huru)
+// let huru=20
+// var variable=10
+
+// -------------------------------------------- COERCION
+// let x = 2;
+// let y = "2";
+// console.log(x + y);
+// -------------------------------------------- DEBOUNCE using LOADASH
+// const btn = document.querySelector(".increment_btn");
+// const btnPress = document.querySelector(".increment_pressed");
+// const count = document.querySelector(".increment_count");
+// let pressedcount = 0;
+// let trggeredcount = 0;
+// const debounceCount = _.debounce(() => {
+//   count.innerHTML = ++trggeredcount;
+// }, 1000);
+// btn.addEventListener("click", () => {
+//   btnPress.textContent = pressedcount++;
+//   debounceCount();
+// });
+// ------------------------------------------- THROTTLE using LOADASH
+// it limits the execution of an event handler function when the event is triggered continously due to use actions
+
+// const btn = document.querySelector(".increment_btn");
+// const btnPress = document.querySelector(".increment_pressed");
+// const count = document.querySelector(".increment_count");
+// let pressedcount = 0;
+// let trggeredcount = 0;
+// const throttleCount = _.throttle(() => {
+//   count.innerHTML = ++trggeredcount;
+// }, 1000);
+// btn.addEventListener("click", () => {
+//   btnPress.textContent = pressedcount++;
+//   throttleCount();
+// });
+// ------------------------------------------ DEBOUNCE OWN 
+const btn = document.querySelector(".increment_btn");
+const btnPress = document.querySelector(".increment_pressed");
+const count = document.querySelector(".increment_count");
+let pressedcount = 0;
+let trggeredcount = 0;
+const debounceCount = _.debounce(() => {
+  count.innerHTML = ++trggeredcount;
+}, 1000);
+btn.addEventListener("click", () => {
+  btnPress.textContent = pressedcount++;
+  debounceCount();
+});

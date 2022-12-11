@@ -1,0 +1,11 @@
+#outer {
+    height: 100px;
+    background-color: red;
+    padding: 50px 80px 20px;
+}
+
+#inner {
+    height: 50px;
+
+    background-color: black
+}

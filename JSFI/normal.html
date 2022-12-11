@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html manifest="example.appcache">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      input[type="text"] {
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- datalist -->
+    <!-- <p>gewrt</p>
+    <p>
+      ytrr
+      
+      <input type="text" list="browsers" />
+      <datalist id="browsers">
+        <option value="firefox"></option>
+        <option value="sdf"></option>
+        <option value="sdf"></option>
+        <option value="sdfsdfs"></option>
+      </datalist>
+      <input type="" />
+    </p> -->
+
+    <!-- <form action="" oninput="result.value=parseInt(a.value)+parseInt(b.value)">
+      <input type="range" id="a" value="50" />
+      +
+      <input type="number" id="b" value="100" />=
+      <output name="result" for="a b"></output>
+    </form> -->
+    <article
+      id="electric-cars"
+      data-columns="10"
+      data-index-number="100"
+      data-parent="cars"
+    >
+      <h1>Electric Cars</h1>
+    </article>
+  </body>
+  <script>
+    const article = document.getElementById("electric-cars");
+
+    article.dataset.columns; // "10"
+    article.dataset.indexNumber; // "100"
+    article.dataset.parent; // "cars"
+    document.cookie =
+      "username=subhamdey;expires=Thu, 10 Dec 2022 13:00:00 UTC";
+    let myCookies = document.cookie;
+
+    console.log(decodeURI(myCookies));
+  </script>
+</html>

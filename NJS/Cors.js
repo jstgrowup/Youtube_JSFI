@@ -1,0 +1,3 @@
+// Cors is a mechanism which uses addititonal http headers to tell the browser wherether a specific web app can share resource with another web app but the major point is that both the web apps must have different origins  
+// how this works 
+// preflight calls are the calls which are made before one origin makes the call to another origin and the replier actually sets headers in the response and thats why the request or the host gets to know 

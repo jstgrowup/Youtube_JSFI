@@ -1,0 +1,1 @@
+// the DOM tree the events will be propagated down to up in the DOM tree whereas in currying the DOM tree 

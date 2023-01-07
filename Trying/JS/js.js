@@ -10,7 +10,15 @@ for (const item of myset) {
   //   console.log(item);
 }
 const myArr = Array.from(myset);
-console.log("myArr:", myArr);
+// console.log("myArr:", myArr);
 const mySet2 = new Set([1, 2, 2, 3, 4]);
-console.log(mySet2.size); // 4
-console.log([...mySet2]); // [1, 2, 3, 4]
+// console.log(mySet2.size); // 4
+// console.log([...mySet2]); // [1, 2, 3, 4]
+console.log(
+  [1, , 3].map((x, index) => {
+    console.log(`Visit ${index}`);
+    return x * 2;
+  })
+);
+localStorage.setItem("yo","sdfas")
+

@@ -212,15 +212,130 @@ window.addEventListener("scroll", () => {
   throttle(handleScrollAnimation, 100);
 });
 ```
-## Event bubbling and Event capturing 
+
+## Event bubbling and Event capturing
+
 # Events
-* So in JS the order in which the events are recieved on the web page so if there are some nested elements than the deep nested or the target element will be triggered first and than the events will bubble up the hirarchy in DOM
-* There are two types of event flow 
-- Top to bottom (event capturing)
-- Bottom to top (event bubbling)
+
+- So in JS the order in which the events are recieved on the web page so if there are some nested elements than the deep nested or the target element will be triggered first and than the events will bubble up the hirarchy in DOM
+- There are two types of event flow
+
+* Top to bottom (event capturing)
+* Bottom to top (event bubbling)
+
 # Event Delegation
-- It is a technique for listening to events where we delegate a parent element as the listener for all of the events that happen inside 
-# Event bubbling 
+
+- It is a technique for listening to events where we delegate a parent element as the listener for all of the events that happen inside
+
+# Event bubbling
+
 - It is a type of event propagation where the event first triggers on the innermost target element and than keeps triggering the parents of the target element till it reaches the outermost DOM element
-# Event Capturing 
-- it is a type of event propagation where the event is first captured
+
+# Event Capturing
+
+- it is a type of event propagation where the event is first captured by the outermost element and then successfully triggers on the childrens of the target element in the same hierarchy till it reaches the bottom most or the inner most element of the DOM.
+
+## Shallow Copy and Deep Copy
+
+# Shallow Copy
+
+- SHallow copy of an object is a copy whose properties share the same references , the new object that has an exact copy of the values in the original object
+- if any of the fields of the object are references to other objects just the reference addresses are copied therefore if we change anything in the copied object than it mutates the real object as well
+
+```
+let emp={
+  name:"subham"
+  expertise:"SDE"
+}
+const shallowcopy=emp
+shallowcopy.name="dey"
+
+```
+
+here the real object will also get mutated
+
+# Deep Copy
+
+- A deep copy copies all fields and makes copies of dynamically allocated memory pointed to by the fields
+- A deep copy copies all the fields and makes copies of dynamically allocated memory pointed to by the fields .
+- the deep copy occurs when an object is copied along with the object to which it refers to
+
+```
+let emp={
+  name:"subham"
+  expertise:"SDE"
+}
+const deep={
+  name:emp.name
+}
+```
+
+now if we change the deep copy than it wont affect the emp object
+
+## Scope chaining
+
+- when a variable is used in JS the JS engine will try to find the variabls's value in the current scope if it could not find the variable it will look into the outer scope and will continue to do so until it finds the variable or reaches global scope
+- If it couldnt find the variable and if there isnt any strict mode it will declare the variable in the global scope else it will throw a runtime error
+  [Link](https://blog.bitsrc.io/understanding-scope-and-scope-chain-in-javascript-f6637978cf53)
+
+## Scope
+
+- Scope is the accessibility of the variables , functions and objects in some particular part of your code during runtime
+- Scope determines the visibility of variables and other resources in areas of your code
+- The main benefit of scope is security using scope we can avoid unintended modifications to the variables from other parts of the program
+- it also reduces the namespace collisions
+
+## Lexical enviroment
+
+- Lexical in general means in hierarchy or in sequence . whenevr a new execution context is created a new lexical enviroment is created and it is referenced in local EC in memory
+- LE = Local memory + Lexical Enviroment of its parent
+- So in short a lexical enviroment is place where variables and functions live or physically present during the program execution
+
+## Destructuring
+
+- Destructuring helps us to unpack values from arrays or properties from objects into distinct variables.
+
+```
+let [one,two,three]=["jan","feb","mar"]
+console(one)
+console(two)
+console(three)
+const {name,age}={name:"subham",age:"23"}
+log(name)
+log(age)
+```
+
+## What is Module Pattern
+
+- Modules are refrerd to small units of independent , reusable code and also act as the foundation of many JS design patterns
+- we need modules because it helps in Maintainibility, reusability and Namespacing
+- Module pattern is a design pattern used for improving the reusability and maintainibility of the code by creating public and private access levels.
+- Module pattern keeps the privacy of the state and organizes using closures
+- The module pattern is quite similar to IIFE but module always returns an object instead of a function
+
+```
+const MP=(function(){
+  const name="subham"
+  const age=23
+  return {
+     name
+     age
+  }
+})()
+MP.name
+MP.age
+
+```
+The code outside the module scope cant access the value of age, and thats how the module pattern helps us to make the values of age as private 
+
+## Server side rendering
+# Client side
+- In CSR the browser gets a preety empty document with link to the JS files.
+- In SSR the user can start viewing the page while all the rendering is happening whereas in CSR we need to wait until the everything loads and than the VDOM moved to teh browser DOM for the page to be viewable
+- In the CSR we get all the HTML and JS files bare bones and its the job of the browser to render the rest.
+- So our website wont be loaded until all the JS is downloaded to the browser 
+- Everything is handled by the client side JS library like react etc.
+- On the initial render the server request a single HTML file and the server will deliver it without any content until you fetch all the JS and let the browser compile everything before rendering the content
+# Server Side
+- 
+

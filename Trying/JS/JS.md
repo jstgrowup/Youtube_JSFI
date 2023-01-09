@@ -350,8 +350,256 @@ The code outside the module scope cant access the value of age, and thats how th
 - It converts HTML files in the server into usable information for the browser
 - Once the browsers request the page the server responds back with the fully rendered HTML and displays it on the screen
 - If the route changes it will again make a request to the server and get the whole data of that page
-- - pros
+- pros
 - Search engines can crawl the site for better SEO,The initial page laod is faster, good for statis sites
-- - Cons
+- Cons
 - Frequent server requests, An overall slow page rendering, While changing the routes the whole page reloads.
   ![serverSide](https://user-images.githubusercontent.com/40628582/211241757-e12a72ed-59e0-40e9-a66f-7c51c646c382.png)
+
+## DOM
+
+- DOM stands for Document Object model
+- When the browser tries to render an HTML document it creates an object based on the HTML document called DOM
+- It is a cross platform API that treats HTML and XML documents as a tree structure consisting of nodes
+- These nodes are objects that can be programatically manipulated and visible changes made to them are reflected live in the document
+- In browser this API is avaiable to JS where DOM nodes can be manipulated to change their content, styles placement as well as interacted etc
+- with the help of this DOM we can manipulate or change various elements inside the HTML document
+
+## BOM
+
+- [Video](https://youtu.be/DIt6CbeR1Pg)
+- BOM allows JS to talk to the browser it consists of the objects navigator, history, screen , location and document which are the children of the window.
+- The BOM is not standardized whereas the DOM is
+- BOM is a the superset of DOM
+- A browsers initial object is a window
+- All the var keywrods , functions, objects are actually stored in the window so we can access them with window.functionname()
+
+## Memoization
+
+- It is a form of caching where the return value of a function is caching where the return value of a function is cached based on its parameters
+- If the parameter of that function is not changed the cached version of the function is returned
+- It is usually used in the expensive functions
+- A normal function
+
+```
+function addTo256(num){
+  return num + 256;
+}
+addTo256(20); // Returns 276
+addTo256(40); // Returns 296
+addTo256(20); // Returns 276
+```
+
+- A cached function
+
+```
+function memoizedAddTo256(){
+  var cache = {};
+
+  return function(num){
+    if(for num in cache){
+      console.log("cached value");
+      return cache[num]
+    }
+    else{
+      cache[num] = num + 256;
+      return cache[num];
+    }
+  }
+}
+var memoizedFunc = memoizedAddTo256();
+
+memoizedFunc(20); // Normal return
+memoizedFunc(20); // Cached return
+```
+
+in the second call it will take less time than the first call
+
+## Currying
+
+- It is a process of taking a function with multiple arguments and turning it into a sequence of functions each with only a single argument
+
+```
+const curryFunction=(a)=>(b)=>(c)=>a+b+c
+curryFunction(1)(2)(3) //returns the number 6
+```
+
+```
+function add(a){
+  return function(b){
+    return a+b
+  }
+}
+add(2)(4)
+```
+
+- we are just playing with the way we are invoking the function
+
+## Strict Mode
+
+- SM is a feature of ES5 that allows us to write code or a function in a "strict" operating enviroment
+- usually the languages is not particularly severe when it comes to throwing errors but if we use Strict mode we will get all forms of errors including silent errors so debugging becomes easy
+- it is useful to write "secure" JS by notifying "Bad syntax" into real errors for example it eliminates accidentally creating a global variable by throwing an error and also throws an error for assignment to a non writable property
+
+```
+"use strict"
+x=23 //this will cause an error because x is not declared
+```
+
+similarly
+
+- Always declare the "use strict" at the top of the script
+
+```
+x=3.24
+myfunction()
+function myfunction(){
+  "use strict"
+  y=34 //this will cause an error
+}
+```
+
+- What are the errors it catches?
+  - Duplicate arguments
+  - it wont allow you to use JS keyword as parameter or function name
+  - it is supported by all the browsers
+  - you wont be allowed to create glbal variables
+
+## Pass by value and Pass by reference
+
+# Pass by value
+
+- It creates a new space in memory and makes a copy of a value.
+- Primitives data types such as string, number , boolean etc will actually create a new copy
+- and mutating the copied version wont have any effects in the real one
+
+```
+let y=123
+let x=y
+
+```
+
+In the above example, the assign operator knows that the value assigned to y is a primitive type (number type in this case), so when the second line code executes, where the value of y is assigned to z, the assign operator takes the value of y (234) and allocates a new space in the memory and returns the address. Therefore, variable z is not pointing to the location of variable y, instead, it is pointing to a new location in the memory.
+
+# Pass by reference
+
+- Pass by refernce doesnt create a new space in memory but the new variable adopts a memory address of an initial variable.
+- Non primitive data types such as objects, arrays and functions gets the reference of the initiable variable
+- updating one value will impact the other variable
+
+```
+let user1 = {
+   name: 'John',
+   age: 27
+};
+let user2 = user1;
+user2.age = 30;
+
+console.log(user1.age, user2.age); // 30, 30
+```
+
+## var , let and const
+
+# var
+
+- it has a global scope, function scope,no block scope and it can be reassigned
+- the variables that are declared with a var keyword in teh global scope are added to the window/global object therefore they can be accessed using window.variable name
+
+```
+var variable1 = 23;
+let variable2 = 89;
+function catchValues(){
+  console.log(variable1);
+  console.log(variable2);
+// Both the variables can be accessed anywhere since they are declared in the global scope
+}
+window.variable1; // Returns the value 23
+window.variable2; // Returns undefined
+```
+
+- var keywords do not have block scope this means a variable declared in block scope with a var in block scope {} is same as declaring a variable in the global scope
+
+```
+{
+  var x=12
+}
+log(x) //12
+{
+  let x=23
+}
+log(x) //error
+```
+
+# let
+
+- let has no global scope,has function scope , block scope and also can be reassigned
+- let keyword has a block scope and cannot be accessed from outside of the block
+
+# const
+
+- const has no global scope but it has a function and a block scope and it cant be reassigned
+- a variable with const keyword cannot be reassigned
+- const keyword is immutable , you can declare with assignment but cant assign another value later
+
+## Objects
+- Object is a collection of properties and a property and an association between a name and a value 
+- A property value can be a function in which the property is known as method
+# ways of creating an object
+
+- Object constructor
+
+```
+let obj=new Object()
+```
+
+- Object create method
+
+```
+let obj=Object.create(null)
+```
+
+- object literal
+
+```
+  let obj={
+  name:"sudheer",
+  age:34
+}
+```
+
+- Function Constructor
+
+```
+function Obj(name){
+  this.name:name
+  this.age=23
+}
+let obj=new Obj("subham")
+```
+
+- ES6 Class syntax
+
+```
+class Person{
+  constructor(name){
+    this.name=name
+  }
+}
+let obj=new Person("subham")
+```
+
+# Object destructuring
+
+- It is a way to extract elements from an object or an array
+
+```
+const classdetails={
+  height:5.3,
+  benches:34,
+  blackbord:45
+}
+const {height,benches,blackbord}=classdetails
+log(height,benches,blackbord)
+```
+Output based Questions
+

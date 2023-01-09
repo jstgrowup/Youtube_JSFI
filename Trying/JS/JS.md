@@ -343,7 +343,7 @@ The code outside the module scope cant access the value of age, and thats how th
 - Rich site interactions, Fast website rendering after the initial load, Robust selection of JS libraries
 - - Cons
 - Low SEO if not implemented correctly, Initial Load might require more time , In most cases requires an external library
-  ![clientside](./clientside.png)
+  ![clientside](https://user-images.githubusercontent.com/40628582/211241734-f0d9e572-261d-41a3-9d0b-b59161dcc8fa.png)
 
 # Server Side
 
@@ -354,4 +354,4 @@ The code outside the module scope cant access the value of age, and thats how th
 - Search engines can crawl the site for better SEO,The initial page laod is faster, good for statis sites
 - - Cons
 - Frequent server requests, An overall slow page rendering, While changing the routes the whole page reloads.
-  ![serverSide](./serverside.png)
+  ![serverSide](https://user-images.githubusercontent.com/40628582/211241757-e12a72ed-59e0-40e9-a66f-7c51c646c382.png)

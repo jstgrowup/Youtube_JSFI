@@ -326,16 +326,32 @@ MP.name
 MP.age
 
 ```
-The code outside the module scope cant access the value of age, and thats how the module pattern helps us to make the values of age as private 
+
+The code outside the module scope cant access the value of age, and thats how the module pattern helps us to make the values of age as private
 
 ## Server side rendering
+
 # Client side
+
 - In CSR the browser gets a preety empty document with link to the JS files.
 - In SSR the user can start viewing the page while all the rendering is happening whereas in CSR we need to wait until the everything loads and than the VDOM moved to teh browser DOM for the page to be viewable
 - In the CSR we get all the HTML and JS files bare bones and its the job of the browser to render the rest.
-- So our website wont be loaded until all the JS is downloaded to the browser 
+- So our website wont be loaded until all the JS is downloaded to the browser
 - Everything is handled by the client side JS library like react etc.
 - On the initial render the server request a single HTML file and the server will deliver it without any content until you fetch all the JS and let the browser compile everything before rendering the content
-# Server Side
-- 
+- - Pros
+- Rich site interactions, Fast website rendering after the initial load, Robust selection of JS libraries
+- - Cons
+- Low SEO if not implemented correctly, Initial Load might require more time , In most cases requires an external library
+  ![clientside](./clientside.png)
 
+# Server Side
+
+- It converts HTML files in the server into usable information for the browser
+- Once the browsers request the page the server responds back with the fully rendered HTML and displays it on the screen
+- If the route changes it will again make a request to the server and get the whole data of that page
+- - pros
+- Search engines can crawl the site for better SEO,The initial page laod is faster, good for statis sites
+- - Cons
+- Frequent server requests, An overall slow page rendering, While changing the routes the whole page reloads.
+  ![serverSide](./serverside.png)

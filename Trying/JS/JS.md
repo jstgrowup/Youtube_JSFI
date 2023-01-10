@@ -717,3 +717,148 @@ multiply(value);
 - It depends on the object that is invoking the function 
 - this keyword depends on the context we are in .
 - functions are also first class objects
+- Output based questions
+```
+let user = {
+  name: "subham",
+  age: 23,
+  getdetails() {
+    // here this is pointing to the parent object here it is the function
+    console.log(this.name);
+  },
+  childobj: {
+    newName: "subu",
+    getnestedData() {
+      // here this is pointing to the childobj rather than the user obj therefore we will get undefined for this.name
+      // but we get subu as the newName value
+      console.log(this.newName, this.name);
+    },
+  },
+};
+user.getdetails();
+user.childobj.getnestedData();
+```
+```
+let realuser = {
+  name: "subham",
+  getdetails: () => {
+    console.log(this.name);
+    // here the this is pointing to the window object and there is nothing called name in the window object
+  },
+  gethuru: {
+    getdetails: () => {
+      // no matter what this will always point to the window object
+      console.log(this.name);
+    },
+  },
+  getlastdetails() {
+    // arrow function takes the this of its parent and here the parent is getdetails
+    // so therefore it is taking name as subham
+    const nested = () => console.log(this.name);
+    nested();
+  },
+};
+realuser.getlastdetails();
+realuser.gethuru.getdetails();
+```
+```
+class User {
+  constructor(n) {
+    this.name = n;
+  }
+  getName() {
+    console.log(this.name);
+  }
+}
+const huruser = new User("subham");
+huruser.getName();
+```
+```
+const secondUser = {
+  firstname: "xyz",
+  getname() {
+    const firstname = "subhan";
+    return this.firstname;
+    // here the firstname will be referred to the objects firstname that means the parent objects firstname
+    // this refers to teh parent object rather than the function
+  },
+};
+console.log(secondUser.getname());
+```
+```
+function makeUser() {
+  return {
+    name: "subham",
+    ref: this,
+  };
+}
+const Usser = makeUser();
+console.log("Usser:", Usser.ref.name);
+```
+```
+const fourthUser = {
+  name: "Subhamone",
+  greet() {
+    return `hello ${this.name}`;
+  },
+  farewell: () => {
+    return `Goodbye ${this.name}`;
+  },
+};
+console.log(fourthUser.greet());
+console.log(fourthUser.farewell());
+// here because the this in an arrow function points to the window object therefore it will be undefined
+```
+```
+// Tax calculator
+let calculator = {
+  read() {
+    this.a = +prompt("a =", 0);
+    this.b = +prompt("b =", 0);
+  },
+  sum() {
+    return this.a + this.b;
+  },
+  mul() {
+    return this.a * this.b;
+  },
+};
+calculator.read();
+console.log(calculator.sum());
+console.log(calculator.mul());
+```
+```
+var length = 4;
+function callback() {
+  console.log(this.length);
+}
+const obj = {
+  length: 5,
+  method(fun) {
+    fun();
+  },
+};
+obj.method(callback);
+// you will think here this will refer to lenght=5 but because we are passing function callback as a callback function so it willtake the lenght=4 as its this and will print 4 as the O/P
+```
+```
+// implement calc.add(10).multiply(20).subtract(30).add(10)
+const calc = {
+  total: 0,
+  add(a) {
+    this.total += a;
+    return this;
+  },
+  multiply(a) {
+    this.total *= a;
+    return this;
+  },
+  subtract(a) {
+    this.total -= a;
+    // er are returning the whole object because we want to return the whole object 
+    return this;
+  },
+};
+const final = calc.add(10).multiply(20).subtract(30).add(10);
+console.log("final:", final.total);
+```

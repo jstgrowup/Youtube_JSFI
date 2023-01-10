@@ -24,5 +24,12 @@
 // localStorage.setItem("yo","sdfas")
 // console.log('x:', x)
 // x=23
-
-
+function fun(a, b, ...theArgs) {
+  console.log("b:", b);
+  console.log("a:", a);
+  console.log("theArgs:", theArgs);
+}
+fun(1, 2, 3, 4, 5, 6);
+(function(){
+  console.log("hey")
+})()

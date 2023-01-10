@@ -862,3 +862,77 @@ const calc = {
 const final = calc.add(10).multiply(20).subtract(30).add(10);
 console.log("final:", final.total);
 ```
+
+## Rest
+- Rest parameter is an improved way to handle function parameters which allows us to represent an indefinite number of arguments as an array
+- It provides an improved way of handling the parameters of a function
+- any number of arguments will be converted into an array using the rest parameter
+```
+function total(…args){
+let sum = 0;
+for(let i of args){
+sum+=i;
+}
+return sum;
+}
+console.log(fun(1,2)); //3
+console.log(fun(1,2,3)); //6
+console.log(fun(1,2,3,4)); //13
+console.log(fun(1,2,3,4,5)); //15
+```
+```
+function fun(a,b,...theArgs){
+
+}
+```
+- The rest parameter should be the last argument as its job is to collect all the remaining arguments into an array
+```
+function fun(a, b, ...theArgs) {
+  console.log("b:", b);
+  console.log("a:", a);
+  console.log("theArgs:", theArgs);
+}
+fun(1, 2, 3, 4, 5, 6);
+```
+## IIFE
+- IIFE stands for immediately invoked function expression
+- IIFE is a function that runs as soon as it is defined 
+```
+(function(){
+  console.log("hey")
+})()
+```
+- whenever the compiler sees the word `function` it assumes that we are declaring a function in the code therefore we dont use the first set of parenthesis the compiler throws an error because it thinks we are declaring a function and by syntax of declaring a function 
+- to remove the error we add the first set of paranthesis that tells the compiler that the function declaration instead its a function expression 
+- our code should run as soon as it is defined
+- function runs only when invoked 
+## Types of function
+# function statement
+```
+function a(){
+log("i am a function statement")
+}
+```
+this is a function statement 
+# function expression
+```
+const a=function(){
+log("I am a function expression")
+}
+```
+# function declaration 
+- it is the same as function statement
+# Anonymous function 
+```
+function (){
+  log("anonymous function")
+}`
+this will throw a syntax error saying that function should have a name 
+so these functions are used when the function are used as values 
+lets say
+const x=function(){
+  <!-- code -->
+} 
+```
+# 
+

@@ -934,5 +934,27 @@ const x=function(){
   <!-- code -->
 } 
 ```
+# Named function expression
+- It is function expression which has a name
+```
+  const x=function y(){
+  log("i am a named function expression")
+}
+we have to invoke x because y is not defined outside the scope y is a local variable
+```
+### Functions accepts parameters 
+# First class functions / Functions as first class citizens
+- The ability of using functions as values is known as first class functions
+- The ability to use functions as an argument and return a function is known as first class functions 
+# Arrow functions / Lambda functions
+- these are the part of ES6 or ecma script 2015 
+- It is a shorter syntax for a function expression and does not have its own this,super
+- These functions are best suited for non-method functions and they cannot be used as constructors 
+````
+const fun=()=>{log("I am an arrow function")}
+````
+## Functions
 # 
+
+
 

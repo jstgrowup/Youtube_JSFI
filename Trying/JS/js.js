@@ -33,3 +33,7 @@ fun(1, 2, 3, 4, 5, 6);
 (function(){
   console.log("hey")
 })()
+const x=function y(){
+  console.log("i am a named function expression")
+}
+x()

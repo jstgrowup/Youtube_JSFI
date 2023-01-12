@@ -1082,23 +1082,32 @@ const firstOrderFunc=()=>log("something")
 const higherOrder=(func)=>func()
 higherOrder(firstOrderFunc)
 ```
+
 ## ES6 ES2015
+
 - It is the 6th edition of the javascript language and it was released in 2015
 - It was initially known as ECMAScript(ES6) and later renamed to ECMAScript 2015
 - Almost all the browsers supports ES6 but the Old browsers dont therefore they need transpilers like Babel etc
-# Features 
-- let , const 
+
+# Features
+
+- let , const
 - Arrow functions
-- Rest and spread parameters 
-- template literals 
+- Rest and spread parameters
+- template literals
 - Promises
-- Classes 
+- Classes
+
 ## OOPS
-- It is a computer programming model that organizes software design around data, or objects rather than functions and logic 
-- OOP stops thinking in terms of individual variables and function 
+
+- It is a computer programming model that organizes software design around data, or objects rather than functions and logic
+- OOP stops thinking in terms of individual variables and function
 - Need of OOP is that it is easier to debug codes when we use objects and classes
-# Class 
+
+# Class
+
 - Classes are a way to create object instance of JS
+
 ```
 class Person{
   constructor(name,age){
@@ -1109,6 +1118,79 @@ class Person{
 const obj=new Person("subham","23")
 log(obj.name)  //Object
 ```
-# Encapsulation 
-- This is method by which we can hide the information or data 
-- Private variables are avaiable only in the current scope
+
+# Encapsulation
+
+- This is method by which we can hide the information or data
+- Private variables are avaiable only in the current scope means current function and it will not accessible outside of the function or in the global scope.
+
+```
+const Person = function(_name, _title) {
+    const name = _name
+    const title = _title
+    return {
+        details : function() {
+            console.log(`${name} is a ${title}.`)
+        }
+    }
+}
+const person = new Person(‘Khan’, ‘Web developer’)
+person.details()
+```
+
+- Here the name and title are only visible or accessible inside the scope of Person and details method is visible to the caller of Person
+- So we can say name and title are encapsulated inside "Person"
+
+# Abstraction
+
+- It is a method of hiding the implementation hiding
+- This is a way to hide the implementation details and show the necessary information to the caller
+
+```
+const Person=function(_name,_title){
+  const name=_name
+  const title=_title
+  <!-- this is a Public -->
+  this.getName=function(){
+    return name
+  }
+  const details=function(){
+    <!-- Private -->
+    return `${name} is a ${title}`
+  }
+}
+```
+# Inheritance
+- It is the ability of reusability 
+- It helps to create a new class using the existing class 
+- this means the child class resuses all fields and methods of the parent class and can implement its own 
+- But JS is not a class based language but its a prototype based language
+- So in JS inheritance is achieved by using prototype and it is called prototype inheritance
+```
+class Parent {
+  constructor(_name, _age) {
+    this.name = _name;
+    this.age = _age;
+  }
+  details() {
+    console.log(`${this.name}`);
+  }
+}
+class Child extends Parent {
+  constructor(_name, _age, _title) {
+    super(_name, _age);
+    this.title = _title;
+  }
+}
+const ptop=new Child("subham",23,"sad")
+console.log(ptop);
+// age: 23
+// name: "subham"
+// title: "sad"
+// [[Prototype]]: Parent
+// constructor: class Child
+// [[Prototype]]: Object
+// constructor: class Parent
+// details: ƒ details()
+// [[Prototype]]: Object
+```

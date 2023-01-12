@@ -53,10 +53,21 @@
 // });
 // console.log(arr);
 // obj.vikas();
-var x = 21;
-var fun = function () {
-  console.log(x);
-  var x = 20;
-};
-fun();
+// var x = 21;
+// var fun = function () {
+//   console.log(x);
+//   var x = 20;
+// };
+// fun();
 
+// const Person = function(_name, _title) {
+//   const name = _name
+//   const title = _title
+//   return {
+//       details : function() {
+//           console.log(`${name} is a ${title}.`)
+//       }
+//   }
+// }
+// const person = new Person("Khan", "Web developer")
+// person.details()

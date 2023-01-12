@@ -75,6 +75,9 @@
 - The goal is to increase its sustainibility for areas like animation, layout and gestures etc
 - its headline feature is `Incremental rendering` the ability to split rendering work into chunks and spread it out over multiple frames
 
-# what are keys in React?
+# What are keys in React?
 - Keys help React identify which items have changed / added/ removed , 
 - Keys whould be given to the elements inside the array to give the elements a stable identity
+- You should not use indexes as keys if the order of items changes than it will effect the performance and could lead some unstable component behaiviour 
+# What is memoization in React?
+- Its an Optimization technique for accelerating computer programs by caching the results of heavy function calls and returning them

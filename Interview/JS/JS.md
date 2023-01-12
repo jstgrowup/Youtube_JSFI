@@ -542,8 +542,10 @@ log(x) //error
 - const keyword is immutable , you can declare with assignment but cant assign another value later
 
 ## Objects
-- Object is a collection of properties and a property and an association between a name and a value 
+
+- Object is a collection of properties and a property and an association between a name and a value
 - A property value can be a function in which the property is known as method
+
 # ways of creating an object
 
 - Object constructor
@@ -601,7 +603,9 @@ const classdetails={
 const {height,benches,blackbord}=classdetails
 log(height,benches,blackbord)
 ```
+
 Output based Questions
+
 ```
 const func = (function (a) {
   delete a;
@@ -610,6 +614,7 @@ const func = (function (a) {
   return a;
 })(4);
 ```
+
 ```
 console.log("func:", func);
 const user = {
@@ -620,6 +625,7 @@ const user = {
 console.log("user:", user["Like me"]);
 delete user["Like me"]
 ```
+
 ```
 const obj = {
   a: "one",
@@ -629,6 +635,7 @@ const obj = {
 console.log(obj);
 // here two keys have the same name therefore the the second key will considered while printing the value of the second a will be considered but in the first position
 ```
+
 ```
 // write a function which takes an object and multiplies 2 with all the keys in the object
 let nums = {
@@ -646,6 +653,7 @@ function multiplyNumeric(obj) {
 }
 console.log(nums);
 ```
+
 ```
 const a = {};
 const b = { key: "b" };
@@ -657,16 +665,19 @@ console.log("a:", a); //here the {[object Object]: 234} this is O/p because if w
 // it will be like {[object Object]: 123,[object Object]: 234} so now because there are two keys of same name the frist key will be replaced
 console.log("a[b]:", a[b]); // therefore we get a[b]: 234 as the output
 ```
+
 ```
  op?
 console.log([..."subham"]); //spread operator it helps us to spread the properties of an object ,array but here we have a string so here it will spread the characters of the string and put it into an array
 ```
+
 ```
 const user = { name: "subham", age: 23 };
 const admin = { admin: true, ...user };
 console.log("admin:", admin);
 //here the admin object will be having all the properties of user and the admin
 ```
+
 ```
 const shape = {
   radius: 10,
@@ -678,12 +689,14 @@ const shape = {
 console.log(shape.diameter()); // this will give you 20
 console.log(shape.perimeter()); // this will give NaN because in objects the arrow functions points to the window object so basically this points to the window object but the normal function this points to the object
 ```
+
 ```
 function getItems(fruitList, favuriteFruit, ...args) {
   return [...fruitList, ...args, favuriteFruit];
 }
 console.log(["banana", "apple", "pear", "orange"]); //['banana', 'apple', 'pear', 'orange'] will be the output
 ```
+
 ```
 let x = { greeting: "hey" };
 let d;
@@ -691,9 +704,11 @@ d = c;
 c.greeting = "subham";
 console.log(d.greeting); //subham
 ```
+
 ```
 console.log({ a: 1 } === { a: 1 }); //false even if both are the same but they are in different spaces they are in different memory deosnt matter == or ===
 ```
+
 ```
 //object referencing
 let person = { name: "subahm" };
@@ -702,6 +717,7 @@ person = null;
 console.log(members); //we are giving person to members[0] so members array wont be affected and we will get the output as array
 console.log(person); // this would be null
 ```
+
 ```
 const value = { number: 12 };
 const multiply = (x = { ...value }) => {
@@ -712,12 +728,15 @@ multiply();
 multiply(value);
 multiply(value);
 ```
+
 # This keyword
-- this refers to the object that the function is a property of 
-- It depends on the object that is invoking the function 
+
+- this refers to the object that the function is a property of
+- It depends on the object that is invoking the function
 - this keyword depends on the context we are in .
 - functions are also first class objects
 - Output based questions
+
 ```
 let user = {
   name: "subham",
@@ -738,6 +757,7 @@ let user = {
 user.getdetails();
 user.childobj.getnestedData();
 ```
+
 ```
 let realuser = {
   name: "subham",
@@ -761,6 +781,7 @@ let realuser = {
 realuser.getlastdetails();
 realuser.gethuru.getdetails();
 ```
+
 ```
 class User {
   constructor(n) {
@@ -773,6 +794,7 @@ class User {
 const huruser = new User("subham");
 huruser.getName();
 ```
+
 ```
 const secondUser = {
   firstname: "xyz",
@@ -785,6 +807,7 @@ const secondUser = {
 };
 console.log(secondUser.getname());
 ```
+
 ```
 function makeUser() {
   return {
@@ -795,6 +818,7 @@ function makeUser() {
 const Usser = makeUser();
 console.log("Usser:", Usser.ref.name);
 ```
+
 ```
 const fourthUser = {
   name: "Subhamone",
@@ -809,6 +833,7 @@ console.log(fourthUser.greet());
 console.log(fourthUser.farewell());
 // here because the this in an arrow function points to the window object therefore it will be undefined
 ```
+
 ```
 // Tax calculator
 let calculator = {
@@ -827,6 +852,7 @@ calculator.read();
 console.log(calculator.sum());
 console.log(calculator.mul());
 ```
+
 ```
 var length = 4;
 function callback() {
@@ -841,6 +867,7 @@ const obj = {
 obj.method(callback);
 // you will think here this will refer to lenght=5 but because we are passing function callback as a callback function so it willtake the lenght=4 as its this and will print 4 as the O/P
 ```
+
 ```
 // implement calc.add(10).multiply(20).subtract(30).add(10)
 const calc = {
@@ -855,7 +882,7 @@ const calc = {
   },
   subtract(a) {
     this.total -= a;
-    // er are returning the whole object because we want to return the whole object 
+    // er are returning the whole object because we want to return the whole object
     return this;
   },
 };
@@ -864,9 +891,11 @@ console.log("final:", final.total);
 ```
 
 ## Rest
+
 - Rest parameter is an improved way to handle function parameters which allows us to represent an indefinite number of arguments as an array
 - It provides an improved way of handling the parameters of a function
 - any number of arguments will be converted into an array using the rest parameter
+
 ```
 function total(…args){
 let sum = 0;
@@ -880,12 +909,15 @@ console.log(fun(1,2,3)); //6
 console.log(fun(1,2,3,4)); //13
 console.log(fun(1,2,3,4,5)); //15
 ```
+
 ```
 function fun(a,b,...theArgs){
 
 }
 ```
+
 - The rest parameter should be the last argument as its job is to collect all the remaining arguments into an array
+
 ```
 function fun(a, b, ...theArgs) {
   console.log("b:", b);
@@ -894,67 +926,189 @@ function fun(a, b, ...theArgs) {
 }
 fun(1, 2, 3, 4, 5, 6);
 ```
+
 ## IIFE
+
 - IIFE stands for immediately invoked function expression
-- IIFE is a function that runs as soon as it is defined 
+- IIFE is a function that runs as soon as it is defined
+
 ```
 (function(){
   console.log("hey")
 })()
 ```
-- whenever the compiler sees the word `function` it assumes that we are declaring a function in the code therefore we dont use the first set of parenthesis the compiler throws an error because it thinks we are declaring a function and by syntax of declaring a function 
-- to remove the error we add the first set of paranthesis that tells the compiler that the function declaration instead its a function expression 
+
+- whenever the compiler sees the word `function` it assumes that we are declaring a function in the code therefore we dont use the first set of parenthesis the compiler throws an error because it thinks we are declaring a function and by syntax of declaring a function
+- to remove the error we add the first set of paranthesis that tells the compiler that the function declaration instead its a function expression
 - our code should run as soon as it is defined
-- function runs only when invoked 
+- function runs only when invoked
+
 ## Types of function
+
 # function statement
+
 ```
 function a(){
 log("i am a function statement")
 }
 ```
-this is a function statement 
+
+this is a function statement
+
 # function expression
+
 ```
 const a=function(){
 log("I am a function expression")
 }
 ```
-# function declaration 
+
+# function declaration
+
 - it is the same as function statement
-# Anonymous function 
+
+# Anonymous function
+
 ```
 function (){
   log("anonymous function")
 }`
-this will throw a syntax error saying that function should have a name 
-so these functions are used when the function are used as values 
+this will throw a syntax error saying that function should have a name
+so these functions are used when the function are used as values
 lets say
 const x=function(){
   <!-- code -->
-} 
+}
 ```
+
 # Named function expression
+
 - It is function expression which has a name
+
 ```
   const x=function y(){
   log("i am a named function expression")
 }
 we have to invoke x because y is not defined outside the scope y is a local variable
 ```
-### Functions accepts parameters 
+
+### Functions accepts parameters
+
 # First class functions / Functions as first class citizens
+
 - The ability of using functions as values is known as first class functions
-- The ability to use functions as an argument and return a function is known as first class functions 
+- The ability to use functions as an argument and return a function is known as first class functions
+
 # Arrow functions / Lambda functions
-- these are the part of ES6 or ecma script 2015 
+
+- these are the part of ES6 or ecma script 2015
 - It is a shorter syntax for a function expression and does not have its own this,super
-- These functions are best suited for non-method functions and they cannot be used as constructors 
-````
+- These functions are best suited for non-method functions and they cannot be used as constructors
+
+```
 const fun=()=>{log("I am an arrow function")}
-````
+```
+
 ## Functions
-# 
 
+```
+for(let i=0;i<10,i++){
+  setTimeout(function(){
+    log(i)
+  },i*1000)
+}
+```
 
+- Everytime the for loop runs the let keyword creates an another block scope inside it
 
+```
+Name()
+function Name(){
+  log("hey")
+}
+```
+
+- Funtions are hoisted differently in functions the complete function is copied to the scope we dont get function name as undefined just like the variables so thats why doesnt matter where you call the function before the initialization of after initialization
+
+```
+var x=21
+var fun=function(){
+  log(x)
+  var x=20
+}
+fun()
+
+```
+
+we will think that the local variable will shadow the global variable but that doesnt happens here the concept of closure comes into consideration so if the variable is present in the local scope it wont take the global one so now because in the local scope the variable x is hoisted and assigned as undefined we get the O/P as undefined and than after that when the variable is declared it will return the output as 20
+
+# Spread and Rest operator
+
+- `Spread`
+
+```
+function multiply(num1,num2,num3,num4){
+  console.log(num1,num2,num3,num4)
+
+}
+const arr=[1,2,3,4]
+multiply(...arr)
+---OR---
+function multiply(...nums){
+  console.log(nums) //[1,2,3,4]
+
+}
+const arr=[1,2,3,4]
+multiply(...arr)
+```
+
+```
+const fn=(a,...nums,b,c){
+  log(a,b,c)
+}
+fn(1,2,3,4,5,6,7) //this will throw error because rest parameter should always be the last parameter because it has to take all the remaining arguments
+```
+
+# Callback function
+
+It is a function passed into another function as an argument which is than invoked inside the outer function to complete some kind of routine or action
+
+# Higher Order functions
+
+- HOF is a function that accepts another function as an argument or returns a function as a return value or both
+
+```
+const firstOrderFunc=()=>log("something")
+const higherOrder=(func)=>func()
+higherOrder(firstOrderFunc)
+```
+## ES6 ES2015
+- It is the 6th edition of the javascript language and it was released in 2015
+- It was initially known as ECMAScript(ES6) and later renamed to ECMAScript 2015
+- Almost all the browsers supports ES6 but the Old browsers dont therefore they need transpilers like Babel etc
+# Features 
+- let , const 
+- Arrow functions
+- Rest and spread parameters 
+- template literals 
+- Promises
+- Classes 
+## OOPS
+- It is a computer programming model that organizes software design around data, or objects rather than functions and logic 
+- OOP stops thinking in terms of individual variables and function 
+- Need of OOP is that it is easier to debug codes when we use objects and classes
+# Class 
+- Classes are a way to create object instance of JS
+```
+class Person{
+  constructor(name,age){
+    this.name=name,
+    this.age=age
+  }
+}
+const obj=new Person("subham","23")
+log(obj.name)  //Object
+```
+# Encapsulation 
+- This is method by which we can hide the information or data 
+- Private variables are avaiable only in the current scope

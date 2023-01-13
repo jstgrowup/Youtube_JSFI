@@ -81,3 +81,68 @@
 - You should not use indexes as keys if the order of items changes than it will effect the performance and could lead some unstable component behaiviour 
 # What is memoization in React?
 - Its an Optimization technique for accelerating computer programs by caching the results of heavy function calls and returning them
+# useMemo and React.memo() difference?
+- `React.memo()`
+- is a higher-order component that we can use to wrap components that we do not want to re-render unless the props within them change 
+- `useMemo`
+- It is a react Hook that we can use to wrap functions within a component 
+- we can use this to ensure that the values within that function are re-computed only when one of its dependencies change 
+```
+ const [text, setText] = React.useState('')
+  const [search, setSearch] = React.useState('')
+
+  const handleText = (event) => {
+    setText(event.target.value)
+  }
+
+  const handleSearch = () => {
+    setSearch(text)
+  }
+
+  // useMemo Hooks
+  const filteredUsers = React.useMemo(
+    () =>
+      users.filter((user) => {
+        console.log('Filter function is running ...');
+        return user.name.toLowerCase().includes(search.toLowerCase());
+      }),
+    [search]
+  );
+
+```
+If the search changes than only memo will run 
+- React memo accepts a function which returns the values and then that function is only called when the value needs to be retreived
+# useEffect
+- useEffect hook essentially is to allow sideeffects within the functional component 
+- In class components there are lifecycle methods like componentDidMount,componentDidUpdate and componentWillUnmount are all handled by useEffect hook in functional components
+- It recieves two parameters 
+  - the first parameter is the callback function to be executed 
+  - the second parameter takes an array containing any variables that are to be tracked 
+# How does Routing work in react?
+- Routing helps us adding new screens and flows to our application incredibly quickly
+# what are pure components?
+- Pure components are the components which do not rerender when the value of the state and props has been updated with the same values.
+- Pure components restricts the re-rendering ensuring the higher perforemance of the component
+# Difference between React.PureComponent and React.Component?
+
+- Pure component handles the `shouldComponentUpdate()` method 
+- The major difference is that PureComponent does a shallow comparision on state change , it means that while comparing objects it compares only references which helps to improve the performance of the app
+- A normal component rerenders everytime its parent rerenders , regardless of whether the component props and state have changed or not but in case of purecomponent it wont rerender it its parent rerenders unless the props or the state of the pure component have changed 
+```
+// Regular class component
+class App extends React.Component {
+  render() {
+    return <h1>Component Example !</h1>
+  }
+}
+
+// React Pure class component
+class Message extends React.PureComponent {
+  render() {
+    return <h1>PureComponent Example !</h1>
+  }
+}
+``` 
+# useCallback
+- Hooks can be used to optimize the rendering behaiviour of your react function components.
+- useCallback returns a memoized version of the callback that only changes if one of the depedecies has changed

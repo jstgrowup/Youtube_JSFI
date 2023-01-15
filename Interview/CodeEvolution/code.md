@@ -170,4 +170,31 @@ emitter.emit("Order-pizza", "large", "medium");
  - while we transfer file contents from A to B the data arrives in chunks 
 - Prevents the data downloads and memory usage 
 - So its a sequence of data that is moved over time 
+# Buffers 
+- Area where people wait is nothing but the buffer 
+- Node js cannot control the pace at which the data arrives in the stream 
+- It can only decide when is the right time to send the data for processing 
+- If there is data already processed or too little data to process 
+Node puts the arriving data in a buffer 
+- It is an intentionally small area that Node maintains in the runtime to process a stream of data 
+- Example
+ - If your internet connection is fast enough the speed of the stream will be fast enough to instantly fill up the buffer and send it out for processing 
+ - That will repreat till the stream is finished 
+ - If your connection is slow after processing the first chunk of data that arrived the video player will display a loading spinner which indicates it is waiting for more data to arrive 
+ - once the buffer is filled up and the data is processed , the video player shows the video
+```
+const buffer = new Buffer.from("subham");
+console.log("buffer:", buffer);
+  <Buffer 73 75 62 68 61 6d>
+  a buffer contains raw binary data Node js prints the hexadecimal of base 16 notation of the number as priniting 8 bits binary will flood our terminal
+  [Link](https://www.rapidtables.com/convert/number/hex-to-binary.html)
+console.log("buffer:", buffer.toJSON());
+  { type: 'Buffer', data: [ 115, 117, 98, 104, 97, 109 ] }
+  here each number here is the UNICODE character code for the character in the string subham
+console.log(buffer.toString());
+  subham
+buffer.write("dey"); //deyham
+  because buffers have limited memory
+  do dome of the characters gets overrided
+```
 

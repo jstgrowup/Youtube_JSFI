@@ -1160,12 +1160,15 @@ const Person=function(_name,_title){
   }
 }
 ```
+
 # Inheritance
-- It is the ability of reusability 
-- It helps to create a new class using the existing class 
-- this means the child class resuses all fields and methods of the parent class and can implement its own 
+
+- It is the ability of reusability
+- It helps to create a new class using the existing class
+- this means the child class resuses all fields and methods of the parent class and can implement its own
 - But JS is not a class based language but its a prototype based language
 - So in JS inheritance is achieved by using prototype and it is called prototype inheritance
+
 ```
 class Parent {
   constructor(_name, _age) {
@@ -1194,3 +1197,23 @@ console.log(ptop);
 // details: ƒ details()
 // [[Prototype]]: Object
 ```
+
+# Prototype
+
+- When ever we create an new Object with a specified prototype object and properties
+- It uses an existing object as the Prototype of newly created object
+- It returns a new object with the specified prototype object and properties
+```
+const user = {
+  name: "John",
+  printInfo: function () {
+    console.log(`My name is ${this.name}.`);
+  },
+};
+const admin = Object.create(user);
+admin.name = "Nick"; // Remember that "name" is a property set on "admin" but not on "user" object
+console.log("admin:", admin);
+```
+## call,apply and Bind
+# call
+- 

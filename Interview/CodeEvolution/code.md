@@ -115,3 +115,59 @@ function greetSubham(fn) {
 }
 greetSubham(greet);
 ```
+here the greet function is a callback function and greetSubham is a higher order function 
+## Events module 
+- The events module allows us to work with events in Node js 
+- An event is an action or an occurence that has happened in our application that we can respond to 
+- Using the events module we can dispatch our own custom events and respond to those custom events in a non-blocking manner 
+```
+
+const EventEmitter = require("node:events");
+const emitter = new EventEmitter();
+emitter.on("Order-pizza", (size, topping) => {
+  console.log(`Started the backing ${size} ${topping}`);
+});
+emitter.emit("Order-pizza", "large", "medium");
+//Started the backing large medium 
+// this is known as event driven programming in Node js 
+```
+## Character sets 
+- Binary data 
+ - Computers store and represent data in binary format which is a collection of 0s and 1s
+ - here each 0 or 1 is known as a bit 
+ - to work with a piece of data a computer needs to convert that data into its binary 
+ - But what about strings or character?
+  - Computers will first convert the character to a number then convert that number to its binary representation 
+  - let say V 
+  - it will be first converted to a number that represents V
+  - `"V".charCodeAt` will give us 86 that means 86 represents V
+- Character Sets
+ - But how does the computer knows that V is 86 
+ - Here the concept of character sets comes into picture 
+ - Character sets are predefined lists of characters represents by numbers
+ - Some of the popular ones are `Unicode` and `ASCII`
+ - Unicode character set dictates that 86 should represent character V
+- Character Encoding 
+ - Now the thing is if we say 86 is directly converted to V thats partially true 
+ - Here the concept of Character Encoding comes into picture
+ - Character encoding dictates how to represent a number in a character set as binary data before it can be stored in a computer
+ - It dictates how many bits to use to represent the number 
+ - for example one of the character encoding system is UTF-8
+ - `UTF-8` states that characters should be encoded in bytes(8 bits)
+ - Eight 1s or 0s should be used to represent the code of any character in binary
+ - examples
+  - 4 => 100 => 00000100
+  - V => 86 => 01010110
+- Similar guidelines also exists on how images and videoes should be encoded and stored in binary format
+
+## Streams and Buffer
+# Steams
+- A stream is a sequence of data that is being moved from one point to another over time 
+- Ex
+ - a stream of data over the internet being moved from one computer to another 
+ - a stream of data being transferred from one file to another within the same computer 
+- Process streams of data in chunks as they arrive inetead of waiting for the entire data to be avaiable before processing 
+ - while we transfer file contents from A to B the data arrives in chunks 
+- Prevents the data downloads and memory usage 
+- So its a sequence of data that is moved over time 
+

@@ -115,11 +115,15 @@ function greetSubham(fn) {
 }
 greetSubham(greet);
 ```
-here the greet function is a callback function and greetSubham is a higher order function 
-## Events module 
-- The events module allows us to work with events in Node js 
-- An event is an action or an occurence that has happened in our application that we can respond to 
-- Using the events module we can dispatch our own custom events and respond to those custom events in a non-blocking manner 
+
+here the greet function is a callback function and greetSubham is a higher order function
+
+## Events module
+
+- The events module allows us to work with events in Node js
+- An event is an action or an occurence that has happened in our application that we can respond to
+- Using the events module we can dispatch our own custom events and respond to those custom events in a non-blocking manner
+
 ```
 
 const EventEmitter = require("node:events");
@@ -128,60 +132,67 @@ emitter.on("Order-pizza", (size, topping) => {
   console.log(`Started the backing ${size} ${topping}`);
 });
 emitter.emit("Order-pizza", "large", "medium");
-//Started the backing large medium 
-// this is known as event driven programming in Node js 
+//Started the backing large medium
+// this is known as event driven programming in Node js
 ```
-## Character sets 
-- Binary data 
- - Computers store and represent data in binary format which is a collection of 0s and 1s
- - here each 0 or 1 is known as a bit 
- - to work with a piece of data a computer needs to convert that data into its binary 
- - But what about strings or character?
-  - Computers will first convert the character to a number then convert that number to its binary representation 
-  - let say V 
-  - it will be first converted to a number that represents V
-  - `"V".charCodeAt` will give us 86 that means 86 represents V
+
+## Character sets
+
+- Binary data
+- Computers store and represent data in binary format which is a collection of 0s and 1s
+- here each 0 or 1 is known as a bit
+- to work with a piece of data a computer needs to convert that data into its binary
+- But what about strings or character?
+- Computers will first convert the character to a number then convert that number to its binary representation
+- let say V
+- it will be first converted to a number that represents V
+- `"V".charCodeAt` will give us 86 that means 86 represents V
 - Character Sets
- - But how does the computer knows that V is 86 
- - Here the concept of character sets comes into picture 
- - Character sets are predefined lists of characters represents by numbers
- - Some of the popular ones are `Unicode` and `ASCII`
- - Unicode character set dictates that 86 should represent character V
-- Character Encoding 
- - Now the thing is if we say 86 is directly converted to V thats partially true 
- - Here the concept of Character Encoding comes into picture
- - Character encoding dictates how to represent a number in a character set as binary data before it can be stored in a computer
- - It dictates how many bits to use to represent the number 
- - for example one of the character encoding system is UTF-8
- - `UTF-8` states that characters should be encoded in bytes(8 bits)
- - Eight 1s or 0s should be used to represent the code of any character in binary
- - examples
-  - 4 => 100 => 00000100
-  - V => 86 => 01010110
+- But how does the computer knows that V is 86
+- Here the concept of character sets comes into picture
+- Character sets are predefined lists of characters represents by numbers
+- Some of the popular ones are `Unicode` and `ASCII`
+- Unicode character set dictates that 86 should represent character V
+- Character Encoding
+- Now the thing is if we say 86 is directly converted to V thats partially true
+- Here the concept of Character Encoding comes into picture
+- Character encoding dictates how to represent a number in a character set as binary data before it can be stored in a computer
+- It dictates how many bits to use to represent the number
+- for example one of the character encoding system is UTF-8
+- `UTF-8` states that characters should be encoded in bytes(8 bits)
+- Eight 1s or 0s should be used to represent the code of any character in binary
+- examples
+- 4 => 100 => 00000100
+- V => 86 => 01010110
 - Similar guidelines also exists on how images and videoes should be encoded and stored in binary format
 
 ## Streams and Buffer
+
 # Steams
-- A stream is a sequence of data that is being moved from one point to another over time 
+
+- A stream is a sequence of data that is being moved from one point to another over time
 - Ex
- - a stream of data over the internet being moved from one computer to another 
- - a stream of data being transferred from one file to another within the same computer 
-- Process streams of data in chunks as they arrive inetead of waiting for the entire data to be avaiable before processing 
- - while we transfer file contents from A to B the data arrives in chunks 
-- Prevents the data downloads and memory usage 
-- So its a sequence of data that is moved over time 
-# Buffers 
-- Area where people wait is nothing but the buffer 
-- Node js cannot control the pace at which the data arrives in the stream 
-- It can only decide when is the right time to send the data for processing 
-- If there is data already processed or too little data to process 
-Node puts the arriving data in a buffer 
-- It is an intentionally small area that Node maintains in the runtime to process a stream of data 
+- a stream of data over the internet being moved from one computer to another
+- a stream of data being transferred from one file to another within the same computer
+- Process streams of data in chunks as they arrive inetead of waiting for the entire data to be avaiable before processing
+- while we transfer file contents from A to B the data arrives in chunks
+- Prevents the data downloads and memory usage
+- So its a sequence of data that is moved over time
+
+# Buffers
+
+- Area where people wait is nothing but the buffer
+- Node js cannot control the pace at which the data arrives in the stream
+- It can only decide when is the right time to send the data for processing
+- If there is data already processed or too little data to process
+  Node puts the arriving data in a buffer
+- It is an intentionally small area that Node maintains in the runtime to process a stream of data
 - Example
- - If your internet connection is fast enough the speed of the stream will be fast enough to instantly fill up the buffer and send it out for processing 
- - That will repreat till the stream is finished 
- - If your connection is slow after processing the first chunk of data that arrived the video player will display a loading spinner which indicates it is waiting for more data to arrive 
- - once the buffer is filled up and the data is processed , the video player shows the video
+- If your internet connection is fast enough the speed of the stream will be fast enough to instantly fill up the buffer and send it out for processing
+- That will repreat till the stream is finished
+- If your connection is slow after processing the first chunk of data that arrived the video player will display a loading spinner which indicates it is waiting for more data to arrive
+- once the buffer is filled up and the data is processed , the video player shows the video
+
 ```
 const buffer = new Buffer.from("subham");
 console.log("buffer:", buffer);
@@ -198,3 +209,142 @@ buffer.write("dey"); //deyham
   do dome of the characters gets overrided
 ```
 
+## Asynchronous Javascript
+
+- JS is a synchronous , blocking , single-threaded language
+- Synchronous 
+ - Code executes top down with only one line executing at any given time 
+- Blocking 
+ - No matter how long a previous process takes the subsequent process wont kick off until the former is completed 
+- Single-threaded 
+ - A thread is simply a process that your JS program can use to run the task 
+ - and Each thread can do one task at a time 
+ - JS has just one thread called the main thread for executing any code 
+ - But the problem is that if there is an anyschronous task 
+ - According to the definition JS will simply proceed to the next line without waiting 
+- `So to encounter this issue` we need some external power which can help JS to do asynchronous tasks 
+- So in FE browsers are the one which helps the JS and in Backend its the nodejs which helps JS 
+- Web browsers and Node js define functions and APIs that allow us to register functions that should not be executed synchronously and should be innvoked asynchronously when some kind of event occurs 
+- Example
+  - setTimeout/ setnterval
+  - callback
+  - Promises and async-await 
+## fs Module
+```
+const fs = require("node:fs");
+const filecontent = fs.readFileSync("./file.txt", "utf-8");
+// fs module internally uses buffers
+// here sync means the file is reading will be synchronous way of reading the file JS will wait till the content of the file is readed before proceeding to the next line
+console.log("filecontent:", filecontent);
+fs.readFile("./file.txt", "utf-8", (err, data) => {
+  if (err) {
+    console.log(err);
+  } else {
+    console.log(data);
+  }
+});
+fs.writeFileSync("./huru.txt", "hello");
+fs.writeFile("./huru.txt", "yooo", (er) => {
+  if (er) {
+    console.log(er);
+  } else {
+    console.log("File written ");
+  }
+});
+```
+
+## fs Promise Module
+```
+const fs = require("node:fs/promises");
+async function readfile() {
+  try {
+    const data = await fs.readFile("file.txt", "utf-8");
+    console.log(data);
+  } catch (error) {
+    console.log(error);
+  }
+}
+readfile()
+fs.readFile("file.txt", "utf-8")
+  .then((data) => console.log(data))
+  .catch((er) => console.log(er));
+// this is a promise based approach to read file
+// the callback approach is more preferrable than the promise based approach 
+// but promise based approach is easily readable than the callback approach 
+```
+## Streams 
+- The idea is to work with data in chunks instead of waiting for the entire data to be avaiable at once 
+```
+const fs = require("node:fs");
+const readable = fs.createReadStream("./file.txt", {
+  encoding: "utf-8",
+  highWaterMark:2
+  <!-- how many bites here it will be 2 bytes -->
+  <!-- hello code has 9 bits we are telling the node that read 2 bytes in each and every chunk-->
+});
+// here we are creating streams
+const writable = fs.createWriteStream("./file1.txt");
+readable.on("data", (chunk) => {
+  console.log(chunk);
+  writable.write(chunk);
+});
+```
+## Pipes
+- It is a simpler way to handle Streams 
+- It is just like a pipe it takes the data from the readable stream and put it into the writable stream 
+- 
+```
+const fs = require("node:fs");
+const readable = fs.createReadStream("./file.txt", {
+  encoding: "utf-8",
+  highWaterMark: 2,
+});
+
+const writable = fs.createWriteStream("./file1.txt");
+readable.pipe(writable);
+<!-- here we are actually creating a pipe and passing the data from file.txt to file1.txt-->
+```
+## http module
+- COmputers conneted to the internet are called clients and servers
+- clients are internet-connected devices such as computers or mobile phones along with web-accessing software available on those devices such as a web browsers 
+- Servers are computers that store webpages , sites or apps
+- But lets say what if the request is not understandable by the server or the response is not client friendly 
+- To solve this issue we have HTTP stands for hypertext Transfer Protocol
+   - It is a protocol that defines a format for clients and servers to speak to each other 
+   - The client sends a HTTP request and the server responds with an HTTP response 
+- # HTTP and Node
+   - We can create a web servers using nodejs
+   - Node js has access to operating system functionality like networking 
+   - Node has an eventloop to run tasks asynchronously and is perfect for creating web server that can handle large volumes of requests
+   - the node server we create still respect the HTTP format
+   - The HTTP module allows creation of web servers that can transfer data over HTTP
+```
+const http = require("node:http");
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { "Content-Type": "text/plain" });
+  res.end("Hello world");
+});
+
+server.listen(3000, () => {
+  console.log("Listening");
+});
+```
+## JSON Response
+- Javascript object notation is a data interchange format we can use with HTTP
+- Node gives us the power of JSON.stringify
+```
+const http = require("node:http");
+const server = http.createServer((req, res) => {
+  const payload = {
+    firstname: "subham",
+    lastName: "Dey",
+  };
+  res.writeHead(200, { "Content-Type": "application/json" });
+  res.end(JSON.stringify(payload));
+});
+server.listen(3000, () => {
+  console.log("Listening");
+});
+```
+## HTML Response
+- 

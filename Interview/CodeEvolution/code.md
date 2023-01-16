@@ -465,4 +465,82 @@ for (let i = 0; i < MAX_CALLS; i++) {
 - JS is a synchronous, blocking and single-threaded language 
 - To make async programming possible we need the help of libuv
 ![Image](https://user-images.githubusercontent.com/40628582/212689344-9e7564e8-03fd-4ef4-98cb-f440c3dc56a6.png)
-  
+
+- The V8 engine which executes the code it has a memory heap and a call stack 
+- Whenevr we declare a variable it takes the space in the memory heap and the function is executed it will be in the call stack and when it is executed it will be popped of from the call stack 
+- whenever we execute an async method it is offloaded to the libuv it will run the task using native async mechanism of the OS and if not possible it will utilize its thread pool to run that task ensuring the main thread is not blocked
+```
+console.log("first")
+console.log("seccond")
+console.log("third")
+```
+lets say we have this piece of code to run 
+- CHeck the video 42
+- `Event Loop` is just a C program and is part of libuv
+- A design pattern that orchestrates or coordinates the execution of synchronous and asynchronous code in Nodejs
+![image](https://user-images.githubusercontent.com/40628582/212695194-1c14ae26-2e3b-4b44-b5b4-0201538076d7.png)
+- Event loop is a loop that is alive as long as your node js application is up and running 
+- In every iteration of the loop we come accross 6 different queues each queue holds one or more callback functions that need to be eventually executed in the event call stack 
+- Types of callback functions are different for each queue
+- first we have the time queue this contains callbacks associated with settimeout and setinterval 
+- second we have I/O queue this contains callbacks associated with async methods we have seen example - fs and https modules 
+- third we have the check queue this contains the callbacks associated with a function called setImmediate callbacks
+- fourth we have the close queue it contains callbacks associated with the close event of an async task 
+- And finally we have the microtask queue it is actually two seperate queues 
+  - the first queue is called nextTick queue and contains callbacks associated with a function called process.nextTick 
+  - second quueu is the promise queue which contains callbacks that are associated with the native promise in JS 
+- all the other queueus other than the micortask queue is the part of libuv but the microtask queue is not the part of libuv 
+# Execution Loop - Execution Order
+ - User written synchronous JS code takes priority over async code that the runtime would like to execute 
+ - That means only after the call stack is empty the event loop comes into picture 
+ - within Event Loop there are rules 
+    1. Any callbacks in the microtask queues are executed.First tasks in the nextTick queue and only then tasks in the promise queue
+    2. All callbacks in the timequeue are executed
+    3. Callbacks in the microtask queues if present are executed. Again,first tasks in the nextTick queue and then tasks in the promise queue
+    4. All the callbacks within the I/O queue are executed 
+    5. Callbacks in the microtask queues if present are executed. Again,first tasks in the nextTick queue and then tasks in the promise queue
+    6. All the callbacks in the check queue are executed 
+    7. Callbacks in the microtask queues if present are executed. Again,first tasks in the nextTick queue and then tasks in the promise queue
+    8. All the callbacks in the close queue is executed 
+    9. Callbacks in the microtask queues if present are executed. Again,first tasks in the nextTick queue and then tasks in the promise queue
+
+ - If all the callbacks are executed and there is no more code to process the event loop exits 
+
+ - `question`
+ - If two async takes such as setTimeout and readFIle complete at the same time how does Node decide which callback function to run first on the call stack?
+    - Timer callback are executed before I/O callbacks even  is both are ready at the exact same time 
+## Microtask Queues
+# Experiment to test the microtask queue
+```
+console.log("log1");
+process.nextTick(() => console.log("This is next tick 1"));
+// this will queue up the callback to the nextTick queue of the microtask queue 
+console.log("log2");
+```
+all the user written synchronous JS code takes priority over async code that the runtime would like to eventually execute 
+# Experiment to test the Promise queue
+```
+Promise.resolve().then(() => console.log("This is promise resolve 1"));
+process.nextTick(() => console.log("this is nexttick queue"));
+// op
+// this is nexttick queue
+// This is promise resolve 1
+```
+- All callbacks in nextTick queu are executed before callbacks in promise queue because its how the source code is written
+# Timer queue
+- To queue a function into the timer queue we have to use either the setTimeout function of the setInterval function
+```
+setTimeout(() => {
+  console.log("settimeout");
+}, 0);
+Promise.resolve().then(() => console.log("This is promise resolve 1"));
+process.nextTick(() => console.log("this is nexttick queue"));
+
+// op
+// this is nexttick queue
+// This is promise resolve 1
+// settimeout
+```
+- callbacks in the microtask queue are executed before callbacks in the timer queue
+- `Priotity`: nextTick -> Promise queue -> Timer queue
+- Timer queue callbacks are executed in FIFO order 

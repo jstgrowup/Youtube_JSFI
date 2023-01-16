@@ -347,4 +347,76 @@ server.listen(3000, () => {
 });
 ```
 ## HTML Response
-- 
+- we have to let the browser know that the content type is html 
+- for that we have to tell tha its text/html
+```
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { "Content-Type": "text/html" });
+  const html = fs.readFileSync("./index.html", "utf-8");
+  res.end(html);
+  //if in case the html file is very large i want it to stream the data
+  fs.createReadStream(__dirname + "/index.html").pipe(res);
+});
+```
+## HTTP routing 
+```
+const server = http.createServer((req, res) => {
+  if (req.url === "/") {
+    res.writeHead({ "Content-Type": "text/plain" });
+    res.end("Home Page");
+  } else if (req.url === "/about") {
+    res.writeHead(200, { "Content-Type": "text/plain" });
+    res.end("About page");
+  } else if (req.url === "/api") {
+    res.writeHead(200, { "Content-Type": "application/json" });
+    res.end(
+      JSON.stringify({
+        firstnName: "Subham",
+        lastName: "Dey",
+      })
+    );
+  } else {
+    res.writeHead(404);
+    res.end("Page not found");
+  }
+});
+```
+- This is HTTP routing where we can extract the route using req.url
+## Web Framework
+- A framework simply abstracts the lower level code allowing you to focus on the requirements than the code itself
+- React etc 
+- There are frameworks to build web or mobile applications without having to rely on the HTTP module in nodejs
+- Ex
+  - expressjs
+  - nest 
+  - hapi
+  - sails
+- They are build on top of the HTTP module making it easier for you to implement all the features 
+## Node Runtime
+- Node runtime is an enviroment which provides all the necessary components in order to use and run JS code outside the browser 
+- At its core it contains three major components 
+  - external dependencies
+    - V8
+    - crypto
+    - libuv
+    - zlib
+  - C++ features
+    - fs access
+    - neteorking 
+  - JS library
+    - functions and utilities to tap into the C++ features fromthe JS code 
+- Asynchronous JS
+ - synchronous,blocking and single-threaded language
+- If JS is a single threaded language than how it is handling fs module which is a async operation here the nodejs takes the help of libuv which is one of a dependency in the runtime 
+## libuv (Nodejs dependency)
+- What?
+  - libuv is a cross platform open source library written in C language
+- Why?
+  - it helps node js to handle asynchronous nonblocking operations in Node js
+- How?
+  - It uses `Thread pool` and `Event Loop`
+
+- This is how the conversation will look like
+  - `Main Thread`: ***hey libuv i need to read file contents but that is a time consuming task . i dont want to block further code from being executed during this time. can i offload this task to you?*** 
+  - `Libuv` : ***Sure main thread unlike you who is single threaded i have a pool of threads that i can use to run some of these time consuming tasks. When the task is done the file contents are retireved and the associated callback function can be run***
+  

@@ -1,11 +1,15 @@
 const http = require("node:http");
 const fs = require("node:fs");
-const server = http.createServer((req, res) => {
-  res.writeHead(200, { "Content-Type": "text/html" });
-  const html = fs.readFileSync("./index.html", "utf-8");
-  res.end(html);
-});
+console.log("first");
+fs.readFile("./file.txt", "utf-8", (er, data) => {
+  if (er) {
+    console.log(er);
+  } else {
+    console.log(data);
+  }
 
-server.listen(3000, () => {
-  console.log("Listening");
 });
+console.log("last");
+// here readfile is an async operation but how the node js is doing this 
+// with the help of libuv Thread pool
+// 

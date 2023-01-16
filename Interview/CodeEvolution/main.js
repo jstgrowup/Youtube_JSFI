@@ -1,15 +1,14 @@
-const http = require("node:http");
-const fs = require("node:fs");
-console.log("first");
-fs.readFile("./file.txt", "utf-8", (er, data) => {
-  if (er) {
-    console.log(er);
-  } else {
-    console.log(data);
-  }
-
-});
-console.log("last");
-// here readfile is an async operation but how the node js is doing this 
-// with the help of libuv Thread pool
-// 
+// const http = require("node:http");
+const https = require("node:https");
+const MAX_CALLS = 12;
+const start = Date.now();
+for (let i = 0; i < MAX_CALLS; i++) {
+  https
+    .request("https://www.google.com", (res) => {
+      res.on("data", () => {});
+      res.on("end", () => {
+        console.log(`Request ${i + 1}`, Date.now() - start);
+      });
+    })
+    .end();
+}

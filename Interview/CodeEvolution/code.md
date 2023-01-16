@@ -416,7 +416,53 @@ const server = http.createServer((req, res) => {
 - How?
   - It uses `Thread pool` and `Event Loop`
 
+```
+const fs = require("node:fs");
+console.log("first");
+fs.readFile("./file.txt", "utf-8", (er, data) => {
+  if (er) {
+    console.log(er);
+  } else {
+    console.log(data);
+  }
+
+});
+console.log("last");
+// here readfile is an async operation but how the node js is doing this 
+// with the help of libuv Thread pool
+```
 - This is how the conversation will look like
   - `Main Thread`: ***hey libuv i need to read file contents but that is a time consuming task . i dont want to block further code from being executed during this time. can i offload this task to you?*** 
   - `Libuv` : ***Sure main thread unlike you who is single threaded i have a pool of threads that i can use to run some of these time consuming tasks. When the task is done the file contents are retireved and the associated callback function can be run***
+
+- A few async methods like fs.readFile and crypto.pbkdf2 run on a seperate thread in libuv's thread pool.
+- They do run synchronously in their own thread but as far as the main thread is concerned it appears as if the method is running asynchronously
+## Thread Pool Size
+- libuv thread pool is of size 4 thread that means it can only do 4 tasks at a same time 
+- the fifth task takes the fifth thread will only get the chance of running when any of the thread gets empty 
+- please checout the video 
+## Network I/O
+```
+const https = require("node:https");
+const MAX_CALLS = 12;
+const start = Date.now();
+for (let i = 0; i < MAX_CALLS; i++) {
+  https
+    .request("https://www.google.com", (res) => {
+      res.on("data", () => {});
+      res.on("end", () => {
+        console.log(`Request ${i + 1}`, Date.now() - start);
+      });
+    })
+    .end();
+}
+```
+- In this experiment we get the same time even if we are running 1 call or more 
+-  we can say that although both crypto and https.request are asynchronous https.request method does not seem to use the thread pool
+- https.request does not seem to be affected by the either
+- https.request is  a network input/output and not a CPU bond operation 
+## Event Loop
+- JS is a synchronous, blocking and single-threaded language 
+- To make async programming possible we need the help of libuv
+[Image](https://user-images.githubusercontent.com/40628582/212689344-9e7564e8-03fd-4ef4-98cb-f440c3dc56a6.png)
   

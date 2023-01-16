@@ -464,5 +464,5 @@ for (let i = 0; i < MAX_CALLS; i++) {
 ## Event Loop
 - JS is a synchronous, blocking and single-threaded language 
 - To make async programming possible we need the help of libuv
-[Image](https://user-images.githubusercontent.com/40628582/212689344-9e7564e8-03fd-4ef4-98cb-f440c3dc56a6.png)
+![Image](https://user-images.githubusercontent.com/40628582/212689344-9e7564e8-03fd-4ef4-98cb-f440c3dc56a6.png)
   

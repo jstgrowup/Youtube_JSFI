@@ -333,4 +333,9 @@ function MyComponent() {
 [Please_read_this](https://github.com/jstgrowup/NamasteReact/blob/main/Day3/Assignments/assignment.md) 
 most of the feature of parcel and webpack are same and offers almost same features like tree shaking HMR etc
 # What does babel do?
-- 
+- Babel is a transpiler that converts new JS code into old ones 
+- It is very flexible too in terms of transpiling 
+- One can easily add presents such as es2015,es2016,es2017 so that babel compiles them to ES5
+- Babel allows us to have a clean, maintainable code using the latest JS specifications without needing to worry about browser support
+# Can you write react without JSX?
+- Yes we can because JSX is just a syntactical sugar of react.createElement()

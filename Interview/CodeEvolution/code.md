@@ -544,3 +544,57 @@ process.nextTick(() => console.log("this is nexttick queue"));
 - callbacks in the microtask queue are executed before callbacks in the timer queue
 - `Priotity`: nextTick -> Promise queue -> Timer queue
 - Timer queue callbacks are executed in FIFO order 
+# I/O queue
+- To queue a callback into the I/O queue 
+- Most of the async methods from the built-in modules queue the callback function in the I/O queue
+- Example
+  - fs.readFile()
+```
+const fs = require("node:fs");
+fs.readFile(__filename, () => {
+  console.log("reading the file");
+});
+process.nextTick(() => console.log("this is firsttick"));
+Promise.resolve().then(() => console.log("I am the promise"));
+Op=>
+// this is firsttick
+// I am the promise
+// reading the file
+
+```
+- By this experiment we unsderstand that callbacks in the microtask queue are executed before callbacks in the I/O queue
+- Example 2
+```
+fs.readFile(__filename, () => {
+  console.log("reading the file");
+});
+setTimeout(() => {
+  console.log("I am settimeout");
+}, 0);
+op=>
+// I am settimeout
+// reading the file
+might be when you run the experiment several times
+op=>
+// reading the file
+// I am settimeout
+```
+- by this exeperiment we know that setTimeout with delay of 0ms and an I/O async method the order of execution can never beb gauranteed
+- Experiment 3
+```
+fs.readFile(__filename, () => {
+  console.log("reading the file");
+});
+setTimeout(() => {
+  console.log("I am settimeout");
+}, 0);
+process.nextTick(() => console.log("I am next tick"));
+Promise.resolve().then(() => console.log("Promise resolved"));
+op=>
+// I am next tick
+// Promise resolved
+// I am settimeout
+// reading the file
+```
+- the O/P makes sense because the timer queue > I/O queue because its a loop 
+- I/O queue callbacks are executed after Microtask queues callbacks and Timer queue callbacks 

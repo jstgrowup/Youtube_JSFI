@@ -146,3 +146,67 @@ class Message extends React.PureComponent {
 # useCallback
 - Hooks can be used to optimize the rendering behaiviour of your react function components.
 - useCallback returns a memoized version of the callback that only changes if one of the depedecies has changed
+# What are useRefs?
+- useref creates a plain JS object by creating a .current property
+- useRef doenst notify you when its content changes Therefore mutating the .current property doesnt cause a rerender
+- It permits creating a refernce to the DOM element directly within the functional component
+# How Context API works ? What does it solves
+- The react context API allows to easuly access data at different levels of the component tree without having to pass data down the `props`
+- Before using context we have to pass the JSX as children
+- Used in theming,current account,Routing and also managing state
+- React passes data to child components via props from the top to bottom.
+- while there are few props or child components it is easy to manage and pass down data but when the application grows we need context which solves the issue it pass data to all of the components in the tree without writing them manually in each of them.
+# What does the useReducer do?
+- It accepts a reducer function with the application initial state returns the current application state then dispatches a function 
+- when we click the incement button it will dispatch an action which updates the count and the updated count will be displayed 
+- It helps in readability(when the applicaiton gets bigger and bigger this api helps us to seperate the how of the update logic from the what happened of the event handlers)
+- Helps in debugging
+# How do you use Profiler?
+- the profiler measures how often a react application renders and what is the cost of rendering is . Its purpose is to help identify parts of an application that are slow and may be benefit from optimization techniques
+- Profiler can be added anywhere in the react tree to measure the cost of rendering that part of the tree 
+- It takes two props an `id` and an `onRender` callback which React calls any time a component within the tree "commits" an update
+```
+render(
+  <App>
+    <Profiler id="Navigation" onRender={callback}>
+      <Navigation {...props} />
+    </Profiler>
+    <Main {...props} />
+  </App>
+);
+```
+- The callback gives 
+```
+function onRenderCallback(
+  id, // the "id" prop of the Profiler tree that has just committed
+  phase, // either "mount" (if the tree just mounted) or "update" (if it re-rendered)
+  actualDuration, // time spent rendering the committed update
+  baseDuration, // estimated time to render the entire subtree without memoization
+  startTime, // when React began rendering this update
+  commitTime, // when React committed this update
+  interactions // the Set of interactions belonging to this update
+) {
+  // Aggregate or log render timings...
+}
+```
+[Link](https://reactjs.org/docs/profiler.html#:~:text=The%20Profiler%20measures%20how%20often,disabled%20in%20the%20production%20build.)
+- `It is just a chrome extention tool you will find in the react dev tools`
+# What is dispatcher?
+- dispatcher is a single object that broadcasts actions/events to all registered stores
+- Stores need to register for events when the application starts
+# What is Flux architecture ?
+- Redux derives its ideas from the Flux architecture  
+- Flux is a replacement for the traditional MVC pattern
+- Flux is a JS architecture or pattern for UI which runs on a unidirectional data flow and has a centralized store
+- It is useful when your project has a dynamic data and and you need to keep the data updated in an effective manner 
+- It Has following components
+     1. `Store/Stores`: Serves as a container for the app state and logic
+     2. `Action`: Enables data passing to the dispatcher 
+     3. `View`: Same as the view in MVC architecture, but in the context of React Components
+     4. `Dispatcher`: Coordinates actions and updates to stores  
+- When the user clicks on something the view creates actions.
+- Action can create new data and send it to the dispatcher 
+- The dispatcher then dispatches the action result to the appropriate store
+- The store updates the state based on the result and sends an update to the view
+
+               

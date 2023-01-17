@@ -71,16 +71,27 @@
 // }
 // const person = new Person("Khan", "Web developer")
 // person.details()
-const user = {
-  name: "John",
-  printInfo: function () {
-    console.log(`My name is ${this.name}.`);
+// const user = {
+//   name: "John",
+//   printInfo: function () {
+//     console.log(`My name is ${this.name}.`);
+//   },
+// };
+
+// const admin = Object.create(user);
+
+// admin.name = "Nick"; // Remember that "name" is a property set on "admin" but not on "user" object
+// console.log("admin:", admin);
+
+// admin.printInfo(); // My name is Nick
+
+const age = 10;
+const person = {
+  name: "subham",
+  age: 34,
+  getAge: function () {
+    return this.age;
   },
 };
-
-const admin = Object.create(user);
-
-admin.name = "Nick"; // Remember that "name" is a property set on "admin" but not on "user" object
-console.log("admin:", admin);
-
-admin.printInfo(); // My name is Nick
+const person2 = { age: 54 };
+console.log(person.getAge.call(person2))

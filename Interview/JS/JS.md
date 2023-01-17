@@ -1216,4 +1216,48 @@ console.log("admin:", admin);
 ```
 ## call,apply and Bind
 # call
-- 
+- The call method invokes a function with a given this value and arguments provided one by one 
+```
+let obj = { name: "subham" };
+function hello(age) {
+  return "Hello" + this.name + age;
+  // this will point to the window object but there is not name in the wondow object
+  // so the issue i want this function to point to the obj object but how will i do it
+  // call is a method avaiable to all the functions in JS
+  // call takes the object as its arguments and any other parameters if any that you want your function to point to
+}
+console.log(hello.call(obj, 3)); //Hellosubham
+```
+# apply
+- apply is pity same just like the call but here the arguments are taken in the form of an array the arguments other than the object 
+```
+console.log(hello.apply(obj,[3,"subham","software engineer"]))
+```
+# bind
+- returns a new function allowing you to pass any number of arguments
+```
+let obj = { name: "subham" };
+function hello(age) {
+  return "Hello" + this.name + age;
+ 
+}
+const bindfun = hello.bind(obj);
+console.log(bindfun(23));
+console.log(bindfun(34));
+
+```
+- O/P based question 
+
+```
+const age = 10;
+const person = {
+  name: "subham",
+  age: 34,
+  getAge: function () {
+    return this.age;
+  },
+};
+const person2 = { age: 54 };
+console.log(person.getAge.call(person2))
+```
+- Here the getAge initially was pointing 

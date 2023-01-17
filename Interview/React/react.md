@@ -208,5 +208,129 @@ function onRenderCallback(
 - Action can create new data and send it to the dispatcher 
 - The dispatcher then dispatches the action result to the appropriate store
 - The store updates the state based on the result and sends an update to the view
+![image](https://static.javatpoint.com/tutorial/reactjs/images/react-flux-concept.png)
 
-               
+# What is redux?
+- Redux is a state management tool 
+- While it is mostly used with React it can be used with any other JS framework 
+- The state of the application is kept in a store and each component can access that it needs from the store
+- The reducer updates the centralized store with new data based on the kind of action it recieves 
+- Store creates a new state and sends an update to view 
+`Core principles of redux`:
+    - `Single source of truth`:The state of the whole application is stored in a single store
+    - `State is read-only`:The only way to change the state is to emit an action (an object describing what happend along with the data or the payload if any) this actually ensures that no one can mutate the state directly 
+    - `Changes are made with pure functions`: To specify how the state tree is transformed by actions we write reducers which are nothing but pure functions that take the previous state and an actions as parameters and return teh next state
+# What are reducers?
+- Reducers are just pure functions that take the current state if an application perform an action and return a new state
+- These states are stored as objects and they specify how the state of an application changes in response to an action sent to the store
+# What are actions ?
+- These are just plain JS objects or paylaods of information that send data from the application to the store
+- They are only source of information of the store
+- Actions wil have a type property that indicates the type of action being performed and a payload which will have the new data that will be stored in the store 
+# What are dispatcher?
+- The dispatcher dispatched the action result to the sppropriate store and the store updates the state based on the result and sends an update to the view 
+# What are side effects in React?
+- Date fetching , setting up a subscription and manually changing the DOM in React components are some the side effects in React
+# What are combine reducers?
+- It is a helper function turns an object whose values are different reducing functions into single reducing function you can pass to createStore
+```
+const rootReducers = combineReducer(reducer1, reducer2)
+```
+# What are thanks? Why do you need them ?
+- NA 
+# Write how you would write an API request in redux thunks
+- Thunk is a middleware that lets us call action creators that return a function instead of an action 
+- The thunk can be used to delay the dispatch of an action or to dispatch only if a certain condition is met lets say only after the network call is made
+```
+import { applyMiddleware, combineReducers, createStore } from 'redux'
+
+import thunk from 'redux-thunk'
+
+// actions.js
+export const addRepos = repos => ({
+  type: 'ADD_REPOS',
+  repos,
+})
+
+export const clearRepos = () => ({ type: 'CLEAR_REPOS' })
+
+export const getRepos = username => async dispatch => {
+  try {
+    const url = `https://api.github.com/users/${username}/repos?sort=updated`
+    const response = await fetch(url)
+    const responseBody = await response.json()
+    dispatch(addRepos(responseBody))
+  } catch (error) {
+    console.error(error)
+    dispatch(clearRepos())
+  }
+}
+
+// reducers.js
+export const repos = (state = [], action) => {
+  switch (action.type) {
+    case 'ADD_REPOS':
+      return action.repos
+    case 'CLEAR_REPOS':
+      return []
+    default:
+      return state
+  }
+}
+
+export const reducers = combineReducers({ repos })
+
+// store.js
+export function configureStore(initialState = {}) {
+  const store = createStore(reducers, initialState, applyMiddleware(thunk))
+  return store
+}
+
+export const store = configureStore()
+```
+# What is lazy loading mean?
+- Its a function that lets you load components lazily through 
+- It makes possible for us to dynamically import components but they are rendered like regular components
+- React.lazy() takes a function that returns a promise as its argument the function returns a promise by calling import() to load the content 
+- returned promise resolves to a module with a default conatining the react component
+```
+// Without Lazy
+import MyComponent from './MyComponent';
+ 
+// With Lazy
+const MyComponent = React.lazy(() => import('./MyComponent'));
+```
+[Check_Docs_For_More_Info](https://reactjs.org/docs/code-splitting.html#:~:text=The%20React.lazy%20function%20lets,import%20as%20a%20regular%20component.)
+-The lazy component should then be rendered inside a Suspense component, which allows us to show some fallback content (such as a loading indicator) while we’re waiting for the lazy component to load.
+```
+import React, { Suspense } from 'react';
+
+const OtherComponent = React.lazy(() => import('./OtherComponent'));
+
+function MyComponent() {
+  return (
+    <div>
+      <Suspense fallback={<div>Loading...</div>}>
+        <OtherComponent />
+      </Suspense>
+    </div>
+  );
+}
+```
+- The fallback prop accepts any React elements that you want to render while waiting for the component to load.
+- You can place the Suspense component anywhere above the lazy component.
+- You can even wrap multiple lazy components with a single Suspense component.
+# What does Webpack do?
+- Webpack has two sets of functinality
+- Loaders and Plugins
+  - Loaders
+    - Loaders transforms the source code of a module
+    - style-loader adds CSS to DOM using style tags
+    - sass-loader compiles SASS files to CSS
+    - babel-loader traspiles JS code 
+  - Plugins are the core of webpack they can do things that loaders cant 
+    - UglifyJS that minifies and uglifies the output of webpack.
+[Please_read_this](https://github.com/jstgrowup/NamasteReact/blob/main/Day3/Assignments/assignment.md) 
+most of the feature of parcel and webpack are same and offers almost same features like tree shaking HMR etc
+# What does babel do?
+- 

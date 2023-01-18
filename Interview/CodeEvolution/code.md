@@ -598,3 +598,55 @@ op=>
 ```
 - the O/P makes sense because the timer queue > I/O queue because its a loop 
 - I/O queue callbacks are executed after Microtask queues callbacks and Timer queue callbacks 
+# I/O Polling
+- To queue a callback function into a check queue we can use a function called setImmediate
+```
+setImmediate(()=>{
+  log("this is setImmediate")
+})
+```
+example
+```
+fs.readFile(__filename, () => {
+  console.log("reading the file");
+});
+setTimeout(() => {
+  console.log("I am settimeout");
+}, 0);
+process.nextTick(() => console.log("I am next tick"));
+Promise.resolve().then(() => console.log("Promise resolved"));
+// as we know that check queue gets executed after the I/O callback so now
+setImmediate(() => console.log("setImmediate"));
+ op=>
+ I am next tick
+ Promise resolved
+ I am settimeout
+ setImmediate
+ reading the file
+- but the O/P says something else here the I/O callback is executed after the setimmediate here the concept of I/O polling comes into picture 
+```
+
+- I/O events are polled and callback functions are added to the I/O queue only after the I/O is complete 
+- So thats why the eventloop checks the check queue and it sees that we have a callback there therefore the callback executes first rather and than in the second iteration it sees we have a callback in the I/O callback and it gets executed after that  
+- `but wait there is gotcha`
+```
+const file = fs.readFileSync("./file.txt", "utf-8");
+console.log("file:", file);
+setTimeout(() => {
+  console.log("I am settimeout");
+}, 0);
+process.nextTick(() => console.log("I am next tick"));
+Promise.resolve().then(() => console.log("Promise resolved"));
+
+setImmediate(() => console.log("setImmediate"));
+```
+- what do you think the O/P will be 
+- yes you guessed it right because now we are reading the file synchronously 
+```
+file: hello codesdsdsd
+I am next tick  
+Promise resolved
+I am settimeout 
+setImmediate
+```
+- This is the O/P

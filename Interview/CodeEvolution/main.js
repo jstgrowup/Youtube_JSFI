@@ -1,10 +1,10 @@
 const fs = require("node:fs");
-const file = fs.readFileSync("./file.txt", "utf-8");
-console.log("file:", file);
+fs.readFile("./file.txt", () => {
+  console.log("this is readfile 1");
+  setImmediate(() => console.log("setImmediate"));
+});
+process.nextTick(() => console.log("I am next tick"));
+Promise.resolve().then(() => console.log("Promise resolved"));
 setTimeout(() => {
   console.log("I am settimeout");
 }, 0);
-process.nextTick(() => console.log("I am next tick"));
-Promise.resolve().then(() => console.log("Promise resolved"));
-
-setImmediate(() => console.log("setImmediate"));

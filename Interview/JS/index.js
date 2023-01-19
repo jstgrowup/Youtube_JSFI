@@ -85,13 +85,4 @@
 
 // admin.printInfo(); // My name is Nick
 
-const age = 10;
-const person = {
-  name: "subham",
-  age: 34,
-  getAge: function () {
-    return this.age;
-  },
-};
-const person2 = { age: 54 };
-console.log(person.getAge.call(person2))
+

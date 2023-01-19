@@ -650,3 +650,7 @@ I am settimeout
 setImmediate
 ```
 - This is the O/P
+# Check Queue
+- Check queue callbacks are executed after Microtask queue callbacks 
+- Timer queue callbacks and I/O queue callbacks are executed 
+- 

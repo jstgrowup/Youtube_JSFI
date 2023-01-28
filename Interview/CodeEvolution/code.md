@@ -670,4 +670,24 @@ setImmediate
   - npm is a library or a registry which contains code packages written by various developers
   - it is large public database pf JS code that developers from all over the world can use to share and borrow code
 - npm is a software package manager 
-  - 
+- there are other package managers like pnpm and Yarn
+- npm is the default package manager for Node.js and it is installed when we install nodeJs
+- when building enterprise scale applications we often need to rely on code written by other developers we need npm 
+# package.json
+- it is the npm's configuration file
+- it is a json file that typically lives in the root directory of our package and holds various metadata relevant to the package 
+- it is the central place to configure and describes how to interact with and run our packages 
+```
+"name":"greet",
+"version":"1.0.0",
+"description":"this is subhams first package",
+"keywords":["subham","dey"],
+"main":"index.js",
+```
+# dependencies
+- semantic versioning 
+ - is one of the most widely adopted versioning systems
+ - A simple set of rules and requirements that dictate how version numbers are assigned and incremented
+ - it is crucial to keep a semantic and historical track of changes 
+ - version numbers and the way they change convey meaning about the underlying code and what has been modified from one version 
+ - 

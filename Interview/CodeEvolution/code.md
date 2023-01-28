@@ -653,4 +653,21 @@ setImmediate
 # Check Queue
 - Check queue callbacks are executed after Microtask queue callbacks 
 - Timer queue callbacks and I/O queue callbacks are executed 
-- 
+# Close Queue
+- Close queue callbacks are executed after all the other queues callbacks in a given iteration of the event loop
+# Summary 
+1. event loop is C program that orchestrates or coordinates the execution of synchronous and asynchronous code in Node.js
+2. It coordinates the execution of callbacks in six different queues
+3. They are nextTick, Promise ,timer,I/O,check and close queues
+4. we use process.nextTick() method to queue into the nextTick queue
+5. we resolve or reject a Promise to queue into the promise queue
+6. we use setTimeout or setInterval to queue into the timer queue
+7. execute an async method to queue into the I/O queue
+8. use setImmediate function to queue into the check queue and finally 
+9. Attach close event listeners to queue into the close queue
+## npm
+- npm is the worlds largest software library
+  - npm is a library or a registry which contains code packages written by various developers
+  - it is large public database pf JS code that developers from all over the world can use to share and borrow code
+- npm is a software package manager 
+  - 

@@ -691,3 +691,19 @@ setImmediate
  - it is crucial to keep a semantic and historical track of changes 
  - version numbers and the way they change convey meaning about the underlying code and what has been modified from one version 
  - 
+# Global Package
+- 
+# npm scripts
+- An npm script is a convinient way to bundle common commands for use in a project 
+- They are typically entered in the command line in order to do something with the application 
+- npm scripts are stored in a projects package.json file giving access to everyone who has access to the codebase
+- They also ensure that everyone is using the same command with the same options 
+- command use cases for npm scripts include building your project starting a development server compiling CSS,linting, minifying etc 
+- npm scripts are executed using the command npm run <script_name>
+# CLI tools
+- CLI stands for command Line interface
+- A program that you can run from the terminal
+- example
+  - npm
+  - git
+- 

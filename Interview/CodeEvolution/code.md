@@ -746,5 +746,5 @@ if (cluster.isMaster) {
 - Code executed in a worker thread runs in a seperate child process. preventing it from blocking the main application
 - the cluster module can be used to run multiple instances of Node.js that can distribute workloads
 - worker_threads module allows running multiple application threads within a single nodejS instance 
-- when process isolation is not needed that is n seperate instance of V8 event loop and memory are needed you should use worker_threads
+- when process isolation is not needed that is no seperate instance of V8 event loop and memory are needed you should use worker_threads
 - 

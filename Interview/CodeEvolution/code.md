@@ -706,4 +706,45 @@ setImmediate
 - example
   - npm
   - git
+## Cluster module
+- Node is single threaded
+- No matter how many cores you have node only uses a single core of your CPU 
+- This is fine ofr I/O operations but if the code has long running and CPU intensive operations your application might struggle from a performance point of view 
+- Therefore Introduced the concept of cluster module
+- The cluster module enables the creation of child processes that run simultanously 
+- All created workers share the same server port 
+- Master is only in charge of the workers
+- workers are in charge of handling incoming requests reading files etc
+- Each worker gets its own eventloop memory and V8 instance
+```
+const cluster = require("node:cluster");
+const http = require("node:http");
+if (cluster.isMaster) {
+  console.log(`Process is running`);
+  cluster.fork();
+  cluster.fork();
+} else {
+  console.log(`worker started`);
+  const server = http.createServer((req, res) => {
+    if (req.url === "/") {
+      res.end("home page");
+    } else if (req.url === "/slow-page") {
+      for (let i = 0; i < 60000; i++) {
+        res.end("slow page");
+      }
+    }
+  });
+  server.listen(8080, () => console.log("server started"));
+}
+
+```
+- Why shouldnt we simply create a large number of workers using cluster.fork()
+- we should only create as many workers as there are CPU cores on the machine the app is running 
+- If we create more worker than there are logical cores on the computer it can cause an overhead as the system will have to schedule all the created workers with fewer number of cores
+## Worker threads module
+- The worker threads module enables the use of threads that execute JS in parallel
+- Code executed in a worker thread runs in a seperate child process. preventing it from blocking the main application
+- the cluster module can be used to run multiple instances of Node.js that can distribute workloads
+- worker_threads module allows running multiple application threads within a single nodejS instance 
+- when process isolation is not needed that is n seperate instance of V8 event loop and memory are needed you should use worker_threads
 - 

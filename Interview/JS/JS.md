@@ -1261,3 +1261,4 @@ const person2 = { age: 54 };
 console.log(person.getAge.call(person2))
 ```
 - Here the getAge initially was pointing 
+- Restarting everything again 

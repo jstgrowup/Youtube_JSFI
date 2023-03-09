@@ -653,4 +653,98 @@ setImmediate
 # Check Queue
 - Check queue callbacks are executed after Microtask queue callbacks 
 - Timer queue callbacks and I/O queue callbacks are executed 
+# Close Queue
+- Close queue callbacks are executed after all the other queues callbacks in a given iteration of the event loop
+# Summary 
+1. event loop is C program that orchestrates or coordinates the execution of synchronous and asynchronous code in Node.js
+2. It coordinates the execution of callbacks in six different queues
+3. They are nextTick, Promise ,timer,I/O,check and close queues
+4. we use process.nextTick() method to queue into the nextTick queue
+5. we resolve or reject a Promise to queue into the promise queue
+6. we use setTimeout or setInterval to queue into the timer queue
+7. execute an async method to queue into the I/O queue
+8. use setImmediate function to queue into the check queue and finally 
+9. Attach close event listeners to queue into the close queue
+## npm
+- npm is the worlds largest software library
+  - npm is a library or a registry which contains code packages written by various developers
+  - it is large public database pf JS code that developers from all over the world can use to share and borrow code
+- npm is a software package manager 
+- there are other package managers like pnpm and Yarn
+- npm is the default package manager for Node.js and it is installed when we install nodeJs
+- when building enterprise scale applications we often need to rely on code written by other developers we need npm 
+# package.json
+- it is the npm's configuration file
+- it is a json file that typically lives in the root directory of our package and holds various metadata relevant to the package 
+- it is the central place to configure and describes how to interact with and run our packages 
+```
+"name":"greet",
+"version":"1.0.0",
+"description":"this is subhams first package",
+"keywords":["subham","dey"],
+"main":"index.js",
+```
+# dependencies
+- semantic versioning 
+ - is one of the most widely adopted versioning systems
+ - A simple set of rules and requirements that dictate how version numbers are assigned and incremented
+ - it is crucial to keep a semantic and historical track of changes 
+ - version numbers and the way they change convey meaning about the underlying code and what has been modified from one version 
+ - 
+# Global Package
+- 
+# npm scripts
+- An npm script is a convinient way to bundle common commands for use in a project 
+- They are typically entered in the command line in order to do something with the application 
+- npm scripts are stored in a projects package.json file giving access to everyone who has access to the codebase
+- They also ensure that everyone is using the same command with the same options 
+- command use cases for npm scripts include building your project starting a development server compiling CSS,linting, minifying etc 
+- npm scripts are executed using the command npm run <script_name>
+# CLI tools
+- CLI stands for command Line interface
+- A program that you can run from the terminal
+- example
+  - npm
+  - git
+## Cluster module
+- Node is single threaded
+- No matter how many cores you have node only uses a single core of your CPU 
+- This is fine ofr I/O operations but if the code has long running and CPU intensive operations your application might struggle from a performance point of view 
+- Therefore Introduced the concept of cluster module
+- The cluster module enables the creation of child processes that run simultanously 
+- All created workers share the same server port 
+- Master is only in charge of the workers
+- workers are in charge of handling incoming requests reading files etc
+- Each worker gets its own eventloop memory and V8 instance
+```
+const cluster = require("node:cluster");
+const http = require("node:http");
+if (cluster.isMaster) {
+  console.log(`Process is running`);
+  cluster.fork();
+  cluster.fork();
+} else {
+  console.log(`worker started`);
+  const server = http.createServer((req, res) => {
+    if (req.url === "/") {
+      res.end("home page");
+    } else if (req.url === "/slow-page") {
+      for (let i = 0; i < 60000; i++) {
+        res.end("slow page");
+      }
+    }
+  });
+  server.listen(8080, () => console.log("server started"));
+}
+
+```
+- Why shouldnt we simply create a large number of workers using cluster.fork()
+- we should only create as many workers as there are CPU cores on the machine the app is running 
+- If we create more worker than there are logical cores on the computer it can cause an overhead as the system will have to schedule all the created workers with fewer number of cores
+## Worker threads module
+- The worker threads module enables the use of threads that execute JS in parallel
+- Code executed in a worker thread runs in a seperate child process. preventing it from blocking the main application
+- the cluster module can be used to run multiple instances of Node.js that can distribute workloads
+- worker_threads module allows running multiple application threads within a single nodejS instance 
+- when process isolation is not needed that is no seperate instance of V8 event loop and memory are needed you should use worker_threads
 - 

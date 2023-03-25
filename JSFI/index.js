@@ -948,5 +948,17 @@
 //   btnPress.textContent = pressedcount++;
 //   ThrottleCount();
 // });
-// ------------------------------------------ PROMISE 
+// ------------------------------------------ Throw
+// function errorCreator() {
+//   throw "I am an error";
+// }
+// function comeBack() {
+//   try {
+//     const data = errorCreator();
+//     console.log("hey i am in the try block", data);
+//   } catch (error) {
+//     console.log("hey i am in the catch block", error);
+//   }
+// }
+// comeBack();
 

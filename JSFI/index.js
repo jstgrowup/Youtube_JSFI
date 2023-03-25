@@ -961,4 +961,12 @@
 //   }
 // }
 // comeBack();
+// --------------------------------- Inbuilt Constructor
+let a = 10;
+let b = 90;
+console.log("b:", typeof b);
+let c = new Number(90);
+console.log("c:", typeof c);
 
+console.log(c == b);
+console.log(c === b);

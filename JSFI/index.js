@@ -975,5 +975,14 @@
 // const adr = 'http://localhost:8080/default?year=2022&month=september';
 // let urlObject=url.parse(adr,true);
 // console.log('urlObject:', urlObject)
+// --------------------------------- Buffer datatype
+// let buf=new Buffer(50)
+// let str="123456789"
+// console.log('str:length', str.length)
+// buf.write(str)
+// console.log('buf:length', buf.length)
+// console.log('buf:', buf)
+
+
 
 

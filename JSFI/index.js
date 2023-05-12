@@ -962,11 +962,18 @@
 // }
 // comeBack();
 // --------------------------------- Inbuilt Constructor
-let a = 10;
-let b = 90;
-console.log("b:", typeof b);
-let c = new Number(90);
-console.log("c:", typeof c);
+// let a = 10;
+// let b = 90;
+// console.log("b:", typeof b);
+// let c = new Number(90);
+// console.log("c:", typeof c);
 
-console.log(c == b);
-console.log(c === b);
+// console.log(c == b);
+// console.log(c === b);
+// --------------------------------- URL module in Node
+// let url=require("url")
+// const adr = 'http://localhost:8080/default?year=2022&month=september';
+// let urlObject=url.parse(adr,true);
+// console.log('urlObject:', urlObject)
+
+

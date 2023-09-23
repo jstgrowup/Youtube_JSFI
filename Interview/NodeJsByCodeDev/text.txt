@@ -1,0 +1,16 @@
+V8 is a library which provides NodeJs with a JS engine which NodeJs controls via
+the V8 C++ API 
+
+libuv
+its a C library and its an important dependency on NodeJs 
+
+ OS is like hardware and software connections
+ on top of the OS we have different processes like Nodejs MYSQL
+ etc.
+ these processes are opened up by the OS usually
+  
+event loop
+event loop and libuv gives the power to run the code asyncronosly
+
+
+  

@@ -11,6 +11,17 @@ its a C library and its an important dependency on NodeJs
   
 event loop
 event loop and libuv gives the power to run the code asyncronosly
+process.nextTick is a function used to put a code in the eventLoop and the rest of the code will be run in the V8 iteself
+V8 and eventLoop both run in the same thread it acts as the same box 
 
+
+Event Emitter
+
+Binary data
+- its core is just 0s and 1s 
+- 1 box = 1bit and 8bits=1byte
+- 
+files are just the sequence of bits
+khjkjhjhkhkhhhhhhhhhhh
 
   

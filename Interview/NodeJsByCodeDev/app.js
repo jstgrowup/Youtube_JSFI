@@ -57,17 +57,19 @@
 // syncall();
 //
 
-const fs = require("fs/promises");
-const uplaod = async () => {
-  try {
-    const watcher = fs.watch("./text.txt");
-    for await (const event of watcher) {
-      console.log("event:", event);
-    }
-    // await fs.copyFile("text.txt", "copied-promise.txt");
-  } catch (error) {
-    console.log("error:", error);
-  }
-};
- uplaod();
-
+// const fs = require("fs/promises");
+// const uplaod = async () => {
+//   try {
+//     const watcher = fs.watch("./text.txt");
+//     for await (const event of watcher) {
+//       console.log("event:", event);
+//     }
+//     // await fs.copyFile("text.txt", "copied-promise.txt");
+//   } catch (error) {
+//     console.log("error:", error);
+//   }
+// };
+//  uplaod();
+const buff = Buffer.alloc(8);
+buff.write("s", "utf-8");
+console.log("buff:", buff);

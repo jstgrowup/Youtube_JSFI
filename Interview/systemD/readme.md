@@ -66,3 +66,32 @@
     - A real-world object or concept that has an existence and can be uniquely identified
   - ER diagrams use graphical representations to illustrate entities, attributes, relationships, and the overall structure of a database
 # What is indexing?
+  - Indexing creates a lookup table with the column and the pointer to the memory location of the row containing this column
+  - lets say in the lookup table the data will be sorted so that while we apply a whereclouse it will take log(N) time complexity it will atleast know which part to search
+# How do you use lookup in mongodb?
+ - joints in DB
+ - $lookup is an aggregation pipeline stage that allows you to perform a left outer join between two collections
+ ```
+        await storeCatalogueData.aggregate([
+          {
+            $lookup: {
+              from: 'StoreCatalogueVariant',
+              localField: '_id',
+              foreignField: 'storeCatalogueId',
+              as: 'variants',
+            },
+          },
+        ])
+ ```
+# What is the difference between SQL and NoSQL databases?
+  - SQL stands for structured query language these are usually in the form of tables these are vertically scalable
+  - NoSQL are document , JSON,BSON ,graph formats these are horizontally scalable
+  - SQL are relational databases so relation is easy and its well structured
+  - SQL is ACID complient 
+  - SQL takes a lot of time to setup than that of noSQL because 
+  - SQL is not effective for storing or querying unstructured data where the format is unknown
+  - SQL is difficult to scale horizontally for read heavy systems than we can make a provision for multiple replicas but for write heavy systems the only way is to vertically scale up which means more expensive 
+  - NoSQL are more flexible and simpler to setup because they do not support table relationships
+  - because they are better in handling unstructured data therefore they are better in sharding which  makes horizontal scaling much easier
+  - Database sharding is a technique used to improve the performance and scalability of a database by dividing it into smaller, more manageable pieces called "shards." Each shard is essentially a separate database that stores a subset of the overall data.
+  - NoSQL is designed for distributed usecases and write heavy systems can be supported by having multiple right shards for the same data partition now the thing is lets say the write  request goes to a shard in a distributed nosql clustur there is a small delay before it reflects to the other replicas at that time if  there is a read request it might lead to inconsistent data

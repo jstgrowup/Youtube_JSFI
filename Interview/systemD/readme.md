@@ -128,7 +128,8 @@
 # Rate Limiting?
   - it is technique by which we can rate the number of requests that are made to an API, service, or website
   - it ensures stability and availability of the system by preventing excessive usage that could lead to performance issue
-  ![Video](https://youtu.be/qUydEBZmGvU)
+  [![Watch the video](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://youtu.be/qUydEBZmGvU)
+  
   - its like setting a limit like 10 or 1000 requests perday
   - `Algorithms for rate limiting`
      1. `window Based`

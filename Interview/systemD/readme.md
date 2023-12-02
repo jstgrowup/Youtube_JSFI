@@ -95,3 +95,42 @@
   - because they are better in handling unstructured data therefore they are better in sharding which  makes horizontal scaling much easier
   - Database sharding is a technique used to improve the performance and scalability of a database by dividing it into smaller, more manageable pieces called "shards." Each shard is essentially a separate database that stores a subset of the overall data.
   - NoSQL is designed for distributed usecases and write heavy systems can be supported by having multiple right shards for the same data partition now the thing is lets say the write  request goes to a shard in a distributed nosql clustur there is a small delay before it reflects to the other replicas at that time if  there is a read request it might lead to inconsistent data
+
+# What is unit testing?
+  - here the individual unit of the software is tested
+  - a unit is the smallest testable part of any software
+  - each unit of the software should perform as designed
+     1. unit testing offers better and clean code design and it helps us to write loosely coupled code
+     2. unit test helps us to indentify and ensure that the new changes do not introduce any break in existing functionality
+     
+# What is DNS?
+  - DNS stands for Domain Name Server its like a phone book of the internet
+  - here an IP addresses is represented by a human readable domain name
+  - when a user types a url than it will check the information in local cache if it is unable to find that information in the local cache if its not there than it will search in the DNS server in the local area network(LAN)
+
+# How does the internet work?
+  - the internet is a global network of interconnected computer networks that allows for the sharing of information and communication across the world
+  - there are some protocols like transmission control protocol and internet protocol by which the devices transmits data packets
+     1. when we access our device sends a request to ISP through a modem or router
+     2. our ISP then connects us to the internet , the ISPs are connected to other networks through exchange points, now our devices can communicate with other devicesaround the world by sending and recieving data packets
+# HTTP and HTTPS?
+   - HTTP is the protocol used by web servers and browsers to communicate and transfer data over the internet but in HTTPS it uses SSL/TLS encryption to protect the data being transferred
+   - HTTP doest uses any encryption while sending the requests whereas in  HTTPS it establishes a secures a connection with the web browser
+# What is throughput?
+   - it is a measure of how many units of information a system can process in a given time its amount of data that can be sent / time taken for the transfer
+   measurement - bps 
+# What is latency?
+  - Latency is the time it takes for data to travel from its source to its destination
+  - It is measured in ms and can be affected by a variety of factors including 
+     1. network congestion 
+     2. Hardware capabilities 
+     3. the distance between the source and destination
+# Rate Limiting?
+  - it is technique by which we can rate the number of requests that are made to an API, service, or website
+  - it ensures stability and availability of the system by preventing excessive usage that could lead to performance issue
+  ![Video](https://youtu.be/qUydEBZmGvU)
+  - its like setting a limit like 10 or 1000 requests perday
+  - `Algorithms for rate limiting`
+     1. `window Based`
+       - 
+

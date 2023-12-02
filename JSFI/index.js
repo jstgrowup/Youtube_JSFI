@@ -1000,5 +1000,9 @@ setImmediate(() => {
   
   // First event queue ends here
   console.log("Program Started");
+  url="http://localhost:3000/rest/api/3/search"
+  query={
+    "jql":"project=TTS"
+  }
 
 

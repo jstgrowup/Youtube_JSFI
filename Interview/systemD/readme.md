@@ -133,5 +133,61 @@
   - its like setting a limit like 10 or 1000 requests perday
   - `Algorithms for rate limiting`
      1. `window Based`
-       - 
+       - so there are windows lets say a 1min window so in that window there will be a counter to check the number of requests lets say 10 reqests so per request the counter will decrease and when the counter is 0 it wont allow any other requests to come in now the issue is from 11th requests till the end they will all try in the next window all of a sudden brust of traffic which is an issue thye have to wait till the reset of the window 
 
+     2. `Sliding  window`
+       - it follows a window of requests for serving
+     3. `Token bucket`
+       - so its like you have a bucket filled with tokens
+       - so now when a requests comes in it will first check if there is any token in the bucket or not now if the token is there than we remove the token and forward the request for processing , if the bucket is empty than the request is simply discarded and after a certain time the bucket is refilled again with the tokens 
+    4. `Leaky bucket`
+       - so there is a bucket with a hole in it so now all the request will supply a limited number of request to the   server  so it doesnt matter how much traffic its in the bucket it will pass some limited number of requests to the server
+# What is a load balancer ?
+  - it balances the load coming form the clients
+  - the loadbalancer can use a simple round robin algorithm which basically means if there are servers A, B and C the balancer will redirect the first request to the server A than following the second request to B and so on
+  - the DNS will be pointing to the loadbalancer
+  - the load balancer also checks for the server health if the server A is down than the balancer will redirect the request to the server B
+# What are horizontal and vertical scaling?
+  1. `Vertical Scaling`
+    - it is also known as scaling up 
+    - its a way where we increase the CPU and RAM of a server
+    - the issue is if this server goes down than the whole application will go down
+  2. `Horizonatal Scaling`
+    - it is also known as scaling out
+    - its a way where we add more servers to increase resources
+    - so if one server goes down than the other server will take up the requests
+# What is a stateless backend?
+   - [![Watch the video](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://youtu.be/UQ2cfQV5nJ4)
+   - HTTP protocol is a stateless backend 
+# How do Browsers work?
+   - Browsers is almost like an OS 
+   - [![Watch the video](https://img.youtube.com/vi/YOUR_VIDEO_ID/0.jpg)](https://youtu.be/5rLFYtXHo9s)
+# Describe how you design an API?
+   - API is a documented way in which the external customers interact with the code to get there work done
+   - API is just a function that someone will execute 
+   `Some rules for a better API architecture`
+    1. In an API the naming should be correct lets say i want the whatsapp group admins list of a particular group so now i have to pass the group ID and the function will return the list of admins if it is returning more information like the group details than the naming is not correct
+    2. parameters should be defined early so if the parameters change than the function name also should change as well
+    3. we can optimize our api by taking more number of parameters so that i can get more in formation about the task what to do and making lesser calls internally lets say i am making 4 calls but with some more information i can make it to 2 calls
+    4. designing of the response should be good because what we do is we send everything into the response thinking that its better so if in future we need some more keys we dont have to add those keys thats why its recommended that what ever the details the caller is asking only those data should be visible
+    5. error handling is also very important so writing all the errors that are even unnecessary as well as one single generic error for all the scenarios is also bad , lets say we have a parameter which we are expecting as an integer so inside the function rather than writting a condition check we can define the type of the parameter as integer we can defined the size of that parameter i will just fail the query
+    6. defining the endpoint is also important 
+    7. if there is a huge response that is involved always consider the idea of client specific pagination where the client will send the pafgination data now as well as you can try frgametation here while we are talking from microserveice to microservice we fragment the response
+# What are ways to cache on the backend?
+   - cache reduces the latency
+   - reduces the load in the database
+   - reduces the network cache
+      `client cache`
+      - stores the web resources such as images , stylesheets , scripts and other files on the client-side in order to improve the performance and loading times of web pages example (client-caching)
+      `CDN cache`
+      - CDN is a network of distributed servers that work together to deliver web content such as images , stylesheets, scripts and other resources based on the geographic location , CDN stores copies of these web resources on multiple servers placed around the world
+      `Web server cache`
+      - 
+      `Database caching`
+      - Database caching involves storing frequently accessed or computationally expensive data in a faster and easily retrivalbe location to improve the overall performance of database-driven application 
+      `Application caching`
+      - 
+   - `Ways of caching`
+      1. global cache is a way where all the microservices have a single cache known as shared cache 
+      2. Distributed cache where we have distributed cache nodes here one node will be the parent and others will be the replcias s that the microservices can communicate with multiple caches
+      [![reference]](https://youtu.be/bP4BeUjNkXc)

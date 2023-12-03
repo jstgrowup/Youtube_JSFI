@@ -191,3 +191,12 @@
       1. global cache is a way where all the microservices have a single cache known as shared cache 
       2. Distributed cache where we have distributed cache nodes here one node will be the parent and others will be the replcias s that the microservices can communicate with multiple caches
       [![reference]](https://youtu.be/bP4BeUjNkXc)
+
+# what is Redis?
+   - Redis is an in-memory data structure store that is often used as a caching solution due to its fast read and write operations.
+   - It allows you to store and retrieve data in memory, making it a great choice for caching frequently accessed or computationally expensive data
+# How can we implement caching on frontend?
+   - HTTP caching - web servers can include HTTP caching headers in their responses . these headers instruct the browser on how to cache the resources 
+   - Local Storage and session storage : An API allows storing key-value pairs persistently on the client side used for caching small amounts of data that need to persist across browser sessions
+   - Session storage stores the data and is available for the duration of the page session
+# 

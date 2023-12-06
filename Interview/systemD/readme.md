@@ -199,4 +199,9 @@
    - HTTP caching - web servers can include HTTP caching headers in their responses . these headers instruct the browser on how to cache the resources 
    - Local Storage and session storage : An API allows storing key-value pairs persistently on the client side used for caching small amounts of data that need to persist across browser sessions
    - Session storage stores the data and is available for the duration of the page session
-# 
+# What is a CDN?
+   - A CDN, or Content Delivery Network, is a network of geographically distributed servers that work together to deliver web content, such as text, images, videos, and other resources, to users based on their geographic location
+   - The primary purpose of a CDN is to improve the performance, reliability, and efficiency of delivering web content by reducing latency and minimizing the load on the origin server
+      1. The CDN provider replicates and caches content from the origin server (the server where the original content is hosted) to multiple servers located in different geographical locations
+      2. These CDN servers are strategically placed in various data centers around the world
+      3. The CDN caches static content, such as images, CSS files, and JavaScript, at the edge servers

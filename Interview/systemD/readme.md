@@ -205,3 +205,26 @@
       1. The CDN provider replicates and caches content from the origin server (the server where the original content is hosted) to multiple servers located in different geographical locations
       2. These CDN servers are strategically placed in various data centers around the world
       3. The CDN caches static content, such as images, CSS files, and JavaScript, at the edge servers
+# What is REST API?
+   - it is a type of service that enables different systems to communicate over the internet 
+   - RESTful APIs rely on the HTTP protocol which is built on top of TCP/IP
+   - when there is a request the REST creates an object and sends it in the response 
+   - When client makes a request to the server it sends a TCP packet containing the HTTP request including the HTTP method , URL and any parameters or headers and the server responds back the client with the response status code and headers 
+   - REST API uses HTTP methods to perform operations on the resources 
+      `Principles`
+      1. Stateless : REST is stateless that means the request will have all the information that is required and server does not maintain any session state
+      2. REST follows client-server architecture 
+      3. REST API can be designed to be cacheable which means that clients can store the responses and reuse them
+# what is gRPC?
+   - gRPC is a high performance RPC framework technology which uses something called protocol buffers which uses a compact binary format making them more efficient in terms of size and speed compared to other serialization formats like JSON or XML its a method of serializing the data 
+   - REST, gRPC, websocket , SOAP these all the communication protocols or frameworks used in web development for different purposes
+   - It uses HTTP/2 as the underlying transport protocol 
+   - gRPCs are usually used for internal microservice communication
+   - it is used in high performance scenarios
+# What is GraphQL? 
+   - graph query language is a query language 
+   - it provides a more efficient and flexible alternative to REST APIs for building web applications
+   - in graphQL you just create a single endpoint unlike REST where you create seperate APIs 
+   - it only fetches what you actually need you just have to specify what fields to return 
+# What is HTTP?
+   - 

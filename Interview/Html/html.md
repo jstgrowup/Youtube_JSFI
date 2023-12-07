@@ -119,6 +119,90 @@
  - there are common and specific attributes
    1. Common Attributes : class, id,style . They are common and applicable for all elements
    2. Specific Attributes are like src, href, alt,width , height , target, rel, type , value, name, placeholder, disabled . These are specific to the elements
-   
+# What are data attributes in HTML?
+ ``
+ <div data-info="info" id="div1">Data attributes </div>
+ ``
+ - Data attributes in HTML provide a way to add custom data attributes to add additional informational in elements
+ - Data attributes are specified using the `data-` prefix
 
+# what are the 5 types of Links in HTML?
+ 1. **Anchor Link** : Anchor Link used for navigating from one webpage to another 
+ ``
+  <a href="https://google.com">google</a>
+ ``
+ 
+ 2. **External resource Link** : it is used to connect to an external resource like a stylesheet or an icon
+ ``
+<link rel="stylesheet" href="style.css">
 
+ ``
+ 3. **Image Link** : used to create a clickable image that leads to another webpage
+ ``
+ <a href="https://google.com">
+      <img src="abc.jpg" alt="">
+ </a>
+ ``
+ 
+ 4. **Bookmark Link** : points to a specific location within a
+ webpage using a named anchor
+ ``
+  <a href="#section1">To section 1</a>
+    <a href="section1"></a>
+    <p>Content of section 1</p>
+ ``
+ 
+ 5. **Email Link** : creates a clickable link that opens  the users default email
+ ``
+  <a href="mailto:deysubham999@gmail.com">send email</a>
+
+ ``
+# what is the diff between Absolute and Relative URL's?
+- `Absolute URL` : Absolute URLs provide the complete web address of aresouce
+- It typically used to link to resources on different websites
+``
+<a href="http://www.abc.com"/>
+``
+
+- `Relative URLs` : it specifies hte locationn of a resource in relation to the current document 
+- They are used when linkking to resources within the same website
+``
+<a href="page.html"/>
+<a href="sub/page.html">
+``
+
+# What is the purpose of the <nav> element ?
+- it contains the navigation links
+- it is good from SEO perspective
+# What is a Fragment Identifier in a URL ?
+ - A fragment identifier is used to navigate to a specific section of the same webpage
+ - Fragment identifier is preceded by a #(hash) symbol
+# What are different types of Lists in HTML?
+ 1. **Ordered List** : An ordered list is a list where the items are numbered or ordered in a specific sequence
+ ``
+  <h2>Ordered Lists</h2>
+   <ol>
+    <li>item 1</li>
+    <li>item 2</li>
+   </ol>
+ ``
+ 
+ 2. **unordered List**
+ ``
+  <h2>Unordered List</h2>
+   <ul>
+    <li>Item A</li>
+    <li>Item B</li>
+   </ul>
+    
+ ``
+ 3. **Description List**
+ ``
+    <h3>Description List</h3>
+    <dl>
+      <dt>term1</dt>
+      <dd>description</dd>
+      <dt>term2</dt>
+      <dd>Description</dd>
+    </dl>
+ ``

@@ -227,4 +227,12 @@
    - in graphQL you just create a single endpoint unlike REST where you create seperate APIs 
    - it only fetches what you actually need you just have to specify what fields to return 
 # What is HTTP?
+   - It is a set of rules which governs the exchange of  data over the internet 
+   - It sets some rules on how the client and server should communicate with each other
+   - It stands for Hypertext Transfer Protocol
+# What is web socket?
+   - [![Video](check this out)](https://youtu.be/xTR5OflgwgU) for better understanding 
+   - webSocket is a two-way computer communication protocol over a single TCP
+   - it is not like http where the client has to constantly poll the server for new information
+   - it is useful for real-time communication between the client and server 
    - 

@@ -235,4 +235,41 @@
    - webSocket is a two-way computer communication protocol over a single TCP
    - it is not like http where the client has to constantly poll the server for new information
    - it is useful for real-time communication between the client and server 
-   - 
+# What is OAuth?
+   - OAuth stands for Open Authorization
+   - It allows third party applicatins to access user data from a resource server like Facebook,Gmail etc on the behalf of the user without requireing the user to share their login credentials
+   - Certainly! Imagine you have a fancy locker (resource server) that stores your personal stuff, like photos or messages. Now, you want to give a friend (third-party app) access to some pictures in your locker without giving them the locker's key (your login credentials).
+   - OAuth is like a smart protocol that allows you to do that. Instead of handing over your key, you tell the locker to let your friend in for a specific purpose and duration. Your friend gets a special key (access token) just for that task. Afterward, they can't open the locker for anything else.
+   - So, OAuth is like a bouncer for your digital stuff. It lets others access certain things with a limited key, without needing to share your main key.
+
+# What is cookie-based auth?
+   - cookie-based auth is a method of managing user authentication in web applications where a cookie is used to store user authentication information
+   - the browser returns the cookie to the server every time the page is requested and we perform cookie based authentication to maintain the session
+# What are the different ways to manage authentication?
+   - `2FA(Two-factor authentication)`
+       1. here the user enters there email and password after that they will get a code on there phone number or email that code they need to enter and than only the user will be allowed to login
+   - `Third-Party authentication providers`
+      1. websites uses third-party such as google, Facebook or twitter to authenticate users
+# Difference between hashing and encryption?
+   `Hashing`
+   1. Hahsing is a one-way process that takes data and produces a fixed-size output called a hash 
+   2. hash cannot be reversed back to the original data 
+   3. we use to store a password using hashing algo
+   4. when the user enters a password it hashes the it and compares it to the already hashed password
+   `Encryption`
+   1. ENcryption is a two-way process that transforms plain text to ciphertext using an encryption algorithm
+   2. The cipher text can be decrypted again to get the original data
+   3. whatsapp uses encryption
+
+# Authorization
+   - its a process of granting someone to do something it means it is a way to check if the user has permission to use a resource or not 
+   - data is provided through the acess tokens
+   - the permissions cannot be changed by the user 
+   - the permissions are given by the owner/manager
+# Authentication
+   - Authentication is the process of identifying someones identity by assuring theat the person is the same as what he is claiming for
+   - it is used by both servers and clients
+      
+ 
+
+

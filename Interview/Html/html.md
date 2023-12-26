@@ -187,7 +187,7 @@
    </ol>
  ``
  
- 2. **unordered List**
+ 2. **Unordered List**
  ``
   <h2>Unordered List</h2>
    <ul>
@@ -206,3 +206,8 @@
       <dd>Description</dd>
     </dl>
  ``
+
+# what is DOM?
+ - The DOM stands for document object model 
+
+ 

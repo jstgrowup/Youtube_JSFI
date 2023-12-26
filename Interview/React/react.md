@@ -339,3 +339,9 @@ most of the feature of parcel and webpack are same and offers almost same featur
 - Babel allows us to have a clean, maintainable code using the latest JS specifications without needing to worry about browser support
 # Can you write react without JSX?
 - Yes we can because JSX is just a syntactical sugar of react.createElement()
+
+
+
+
+# Hooks
+ - 

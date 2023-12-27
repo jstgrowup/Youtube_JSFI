@@ -23,7 +23,7 @@
 # Props
 
 - Props are inputs to components
-- they are single values or objects containing a set of values that are passed to components on creation using a naming convention similar to HTML-tag attributes
+- they are single values or objects containing a set of values that are passed to components on creation using a naming convention similar  to HTML-tag attributes
 - The primary use of props is to pass custom data to your component ,trigger state changes,
 - Props are read only
 - props are immutable
@@ -69,7 +69,6 @@
 - This process is known as `Reconciliation`
 
 # React Fiber
-
 - Fiber is a reconsiliation engine or reimplementation of core algorithm in React v16
 - The goal is to increase its suitability for areas like animation, layout, gestures ability to pause , abort and assign priority to different types of updates
 - The goal is to increase its sustainibility for areas like animation, layout and gestures etc
@@ -343,5 +342,60 @@ most of the feature of parcel and webpack are same and offers almost same featur
 
 
 
-# Hooks
- - 
+
+
+
+
+
+
+
+
+
+
+
+# What us react ? what are the advantages of using React?
+- react is javascript frontend library for making single page application 
+- it is used to make user interfaces 
+- it is an open source library that means the source code of react is public 
+- build by facebook
+
+1. it uses virtual DOM to make the 
+2. it uses reusable components 
+3. unidirectional data flow 
+4. server side rendering 
+
+
+
+
+
+
+# What is the difference between Element and a Component?
+1. Element is the smallest building block of react
+2. Element represents the real DOM element 
+3. its created in the VDOM 
+``const element=<h1>Element</h1>``
+1. components are nothing but javascript funtions
+2. component can have its own state and life cycle methods 
+3. React.Component
+4. returns JSX 
+``
+const Component = (props) => {
+  return (
+    <div>
+      <h1>{props}</h1>
+    </div>
+  );
+}
+``
+## 3
+# What is JSX?
+1. It stands for javascript XML (extendable markup language)
+2. its syntactic sugar for React.createElement()
+3. babel ()
+
+## 4
+# what is useState in react?
+1. 
+
+
+ 

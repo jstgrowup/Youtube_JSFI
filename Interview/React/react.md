@@ -395,7 +395,13 @@ const Component = (props) => {
 
 ## 4
 # what is useState in react?
-1. 
+1. useState its a hook 
+2. hook is  function it returns you a value and a function to update that value 
+3. it helps in mutating/updating the state 
+4. its a react way of declaring variables
 
+## 5
+# What is "key" prop and what is the benefit of using it in arrays of elements?
+1. 
 
  

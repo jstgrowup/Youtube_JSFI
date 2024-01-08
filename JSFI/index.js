@@ -982,27 +982,91 @@
 // buf.write(str)
 // console.log('buf:length', buf.length)
 // console.log('buf:', buf)
-setImmediate(() => {
-    console.log("1st Immediate");
-  });
-  
-  setImmediate(() => {
-    console.log("2nd Immediate");
-  });
-  
-  process.nextTick(() => {
-    console.log("1st Process");
-  });
-  
-  process.nextTick(() => {
-    console.log("2nd Process");
-  });
-  
-  // First event queue ends here
-  console.log("Program Started");
-  url="http://localhost:3000/rest/api/3/search"
-  query={
-    "jql":"project=TTS"
-  }
+// setImmediate(() => {
+//     console.log("1st Immediate");
+//   });
+
+//   setImmediate(() => {
+//     console.log("2nd Immediate");
+//   });
+
+//   process.nextTick(() => {
+//     console.log("1st Process");
+//   });
+
+//   process.nextTick(() => {
+//     console.log("2nd Process");
+//   });
+
+//   // First event queue ends here
+//   console.log("Program Started");
+//   url="http://localhost:3000/rest/api/3/search"
+//   query={
+//     "jql":"project=TTS"
+//   }
+
+// function* yeildFunc(){
+//   console.log("value 1");
+//   yield 1
+//   console.log("value 2");
+//   yield 2
+//   console.log("value 3");
+// }
+// const generator=yeildFunc()
+// console.log(generator.next());
+
+// "use strict";
+// console.log(this);
+// function name() {
+//   console.log(this);
+// }
+// name();
+// // this substitution
+// // if whenever the value of this is null or undefined than it wiill be replaced my the window object
+// // in use strict mode the it will give undefined and without this it will be the window object
+
+// console.log(window.name()); //window
+
+// const student = {
+//   name: "Akshay",
+//   printname: function () {
+//     console.log("inside obj", this.name);
+//   },
+// };
+
+// // student.printname();
+
+// const student2 = {
+//   name: "subham",
+// };
+// student.printname.call(student2); //now the value is name 1
+// var obj1 = {
+//   address: "Mumbai,India",
+//   getAddress: function () {
+//     console.log(this.address);
+//   },
+// };
+
+// var getAddress = obj1.getAddress;
+// var obj2 = { name: "akshay" };
+
+// obj2.getAddress();
+
+let N = 4;
+let arr = [];
+while (N > 0) {
+  let rem = N % 2;
+  arr.unshift(rem);
+  N = Math.floor(N / 2);
+  console.log("rem:", rem);
+}
+
+let a = 4;
+let b = 5;
+
+console.log("and", a & b);
+console.log("or", a | b);
+console.log("~a not", ~a);
+console.log("a ^ b XOR", a ^ b);
 
 

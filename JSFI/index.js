@@ -1064,9 +1064,64 @@ while (N > 0) {
 let a = 4;
 let b = 5;
 
-console.log("and", a & b);
-console.log("or", a | b);
-console.log("~a not", ~a);
-console.log("a ^ b XOR", a ^ b);
+// console.log("and", a & b);
+// console.log("or", a | b);
+// console.log("~a not", ~a);
+// console.log("a ^ b XOR", a ^ b);
+let n = 5;
+// for(let i = 0; i <= n; i++) {
+//   let num = i;
+//   let count = 0;
+
+//   while (num > 0) {
+//       count += num & 1; //couting the 1 in num
+//       num = num >> 1;
+//   }
+//   result.push(count);
+// }
+// return result;
+
+function DecimalToBinary(decimalNum) {
+  let res = "";
+  while (decimalNum != 0) {
+    const lastBit = decimalNum & 1;
+    res += lastBit;
+    decimalNum = decimalNum >> 1;
+  }
+  return res;
+}
+console.log(DecimalToBinary(4));
+
+function BinaryToDecimal(n) {
+  let result = 0;
+  let index = 0;
+  while (n != 0) {
+    let lastdigit = Math.floor(n % 10);
+
+    if (lastdigit == 1) {
+      result += Number(Math.pow(2, index));
+    }
+    n = n / 10;
+    index++;
+  }
+  return result;
+}
+console.log("B to D", BinaryToDecimal(1100));
+
+// function reverseTheNumber(num) {
+//   let result = 0;
+//   while (num !== 0) {
+//     let lastDigit = Math.floor(num % 10);
+//     result = result * 10 + lastDigit;
+//     num = Math.floor(num / 10);
+//   }
+//   return result;
+// }
+// console.log("reverse", reverseTheNumber(123));
 
 
+function power(x,n){
+  
+  
+}
+console.log(power(2,8));

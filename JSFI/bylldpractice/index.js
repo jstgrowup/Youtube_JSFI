@@ -505,8 +505,178 @@
 // const slicedArray=array.slice(1,3)
 // console.log('slicedArray:', slicedArray)
 
-console.log(y); // Error: y is not defined (outside the block)
-if (true) {
-  var y = 20;
-  //   console.log(y); // 20
-}
+// console.log(y); // Error: y is not defined (outside the block)
+// if (true) {
+//   var y = 20;
+//   //   console.log(y); // 20
+// }
+
+// name()
+// // js()
+// function name() {
+//   console.log("name");
+// }
+// console.log('js:', js)
+// var js = "js";
+
+// function Person(name, age, gender) {
+//   this.name = name;
+//   this.age = age;
+//   this.gender = gender;
+// }
+
+// var person1 = new Person("Vivek", 76, "male");
+// console.log(person1);
+
+// var person2 = new Person("Courtney", 34, "female");
+// console.log(person2);
+// const fun = (...args) => {
+
+//   console.log("args",);
+// };
+// fun(1, 2, 3, 4, 5, 6);
+
+// Traditional Function
+// function Person1() {
+//   this.age = 0;
+//   setInterval(function growUp() {
+//     this.age++; // This refers to the global object, not the Person object
+//   }, 1000);
+// }
+
+// // Arrow Function
+// function Person2() {
+//   this.age = 0;
+//   setInterval(() => {
+//     this.age++; // 'this' refers to the Person object
+//   }, 1000);
+// }
+// const p1 = new Person1();
+// console.log("p1:", p1);
+// const p2 = new Person2();
+// console.log("p2:", p2);
+
+// Traditional Function
+// function sum1() {
+//   // console.log('arguments:', arguments.length)
+//   let total = 0;
+//   for (let i = 0; i < arguments.length; i++) {
+//     console.log('arguments[i]:', arguments[i])
+//     total += arguments[i];
+//   }
+//   return total;
+// }
+
+// // Arrow Function
+// const sum2 = (...args) => args.reduce((acc, val) => acc + val, 0);
+
+// console.log(sum1([1, 2, 3, 4, 5]));
+// console.log(sum2([1, 2, 3, 4, 5]));
+
+// let user = {
+//   firstname: "subham",
+//   lastname: "dey",
+// };
+// let printfullName = function (hometown, state) {
+//   console.log(this.firstname, hometown, state);
+// };
+
+// let name2 = {
+//   firstname: "sachin",
+//   lastname: "Tendulkar",
+// };
+// printfullName.call(user, "nagaon", "assam");
+// printfullName.apply(name2, ["assam", "india"]);
+// const bindedObject = printfullName.bind(name2, "assam", "india");
+// // bindedObject()
+// bind makes a copy of the printfullname and binds it tot the user and returns a function
+// console.log('bindedObject:', bindedObject())
+
+// call function borrowing
+// "use strict"
+// console.log(x);
+// var x=10
+
+// function a() {
+//   c();
+//   function c() {
+//     console.log('b:', b)
+//     var b = 100;
+//     console.log(b); // 100
+//   }
+// }
+// var b = 10;
+// a();
+// (function () {
+//   var a = (b = 3);
+// })();
+// console.log(typeof a);
+// console.log(typeof b);
+// console.log("hellp");
+
+// function fo0() {
+//   return {
+//     name: "anil",
+//   };
+// }
+// console.log(fo0());
+
+// console.log(+"2"+1);
+
+// var a = 0;
+// function b() {
+//   a = 10;
+//   return;
+
+// }
+// b();
+// console.log(a);
+
+// console.log({} == {});//here memory location is compared
+// function test() {
+//   function foo() {
+//     return 100;
+//   }
+//   return foo();
+//   function foo() {
+//     return 10;
+//   }
+// }
+// console.log(test());
+// test()
+// function test(){
+//   console.log("test fun called");
+// }
+
+// Prototypes are the mechanism by hwich JS objects inherit features from one another
+
+// let users = {
+//   getfullname: function () {
+//     return this.name + this.lastname;
+//   },
+//   getAge: function () {
+//     return new Date().getFullYear() - this.birth;
+//   },
+// };
+
+// let student = {
+//   name: "subham",
+//   lastname: "dey",
+//   birth: 2000,
+// };
+// let teacher = {
+//   name: "albert",
+//   lastname: "sebastian",
+//   birth: 1980,
+// };
+// teacher.__proto__=users
+
+// student.__proto__=users
+
+// console.log(student.getfullname());
+// console.log(student.getAge());
+
+// console.log(teacher.getfullname());
+// console.log(teacher.getAge());
+
+

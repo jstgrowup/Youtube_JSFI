@@ -679,4 +679,124 @@
 // console.log(teacher.getfullname());
 // console.log(teacher.getAge());
 
+// const arrnUm = [1, 2, 3, 4, 5, 6, 9, 10];
+// const missValue = [];
+// const minValue = Math.min(...arrnUm);
+// const maxValue = Math.max(...arrnUm);
+// for (let i = minValue; i < maxValue; i++) {
+//   if (arrnUm.indexOf(i) < 0) {
+//     missValue.push(i);
+//   }
+// }
+// console.log("missValue:", missValue);
 
+// function fact(num) {
+//   if (num === 1) return;
+//   num *= num;
+//   fact(num);
+// }
+// console.log(fact(5));
+// let a=10;
+// let b=32;
+// [a,b]=[b,a]
+// console.log('b:', b)
+// console.log('a:', a)
+
+// var obj = {
+//   name: "vivek",
+//   getName: function () {
+//     console.log(this.name);
+//   },
+// };
+
+// var getName = obj.getName;
+
+// var obj2 = { name: "akshay", getName };
+// obj2.getName();
+
+// const _ = require("lodash");
+
+// function priceCalculator(order) {
+//   const pizzaPrices = { small: 10, medium: 15, large: 20 };
+//   const pastaPrice = 20;
+//   const saladPrice = 15;
+
+//   const deliveryFees = {
+//     Manhattan: 5,
+//     Brooklyn: 6,
+//     "The Bronx": 6,
+//     Queens: 4,
+//     "Staten Island": 10,
+//   };
+
+//   const promoCodes = {
+//     "30-OFF": 0.3,
+//     "HALF-OFF-PIZZA": 0.5,
+//     FREEDELIVERY: 1,
+//   };
+
+//   const deliveryDiscounts = {
+//     Weekdays: 2,
+//     Thursday: 3,
+//   };
+
+//   const seniorDiscount = 2;
+//   const studentDiscount = 1;
+//   const largeOrderDiscount = 0; // Large orders (8 items or more) are free
+//   const largeAmountDiscount = 0; // Large orders ($100 or more) are free
+
+//   let total = 0;
+
+//   order.forEach((item) => {
+//     if (item.type === "pizza") {
+//       total += pizzaPrices[item.size] * item.quantity;
+//     } else if (item.type === "pasta") {
+//       total += pastaPrice * item.quantity;
+//     } else if (item.type === "salad") {
+//       total += saladPrice * item.quantity;
+//     }
+//   });
+
+//   const deliveryFee = deliveryFees[order[0].borough];
+//   const promoCodeDiscount = promoCodes[order[0].promoCode] || 0;
+//   const deliveryDiscount = deliveryDiscounts[order[0].deliveryDay] || 0;
+//   const tipPercentage =
+//     order[0].tipType === "percentage" ? order[0].tip / 100 : 0;
+//   const isSenior = order[0].age > 65;
+//   const isStudent = order[0].age <= 65 && order[0].studentId;
+//   const isLargeOrder = _.sumBy(order, "quantity") >= 8;
+//   const isLargeAmountOrder = total >= 100;
+
+//   Apply discounts and calculate total
+//   total = total * (1 - promoCodeDiscount);
+//   total = total - deliveryDiscount + deliveryFee;
+//   if (isLargeOrder || isLargeAmountOrder) {
+//     total = 0; // Large orders are free
+//   } else {
+//     if (isSenior) total = total - seniorDiscount;
+//     if (isStudent) total = total - studentDiscount;
+//   }
+
+//   // Calculate tax (10% on the total before gratuity and delivery fee)
+//   const tax = 0.1 * total;
+
+//   // Calculate tip
+//   const tip = tipPercentage * (total + tax);
+
+//   // Add tax and tip to the total
+//   total = total + tax + tip;
+
+//   return total;
+// }
+const classDetails = {
+  strength: 78,
+  benches: 39,
+  blackBoard: 1,
+};
+
+const { ...item } = classDetails;
+
+console.log("item:", item);
+// console.log(classStrength); // Outputs 78
+// console.log(classBenches); // Outputs 39
+// console.log(classBlackBoard); // Outputs 1
